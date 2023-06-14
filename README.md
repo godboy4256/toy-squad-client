@@ -26,7 +26,7 @@
 }
 ```
 
-### prittierignore
+### prettierignore
 
 ```text
 /node_modules
