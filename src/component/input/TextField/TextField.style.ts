@@ -1,6 +1,3 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const TextFieldStyle = styled.div`
-
-`
-
+export const TextFieldStyle = styled.div``;

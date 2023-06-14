@@ -1,7 +1,5 @@
-
-import { DeveloperInfo, FooterContainer, Policy } from "./Footer.style";
-import IMGLogo from "/assets/images/common/logo.svg";
-
+import { DeveloperInfo, FooterContainer, Policy } from './Footer.style';
+import IMGLogo from '/assets/images/common/logo.svg';
 
 const Footer = () => {
   return (

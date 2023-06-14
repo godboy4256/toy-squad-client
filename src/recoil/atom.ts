@@ -1,8 +1,8 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export const textState = atom({
-    key: 'textState', 
-    default: '',
+  key: 'textState',
+  default: '',
 });
 
-// 예시 
+// 예시
