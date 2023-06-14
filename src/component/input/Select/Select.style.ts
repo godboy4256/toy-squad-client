@@ -1,6 +1,3 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const SelectStyle = styled.div`
-
-`
-
+export const SelectStyle = styled.div``;
