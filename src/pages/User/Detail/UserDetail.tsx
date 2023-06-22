@@ -1,5 +1,11 @@
+import Header from '@component/layout/Header/Header';
+
 const UserDetail = () => {
-  return <div>유저 상세</div>;
+  return (
+    <div>
+      <Header></Header>유저
+    </div>
+  );
 };
 
 export default UserDetail;

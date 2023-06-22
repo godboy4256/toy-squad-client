@@ -1,16 +1,30 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import fontSemiBold from '@assets/fonts/Poppins-SemiBold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
-  ${reset}
+   ${reset}
+
+    @font-face {
+        font-family: 'PoppinsSemiBold';
+        src: url(${fontSemiBold})
+    }
+
     /* Reset CSS */
-    /* Box sizing border-box */
+    /* Box sizing border-box */  
+    *{
+        font-size: 17px;
+        font-family: 'PoppinsSemiBold';
+        color: #0B2239;
+    }
+    button{
+        font-family: normal;
+    }
     *,
     *::before,
     *::after {
         box-sizing: border-box;
     }
-
     /* Remove margin and padding */
     body,
     h1,
@@ -39,10 +53,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     /* Typography */
-    body {
-        font-family: Arial, sans-serif;
-    }
-
     h1,
     h2,
     h3,
@@ -51,7 +61,6 @@ export const GlobalStyle = createGlobalStyle`
     h6 {
         font-weight: normal;
     }
-
     /* Remove hyperlink styles */
     a {
         color: inherit;
@@ -61,5 +70,13 @@ export const GlobalStyle = createGlobalStyle`
     /* Remove outline on focused elements */
     *:focus {
         outline: none;
+    }
+    button{
+        background: none;
+        border: none;
+    }
+    #root,.App{
+        min-height: 100vh;
+        background-color: #F9F9F9;
     }
 `;
