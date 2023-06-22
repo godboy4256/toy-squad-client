@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SearchInput from '@component/input/Search/Search';
+import SearchInput from '@component/Input/Search/Search';
 
 const Container = styled.div`
   margin-left: 170px;
@@ -43,7 +43,7 @@ const ProjectList = () => {
             <Button></Button>
           </Filter>
         </Header>
-        <hr />
+        <hr />F
       </Container>
       {/* <Footer/> */}
     </>
