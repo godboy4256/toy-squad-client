@@ -1,25 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  /* 태블릿 */
-  @media screen and (max-width: 1024px) {
-    max-width: 768px;
-  }
-
-  /* 모바일 */
-  @media screen and (max-width: 768px) {
-    max-width: 480px;
-  }
-`;
-
-export const Header = styled.section`
+export const ProjectListHeader = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
-export const FilterButton = styled.button`
+export const ProjectListFilterButton = styled.button`
   width: 70px;
   height: 52px;
   border-radius: 20px;
@@ -32,19 +18,19 @@ export const FilterButton = styled.button`
   padding-top: 13px;
   padding-bottom: 13px;
 `;
-export const Span = styled.span`
+export const ProjectListSpan = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   margin-right: 12px;
 `;
-export const Filter = styled.div`
+export const ProjectListFilter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
 `;
-export const Line = styled.div`
+export const ProjectListLine = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -52,7 +38,7 @@ export const Line = styled.div`
   border: 0.5px solid black;
   width: 27px;
 `;
-export const SmallCircle = styled.div`
+export const ProjectListSmallCircle = styled.div`
   position: absolute;
   height: 6px;
   width: 6px;
@@ -61,11 +47,11 @@ export const SmallCircle = styled.div`
   background-color: white;
 `;
 
-export const Hr = styled.hr`
+export const ProjectListHr = styled.hr`
   margin-top: 16px;
   margin-bottom: 40px;
 `;
-export const Tags = styled.section`
+export const ProjectListTags = styled.section`
   display: flex;
   align-self: center;
   justify-content: flex-start;
@@ -73,7 +59,7 @@ export const Tags = styled.section`
   flex-wrap: wrap;
   margin-bottom: 150px;
 `;
-export const Tag = styled.span`
+export const ProjectListTag = styled.span`
   display: inline;
   padding-left: 20px;
   padding-right: 20px;
@@ -87,9 +73,10 @@ export const Tag = styled.span`
   :hover {
     border-color: #e0234d;
     color: #e0234d;
+    cursor: pointer;
   }
 `;
-export const Main = styled.section`
+export const ProjectListMain = styled.section`
   position: relative;
   display: grid;
   justify-content: space-between;
@@ -99,12 +86,12 @@ export const Main = styled.section`
 
   /* 테블릿 */
   @media screen and (max-width: 1024px) {
-    grid-template-columns: repeat(3, 210px);
+    grid-template-columns: repeat(3, 267px);
   }
 
   /* 모바일 */
   @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 210px);
+    grid-template-columns: repeat(2, 267px);
   }
 
   hr {
@@ -118,7 +105,7 @@ export const Main = styled.section`
   }
 `;
 
-export const Select = styled.select`
+export const ProjectListSelect = styled.select`
   width: 150px;
   height: 50px;
   font-size: 22px;

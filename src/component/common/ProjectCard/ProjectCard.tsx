@@ -1,38 +1,38 @@
 import {
-  Author,
-  AuthorImg,
-  AuthorName,
-  Detail,
-  Label,
-  Period,
+  ProjectAuthor,
+  ProjectAuthorImg,
+  ProjectAuthorName,
+  ProjectDetail,
+  ProjectLabel,
+  ProjectPeriod,
   ProjectCardStyle,
-  Tags,
-  Thumbnail,
-  Title,
+  ProjectTags,
+  ProjectThumbnail,
+  ProjectTitle,
 } from './Project.style';
 import UserIcon from '@assets/images/common/user.svg';
 
 const ProjectCard = () => {
   return (
     <ProjectCardStyle>
-      <Thumbnail>
-        <Period>
-          <Label>D-10</Label>
-        </Period>
-        <Tags>
-          <Label>건강/운동</Label>
-          <Label>Web</Label>
-        </Tags>
-      </Thumbnail>
-      <Title>프로젝트 제목</Title>
-      <Detail>
+      <ProjectThumbnail>
+        <ProjectPeriod>
+          <ProjectLabel>D-10</ProjectLabel>
+        </ProjectPeriod>
+        <ProjectTags>
+          <ProjectLabel>건강/운동</ProjectLabel>
+          <ProjectLabel>Web</ProjectLabel>
+        </ProjectTags>
+      </ProjectThumbnail>
+      <ProjectTitle>프로젝트 제목</ProjectTitle>
+      <ProjectDetail>
         프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한
         소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다.
-      </Detail>
-      <Author>
-        <AuthorImg src={UserIcon} alt="#" />
-        <AuthorName>석지웅 팀장</AuthorName>
-      </Author>
+      </ProjectDetail>
+      <ProjectAuthor>
+        <ProjectAuthorImg src={UserIcon} alt="#" />
+        <ProjectAuthorName>석지웅 팀장</ProjectAuthorName>
+      </ProjectAuthor>
     </ProjectCardStyle>
   );
 };

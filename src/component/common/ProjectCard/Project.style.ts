@@ -2,12 +2,9 @@ import styled from 'styled-components';
 
 export const ProjectCardStyle = styled.div``;
 
-export const Thumbnail = styled.div`
+export const ProjectThumbnail = styled.div`
   width: 100%;
   height: 218px;
-  @media screen and (max-width: 1024px) {
-    height: 170px;
-  }
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -17,7 +14,7 @@ export const Thumbnail = styled.div`
   border-radius: 5px;
   padding: 10px;
 `;
-export const Title = styled.div`
+export const ProjectTitle = styled.div`
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
@@ -27,7 +24,7 @@ export const Title = styled.div`
   margin-bottom: 17px;
 `;
 
-export const Detail = styled.p`
+export const ProjectDetail = styled.p`
   height: 48px;
   overflow: hidden;
   line-height: 24px;
@@ -41,27 +38,27 @@ export const Detail = styled.p`
   margin-bottom: 14px;
 `;
 
-export const Author = styled.div`
+export const ProjectAuthor = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
 `;
-export const AuthorImg = styled.img`
+export const ProjectAuthorImg = styled.img`
   width: 26px;
   height: 26px;
   background-color: black;
   border-radius: 50%;
 `;
 
-export const Period = styled.div`
+export const ProjectPeriod = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-export const Tags = styled.div`
+export const ProjectTags = styled.div`
   display: flex;
   gap: 16px;
 `;
-export const Label = styled.div`
+export const ProjectLabel = styled.div`
   background-color: black;
   display: flex;
   width: 62px;
@@ -76,4 +73,4 @@ export const Label = styled.div`
   letter-spacing: 0.0015em;
 `;
 
-export const AuthorName = styled.span``;
+export const ProjectAuthorName = styled.span``;
