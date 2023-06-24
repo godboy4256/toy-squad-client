@@ -1,15 +1,15 @@
-import { Circle, Input, Wrapper } from './Search.style';
+import { Circle, Input, SearchStyle } from './Search.style';
 import SearchIcon from '@assets/images/common/search.svg';
 
-function SearchInput() {
+function Search() {
   return (
-    <Wrapper>
+    <SearchStyle>
       <Input placeholder="검색어를 입력해주세요..."></Input>
       <Circle>
         <img src={SearchIcon} alt="#" />
       </Circle>
-    </Wrapper>
+    </SearchStyle>
   );
 }
 
-export default SearchInput;
+export default Search;

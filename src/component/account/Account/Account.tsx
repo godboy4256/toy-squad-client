@@ -8,7 +8,7 @@ import {
   AccountManagement,
   AccountOff,
 } from './Account.sytle';
-import Button from '@component/Input/Button/Button';
+import Button from '@component/input/Button/Button';
 
 const AccountModal = () => {
   const { register, handleSubmit } = useForm();

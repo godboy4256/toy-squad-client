@@ -4,12 +4,13 @@ export const ProjectListHeader = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 168px;
 `;
 export const ProjectListFilterButton = styled.button`
   width: 70px;
   height: 52px;
   border-radius: 20px;
-  border: 1px solid #cccccc;
+  border: 1px solid ${({ theme }) => theme.color.lightGrey};
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -22,7 +23,7 @@ export const ProjectListSpan = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: ${({ theme }) => theme.fontSize.xxl};
   margin-right: 12px;
 `;
 export const ProjectListFilter = styled.div`
@@ -63,16 +64,16 @@ export const ProjectListTag = styled.span`
   display: inline;
   padding-left: 20px;
   padding-right: 20px;
-  border: 1px solid #cccccc;
+  border: 1px solid ${({ theme }) => theme.color.lightGrey};
   line-height: 52px;
   text-align: center;
   height: 52px;
   border-radius: 26px;
-  font-size: 24px;
+  font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: 700;
   :hover {
-    border-color: #e0234d;
-    color: #e0234d;
+    border-color: ${({ theme }) => theme.color.red};
+    color: ${({ theme }) => theme.color.red};
     cursor: pointer;
   }
 `;
@@ -108,11 +109,11 @@ export const ProjectListMain = styled.section`
 export const ProjectListSelect = styled.select`
   width: 150px;
   height: 50px;
-  font-size: 22px;
+  font-size: ${({ theme }) => theme.fontSize.xl};
   text-align: center;
   position: absolute;
   top: -74px;
   right: 0px;
   border-radius: 10px;
-  border: 1px solid #cccccc;
+  border: 1px solid ${({ theme }) => theme.color.lightGrey};
 `;

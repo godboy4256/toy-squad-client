@@ -1,4 +1,3 @@
-import SearchInput from '@component/input/Search/Search';
 import ProjectCard from '@component/common/ProjectCard/ProjectCard';
 import {
   ProjectListFilter,
@@ -15,6 +14,7 @@ import {
 } from './ProjectList.style';
 import { CommonCenterWrapper } from '@/styles/CommonStyles';
 import { useMediaQuery } from 'react-responsive';
+import Search from '@component/input/Search/Search';
 
 const ProjectList = () => {
   const isTablet = useMediaQuery({
@@ -29,7 +29,7 @@ const ProjectList = () => {
   return (
     <CommonCenterWrapper>
       <ProjectListHeader>
-        <SearchInput />
+        <Search />
         <ProjectListFilter>
           <ProjectListSpan>필터</ProjectListSpan>
           <ProjectListFilterButton>

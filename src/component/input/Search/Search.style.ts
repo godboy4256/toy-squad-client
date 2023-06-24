@@ -13,7 +13,7 @@ export const Circle = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const Wrapper = styled.div`
+export const SearchStyle = styled.div`
   position: relative;
 `;
 

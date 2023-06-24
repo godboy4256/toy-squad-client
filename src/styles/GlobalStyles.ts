@@ -9,11 +9,12 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'PoppinsSemiBold';
         src: url(${fontSemiBold})
     }
-
+    html{
+        font-size: 10px;
+    }
     /* Reset CSS */
     /* Box sizing border-box */  
     *{
-        font-size: 17px;
         font-family: 'PoppinsSemiBold';
         color: #0B2239;
     }

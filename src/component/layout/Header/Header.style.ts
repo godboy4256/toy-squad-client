@@ -17,14 +17,14 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderNav = styled.nav`
-  font-size: 18px;
   font-weight: 900;
   margin-right: 48px;
 `;
 
 export const HeaderNavButton = styled.button`
+  font-size: ${({ theme }) => theme.fontSize.l};
   margin: 0 1rem;
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   &:last-child {
     margin-right: 0;
   }

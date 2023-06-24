@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TextField from '@/component/Input/TextField/TextField';
-import Button from '@component/Input/Button/Button';
+import TextField from '@component/input/TextField/TextField';
+import Button from '@component/input/Button/Button';
 import { SignUpGuide, SignUpTitle } from './SignUp.style';
 
 type onSubmitEmailType = {
