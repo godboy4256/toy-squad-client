@@ -5,6 +5,7 @@ export const FooterContainer = styled.div`
   height: 300px;
   display: flex;
   justify-content: center;
+  margin-top: 200px;
 `;
 
 export const FooterLogo = styled.img`
