@@ -15,7 +15,7 @@ export const ProjectThumbnail = styled.div`
   padding: 10px;
 `;
 export const ProjectTitle = styled.div`
-  font-size: 18px;
+  font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: 700;
   line-height: 27px;
   letter-spacing: 0.0015em;
@@ -36,12 +36,14 @@ export const ProjectDetail = styled.p`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   margin-bottom: 14px;
+  font-size: ${({ theme }) => theme.fontSize.m};
 `;
 
 export const ProjectAuthor = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: ${({ theme }) => theme.fontSize.m};
 `;
 export const ProjectAuthorImg = styled.img`
   width: 26px;
@@ -66,7 +68,7 @@ export const ProjectLabel = styled.div`
   border-radius: 31px;
   justify-content: center;
   align-items: center;
-  font-size: 13px;
+  font-size: ${({ theme }) => theme.fontSize.xs};
   color: white;
   font-weight: 700;
   line-height: 20px;
