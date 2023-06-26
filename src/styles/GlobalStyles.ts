@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     html{
         font-size: 10px;
+        background-color: #F9F9F9;
     }
     /* Reset CSS */
     /* Box sizing border-box */  
@@ -78,6 +79,5 @@ export const GlobalStyle = createGlobalStyle`
     }
     #root,.App{
         min-height: 100vh;
-        background-color: #F9F9F9;
     }
 `;

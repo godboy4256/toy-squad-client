@@ -1,38 +1,49 @@
 import Button from '@component/input/Button/Button';
 import TextField from '@component/input/TextField/TextField';
 import { CommonCenterWrapper } from '@styles/CommonStyles';
+import CheckBox from '@component/input/CheckBox/CheckBox';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {
   DateInput,
+  EditorBlock,
   Form,
   Grid,
   GridItem,
   H1,
   Label,
   RadioInput,
+  RadioSpan,
+  Row,
   Section,
 } from './ProjectNew.style';
-import CheckBox from '@component/input/CheckBox/CheckBox';
+
+interface RadioButtonProps {
+  id: string;
+  text: string;
+  name: string;
+}
+
+const RadioButton = ({ id, text, name }: RadioButtonProps) => {
+  return (
+    <Label htmlFor={id}>
+      <RadioInput id={id} name={name}></RadioInput>
+      <RadioSpan>{text}</RadioSpan>
+    </Label>
+  );
+};
 
 const ProjectNew = () => {
   return (
     <CommonCenterWrapper>
-      <div style={{ paddingTop: '88px' }}></div>
-
       <Form>
         <Section>
           <H1>프로젝트 유형</H1>
-          <Label htmlFor="web">
-            <RadioInput id="web" name="category"></RadioInput>
-            <span>Web</span>
-          </Label>
-          <Label htmlFor="app">
-            <RadioInput id="app" name="category"></RadioInput>
-            <span>Web</span>
-          </Label>
-          <Label htmlFor="game">
-            <RadioInput id="game" name="category"></RadioInput>
-            <span>PC 게임</span>
-          </Label>
+          <Row>
+            <RadioButton id="web" text="Web" name="category"></RadioButton>
+            <RadioButton id="app" text="App" name="category"></RadioButton>
+            <RadioButton id="game" text="Game" name="category"></RadioButton>
+          </Row>
         </Section>
         <Section>
           <H1>서비스 분야</H1>
@@ -64,6 +75,13 @@ const ProjectNew = () => {
         <Section>
           <H1>제목</H1>
           <TextField placeholder="제목을 입력해주세요."></TextField>
+          <EditorBlock>
+            <Editor
+              wrapperClassName="wrapper-class"
+              editorClassName="editor-class"
+              toolbarClassName="toolbar-class"
+            />
+          </EditorBlock>
         </Section>
       </Form>
 
