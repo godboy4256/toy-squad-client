@@ -4,9 +4,14 @@ export const TextFieldStyle = styled.input`
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: ${({ theme }) => theme.fontSize.l};
-  padding: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 0.5rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 `;
 
-export const TextFieldLabel = styled.label``;
+export const TextFieldLabel = styled.label`
+  font-size: ${({ theme }) => theme.fontSize.l};
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+`;

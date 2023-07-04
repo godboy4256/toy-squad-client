@@ -1,4 +1,5 @@
-import ProjectCard from '@component/common/ProjectCard/ProjectCard';
+import * as React from 'react';
+import ProjectCard from '@/component/common/ProjectCard/ProjectCard';
 import {
   ProjectListFilter,
   ProjectListFilterButton,
@@ -14,7 +15,7 @@ import {
 } from './ProjectList.style';
 import { CommonCenterWrapper } from '@/styles/CommonStyles';
 import { useMediaQuery } from 'react-responsive';
-import Search from '@component/input/Search/Search';
+import Search from '@/component/Input/Search/Search';
 
 const ProjectList = () => {
   const isTablet = useMediaQuery({

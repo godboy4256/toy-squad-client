@@ -1,6 +1,7 @@
-import Button from '@component/input/Button/Button';
-import TextField from '@component/input/TextField/TextField';
-import { CommonCenterWrapper } from '@styles/CommonStyles';
+import * as React from 'react';
+import Button from '@/component/Input/Button/Button';
+import TextField from '@/component/Input/TextField/TextField';
+import { CommonCenterWrapper } from '@/styles/CommonStyles';
 import {
   DateInput,
   Form,
@@ -11,13 +12,12 @@ import {
   RadioInput,
   Section,
 } from './ProjectNew.style';
-import CheckBox from '@component/input/CheckBox/CheckBox';
+import CheckBox from '@/component/Input/CheckBox/CheckBox';
 
 const ProjectNew = () => {
   return (
     <CommonCenterWrapper>
       <div style={{ paddingTop: '88px' }}></div>
-
       <Form>
         <Section>
           <H1>프로젝트 유형</H1>
@@ -66,7 +66,6 @@ const ProjectNew = () => {
           <TextField placeholder="제목을 입력해주세요."></TextField>
         </Section>
       </Form>
-
       <Button value="작성하기"></Button>
     </CommonCenterWrapper>
   );
