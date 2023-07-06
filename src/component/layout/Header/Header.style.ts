@@ -50,3 +50,7 @@ export const HeaderInfoButton = styled.button`
   display: flex;
   background-color: #e0234d;
 `;
+
+export const HeaderMargin = styled.div`
+  margin-top: 90px;
+`;

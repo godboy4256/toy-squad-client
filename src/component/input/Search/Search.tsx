@@ -1,5 +1,6 @@
+import * as React from 'react';
 import { Circle, Input, SearchStyle } from './Search.style';
-import SearchIcon from '@assets/images/common/search.svg';
+import SearchIcon from '@/assets/images/common/search.svg';
 
 function Search() {
   return (
