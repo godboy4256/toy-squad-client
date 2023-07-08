@@ -58,6 +58,32 @@ export const DateInput = styled.input.attrs({ type: 'date' })`
   border-radius: 0.5em;
 `;
 
+export const FileInput = styled.input.attrs({ type: 'file' })`
+  display: none;
+`;
+export const FileInputLabel = styled.label`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  border: 1px solid ${({ theme }) => theme.color.lightGrey};
+  background-color: ${({ theme }) => theme.color.white};
+  border-radius: 0.5em;
+  overflow: hidden;
+  :hover {
+    span {
+      color: ${({ theme }) => theme.color.white};
+    }
+
+    background-color: ${({ theme }) => theme.color.lightGrey};
+  }
+`;
+export const FileInputSapn = styled.span`
+  font-size: ${({ theme }) => theme.fontSize.xl};
+  color: ${({ theme }) => theme.color.lightGrey};
+`;
+
 export const Form = styled.form`
   margin-top: 238px;
 `;

@@ -7,6 +7,9 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {
   DateInput,
   EditorBlock,
+  FileInput,
+  FileInputLabel,
+  FileInputSapn,
   Form,
   Grid,
   GridItem,
@@ -17,6 +20,7 @@ import {
   Row,
   Section,
 } from './ProjectNew.style';
+import { useForm } from 'react-hook-form';
 
 interface RadioButtonProps {
   id: string;
@@ -34,6 +38,24 @@ const RadioButton = ({ id, text, name }: RadioButtonProps) => {
 };
 
 const ProjectNew = () => {
+  const { register, watch } = useForm();
+  const serviceTypeList = [
+    '건강/의학',
+    '뷰티 / 패션',
+    '이커머스',
+    '금융',
+    '스포츠',
+    '의료',
+    '매칭 서비스',
+    '뉴스',
+    '어린이',
+    '소셜네트워크',
+    '인공지능',
+    '기타',
+  ];
+
+  console.log(watch('thumbnail'));
+
   return (
     <CommonCenterWrapper>
       <Form>
@@ -48,20 +70,7 @@ const ProjectNew = () => {
         <Section>
           <H1>서비스 분야</H1>
           <Grid>
-            {[
-              '건강/의학',
-              '뷰티 / 패션',
-              '이커머스',
-              '금융',
-              '스포츠',
-              '의료',
-              '매칭 서비스',
-              '뉴스',
-              '어린이',
-              '소셜네트워크',
-              '인공지능',
-              '기타',
-            ].map((val, idx) => (
+            {serviceTypeList.map((val, idx) => (
               <GridItem key={idx}>
                 <CheckBox label={val} name={'type'} />
               </GridItem>
@@ -72,6 +81,19 @@ const ProjectNew = () => {
           <H1>모집 마감일</H1>
           <DateInput />
         </Section>
+        <Section>
+          <H1>이미지</H1>
+          <FileInputLabel htmlFor="thumbnail">
+            <FileInput
+              {...register('thumbnail')}
+              type="file"
+              name="thumbnail"
+              id="thumbnail"
+            />
+            <FileInputSapn>이미지 추가</FileInputSapn>
+          </FileInputLabel>
+        </Section>
+
         <Section>
           <H1>제목</H1>
           <TextField placeholder="제목을 입력해주세요."></TextField>
