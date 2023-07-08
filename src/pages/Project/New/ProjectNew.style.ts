@@ -111,9 +111,7 @@ export const FileInputSapn = styled.span`
   color: ${({ theme }) => theme.color.lightGrey};
 `;
 
-export const Form = styled.form`
-  margin-top: 238px;
-`;
+export const Form = styled.form``;
 
 export const EditorBlock = styled.div`
   width: 100%;
