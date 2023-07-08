@@ -1,14 +1,14 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
   fontSize: {
-    xxs: '1rem',
-    xs: '1.2rem',
-    s: '1.4rem',
-    m: '1.6rem',
-    l: '1.8rem',
-    xl: '2rem',
-    xxl: '2.2rem',
+    xxs: "1rem",
+    xs: "1.2rem",
+    s: "1.4rem",
+    m: "1.6rem",
+    l: "1.8rem",
+    xl: "2rem",
+    xxl: "2.2rem",
   },
   fontWeight: {
     light: 300,
@@ -16,11 +16,14 @@ const theme: DefaultTheme = {
     bold: 700,
   },
   color: {
-    red: '#e0234d',
-    green: '#00DD6',
-    lightGrey: 'rgba(0, 0, 0, 0.2)',
-    black: 'rgb(0,0,0)',
-    white: 'rgb(255,255,255)',
+    red: "#e0234d",
+    green: "#00DD6",
+    lightGrey: "rgba(0, 0, 0, 0.2)",
+    black: "rgb(0,0,0)",
+    white: "rgb(255,255,255)",
+  },
+  border: {
+    boxRadius: "0.5em",
   },
 };
 
