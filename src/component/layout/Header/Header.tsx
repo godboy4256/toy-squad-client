@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import LogoImg from '@/assets/images/common/logo.svg';
 import UserIcon from '@/assets/images/common/user.svg';
@@ -9,6 +10,7 @@ import {
   HeaderNavButton,
   HeaderInfoButton,
   HeaderRightBox,
+  HeaderMargin,
 } from './Header.style';
 import { CommonCenterWrapper } from '@/styles/CommonStyles';
 
@@ -18,32 +20,35 @@ const Header = () => {
     navigate(path);
   };
   return (
-    <HeaderContainer>
-      <CommonCenterWrapper>
-        <img src={LogoImg} alt="header logo" />
-        <HeaderRightBox>
-          <HeaderNav id="header_menu" className="flex_left flex_box">
-            <HeaderNavButton onClick={() => onClickNavRouter('/projects')}>
-              프로젝트
-            </HeaderNavButton>
-            <HeaderNavButton onClick={() => onClickNavRouter('/users')}>
-              팀원 모집
-            </HeaderNavButton>
-            <HeaderNavButton onClick={() => onClickNavRouter('/expos')}>
-              전시회
-            </HeaderNavButton>
-          </HeaderNav>
-          <HeaderInfoContainer>
-            <HeaderInfoButton>
-              <img src={SearchIcon} alt="header search icon" />
-            </HeaderInfoButton>
-            <HeaderInfoButton>
-              <img src={UserIcon} alt="header users icon" />
-            </HeaderInfoButton>
-          </HeaderInfoContainer>
-        </HeaderRightBox>
-      </CommonCenterWrapper>
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <CommonCenterWrapper>
+          <img src={LogoImg} alt="header logo" />
+          <HeaderRightBox>
+            <HeaderNav id="header_menu" className="flex_left flex_box">
+              <HeaderNavButton onClick={() => onClickNavRouter('/projects')}>
+                프로젝트
+              </HeaderNavButton>
+              <HeaderNavButton onClick={() => onClickNavRouter('/users')}>
+                팀원 모집
+              </HeaderNavButton>
+              <HeaderNavButton onClick={() => onClickNavRouter('/expos')}>
+                전시회
+              </HeaderNavButton>
+            </HeaderNav>
+            <HeaderInfoContainer>
+              <HeaderInfoButton>
+                <img src={SearchIcon} alt="header search icon" />
+              </HeaderInfoButton>
+              <HeaderInfoButton onClick={() => onClickNavRouter('/login')}>
+                <img src={UserIcon} alt="header users icon" />
+              </HeaderInfoButton>
+            </HeaderInfoContainer>
+          </HeaderRightBox>
+        </CommonCenterWrapper>
+      </HeaderContainer>
+      <HeaderMargin />
+    </>
   );
 };
 

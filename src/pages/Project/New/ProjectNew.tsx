@@ -76,6 +76,7 @@ const ProjectNew = () => {
 
   return (
     <CommonCenterWrapper>
+      <div style={{ paddingTop: '88px' }}></div>
       <Form>
         <Section>
           <H1>프로젝트 유형</H1>
@@ -129,7 +130,6 @@ const ProjectNew = () => {
           </EditorBlock>
         </Section>
       </Form>
-
       <Button value="작성하기"></Button>
     </CommonCenterWrapper>
   );

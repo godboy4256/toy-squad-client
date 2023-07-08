@@ -2,13 +2,13 @@ import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
   fontSize: {
-    xxs: "1rem",
-    xs: "1.2rem",
-    s: "1.4rem",
-    m: "1.6rem",
-    l: "1.8rem",
-    xl: "2rem",
-    xxl: "2.2rem",
+    xxs: '0.8rem',
+    xs: '1rem',
+    s: '1.2rem',
+    m: '1.4rem',
+    l: '1.6rem',
+    xl: '1.8rem',
+    xxl: '2rem',
   },
   fontWeight: {
     light: 300,

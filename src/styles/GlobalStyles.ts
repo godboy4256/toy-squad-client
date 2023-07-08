@@ -67,6 +67,7 @@ export const GlobalStyle = createGlobalStyle`
     a {
         color: inherit;
         text-decoration: none;
+        cursor: pointer;
     }
 
     /* Remove outline on focused elements */
@@ -76,6 +77,7 @@ export const GlobalStyle = createGlobalStyle`
     button{
         background: none;
         border: none;
+        cursor: pointer;
     }
     #root,.App{
         min-height: 100vh;

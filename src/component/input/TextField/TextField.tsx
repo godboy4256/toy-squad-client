@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { TextFieldStyle, TextFieldLabel } from './TextField.style';
 
 type InputType = {
@@ -8,12 +9,13 @@ type InputType = {
   label?: string;
 };
 
-const TextField = ({ placeholder, register, label }: InputType) => {
+const TextField = ({ placeholder, register, label, type }: InputType) => {
   return (
     <>
       {label && <TextFieldLabel>{label}</TextFieldLabel>}
       <TextFieldStyle
         autoComplete="off"
+        type={type}
         placeholder={placeholder}
         {...register}
       />
