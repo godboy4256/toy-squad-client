@@ -1,6 +1,6 @@
-import 'styled-components';
+import "styled-components";
 
-declare module 'styled-components' {
+declare module "styled-components" {
   export interface DefaultTheme {
     fontSize: {
       xxs: string;
@@ -22,6 +22,9 @@ declare module 'styled-components' {
       lightGrey: string;
       black: string;
       white: string;
+    };
+    border: {
+      boxRadius: string;
     };
   }
 }
