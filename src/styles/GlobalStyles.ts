@@ -50,6 +50,7 @@ export const GlobalStyle = createGlobalStyle`
 
     /* Remove list styles (bullet points) */
     ul,
+    li,
     ol {
         list-style: none;
     }

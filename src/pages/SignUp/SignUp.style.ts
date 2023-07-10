@@ -5,18 +5,27 @@ export const SignUpContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 336px;
+  justify-content: center;
   height: 100vh;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-top: 100px;
+  margin: 0 auto;
 `;
 export const SignUpForm = styled.form`
   width: 100%;
 `;
+export const SignUpPositionBox = styled.div`
+  & > div {
+    display: flex;
+    column-gap: 5px;
+  }
+  & button,
+  input {
+    margin-bottom: 0;
+  }
+  margin-bottom: 20px;
+`;
 export const SignUpLogo = styled.img`
   width: 130px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 export const EmailAuth = styled.div`
   width: 100%;
@@ -33,8 +42,8 @@ export const EmailAuth = styled.div`
   }
 `;
 export const SignUpTitle = styled.h2`
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-bottom: 50px;
   font-weight: 700;
 `;
 

@@ -12,6 +12,6 @@ export const TextFieldStyle = styled.input`
 export const TextFieldLabel = styled.label`
   font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   display: block;
 `;

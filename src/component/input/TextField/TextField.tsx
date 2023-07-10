@@ -7,15 +7,29 @@ type InputType = {
   register?: any;
   style?: 'account_input';
   label?: string;
+  disabled?: boolean;
+  onChange?: CallableFunction;
+  onFocus?: CallableFunction;
 };
 
-const TextField = ({ placeholder, register, label, type }: InputType) => {
+const TextField = ({
+  placeholder,
+  register,
+  label,
+  type,
+  disabled,
+  onChange,
+  onFocus,
+}: InputType) => {
   return (
     <>
       {label && <TextFieldLabel>{label}</TextFieldLabel>}
       <TextFieldStyle
         autoComplete="off"
+        disabled={disabled}
         type={type}
+        onChange={onChange}
+        onFocus={onFocus}
         placeholder={placeholder}
         {...register}
       />

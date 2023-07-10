@@ -11,9 +11,14 @@ import {
   SignUpLogo,
   SignUpTitle,
 } from './SignUp.style';
+import Position from '@/component/Input/Position/Position';
 
 const SignUp = () => {
   const [formState, setFormState] = useState(0);
+  const [position, setPosition] = useState(false);
+  const positionOff = () => {
+    setPosition(false);
+  };
   return (
     <SignUpContainer>
       {formState === 0 ? (
@@ -36,9 +41,13 @@ const SignUp = () => {
         formState === 1 && (
           <>
             <SignUpLogo src={LogoImg} alt="header logo" />
-            <SignUpTitle>회원가입</SignUpTitle>
+            <SignUpTitle>간편 회원가입</SignUpTitle>
             <SignUpForm>
-              <TextField label="이메일" placeholder="이메일을 입력해주세요." />
+              <TextField
+                label="이메일"
+                disabled={true}
+                placeholder="godboy4256@gmail.com"
+              />
               <TextField
                 type="password"
                 label="비밀번호"
@@ -49,9 +58,22 @@ const SignUp = () => {
                 label="비밀번호 확인"
                 placeholder="비밀번호를 확인해주세요."
               />
-              <TextField label="닉네임" placeholder="닉네임을 입력해주세요." />
-              <Button value="회원가입" click_func={() => setFormState(2)} />
+              <TextField label="이름" placeholder="이름을 입력해주세요." />
+              <TextField
+                type="text"
+                label="포지션"
+                placeholder="포지션 선택"
+                onFocus={() => setPosition(true)}
+              />
+              <TextField
+                label="연락처"
+                placeholder="ex) 카카오톡 ID, 휴대전화 등"
+              />
+              <Button value="가입하기" click_func={() => setFormState(2)} />
             </SignUpForm>
+            {position && (
+              <Position confirmFunc={positionOff} cancelFunc={positionOff} />
+            )}
           </>
         )
       )}
