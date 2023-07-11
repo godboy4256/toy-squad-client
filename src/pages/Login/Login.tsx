@@ -16,8 +16,8 @@ import {
   LoginLogo,
 } from './Login.style';
 import { useNavigate } from 'react-router-dom';
-import TextField from '@/component/Input/TextField/TextField';
-import Button from '@/component/Input/Button/Button';
+import TextField from '@/component/input/TextField/TextField';
+import Button from '@/component/input/Button/Button';
 
 const Login = () => {
   const navigate = useNavigate();

@@ -15,7 +15,7 @@ import {
 } from './ProjectList.style';
 import { CommonCenterWrapper } from '@/styles/CommonStyles';
 import { useMediaQuery } from 'react-responsive';
-import Search from '@/component/Input/Search/Search';
+import Search from '@/component/input/Search/Search';
 
 const ProjectList = () => {
   const isTablet = useMediaQuery({
