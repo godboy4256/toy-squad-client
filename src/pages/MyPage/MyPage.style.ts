@@ -42,4 +42,6 @@ export const MyPageTitle = styled.h2`
 `;
 export const MyPageSectionTitle = styled.h3`
   font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 20px;
 `;
