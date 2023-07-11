@@ -11,6 +11,7 @@ import SignUp from '@/pages/SignUp/SignUp';
 import Header from '@/component/layout/Header/Header';
 import Footer from '@/component/layout/Footer/Footer';
 import theme from './styles/theme';
+import MyPage from './pages/MyPage/MyPage';
 
 function App() {
   const isLayout: string[] = ['/login', '/signUp'];
@@ -27,6 +28,7 @@ function App() {
             <Route path="/projects/new" element={<ProjectNew />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
+            <Route path="/mypage/*" element={<MyPage />} />
           </Routes>
         </div>
         {!isLayout.includes(location.pathname) && <Footer />}

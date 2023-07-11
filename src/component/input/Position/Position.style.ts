@@ -28,9 +28,19 @@ export const PositionCategory = styled.div`
     width: 130px;
     cursor: pointer;
     padding: 10px 20px;
-    &.activer {
-      background-color: ${({ theme }) => theme.color.red};
-      color: white;
+    position: relative;
+    &.active {
+      &::after {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        content: '';
+        width: 5px;
+        height: 20px;
+        background-color: ${({ theme }) => theme.color.red};
+      }
     }
   }
 `;
@@ -73,7 +83,8 @@ export const PositionConfirm = styled.div`
     display: block;
     margin-left: 10px;
     &:last-of-type {
-      background-color: #ccc;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
       color: #222;
     }
   }

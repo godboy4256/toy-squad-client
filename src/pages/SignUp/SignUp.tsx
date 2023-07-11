@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import LogoImg from '@/assets/images/common/logo.svg';
-import Button from '@/component/Input/Button/Button';
-import TextField from '@/component/Input/TextField/TextField';
+import Button from '@/component/input/Button/Button';
+import TextField from '@/component/input/TextField/TextField';
 import {
   EmailAuth,
   SignUpContainer,
@@ -11,7 +11,7 @@ import {
   SignUpLogo,
   SignUpTitle,
 } from './SignUp.style';
-import Position from '@/component/Input/Position/Position';
+import Position from '@/component/input/Position/Position';
 
 const SignUp = () => {
   const [formState, setFormState] = useState(0);
@@ -67,7 +67,7 @@ const SignUp = () => {
               />
               <TextField
                 label="연락처"
-                placeholder="ex) 카카오톡 ID, 휴대전화 등"
+                placeholder="휴대폰 번호를 입력하세요."
               />
               <Button value="가입하기" click_func={() => setFormState(2)} />
             </SignUpForm>

@@ -62,9 +62,24 @@ const Position = ({ confirmFunc, cancelFunc }: PositionProps) => {
         <PositionTitle>포지션을 선택해주세요.</PositionTitle>
         <PositionTab>
           <PositionCategory>
-            <li onClick={onClickCategory.bind(null, 'MANAGER')}>기획자</li>
-            <li onClick={onClickCategory.bind(null, 'DEVELOPER')}>개발자</li>
-            <li onClick={onClickCategory.bind(null, 'DESIGNER')}>디자이너</li>
+            <li
+              className={category === 'MANAGER' ? 'active' : ''}
+              onClick={onClickCategory.bind(null, 'MANAGER')}
+            >
+              기획자
+            </li>
+            <li
+              className={category === 'DEVELOPER' ? 'active' : ''}
+              onClick={onClickCategory.bind(null, 'DEVELOPER')}
+            >
+              개발자
+            </li>
+            <li
+              className={category === 'DESIGNER' ? 'active' : ''}
+              onClick={onClickCategory.bind(null, 'DESIGNER')}
+            >
+              디자이너
+            </li>
           </PositionCategory>
           <PositionList>
             {POSITION_LIST[category].map((position: string) => {
