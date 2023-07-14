@@ -24,7 +24,7 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUD_TYPE_TOKEN }}
-          product: ${{ env.SPACE_NAME }}/${{ env.PROJECT_NAME }}
+          project: ${{ env.SPACE_NAME }}/${{ env.PROJECT_NAME }}
           stage: main
           yaml: |
             name: ${{ env.SERVICE_NAME  }}
