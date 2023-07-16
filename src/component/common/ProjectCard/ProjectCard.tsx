@@ -1,10 +1,6 @@
 import * as React from "react";
 import {
-  ProjectAuthor,
-  ProjectAuthorImg,
-  ProjectAuthorName,
-  ProjectDetail,
-  ProjectLabel,
+  Detail,
   ProjectPeriod,
   ProjectCardStyle,
   ProjectTags,
@@ -13,6 +9,8 @@ import {
 } from "./Project.style";
 import UserIcon from "@assets/images/common/user.svg";
 import { useNavigate } from "react-router-dom";
+import { Author } from "../Author/Author";
+import { Tag } from "../Tag/Tag";
 
 interface ProjectCardProps {
   id: number;
@@ -28,22 +26,19 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
     <ProjectCardStyle onClick={handleCardClick}>
       <ProjectThumbnail>
         <ProjectPeriod>
-          <ProjectLabel>D-10</ProjectLabel>
+          <Tag>D-10</Tag>
         </ProjectPeriod>
         <ProjectTags>
-          <ProjectLabel>건강/운동</ProjectLabel>
-          <ProjectLabel>Web</ProjectLabel>
+          <Tag>건강/운동</Tag>
+          <Tag>Web</Tag>
         </ProjectTags>
       </ProjectThumbnail>
       <ProjectTitle>프로젝트 제목</ProjectTitle>
-      <ProjectDetail>
+      <Detail>
         프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한
         소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다.
-      </ProjectDetail>
-      <ProjectAuthor>
-        <ProjectAuthorImg src={UserIcon} alt="#" />
-        <ProjectAuthorName>석지웅 팀장</ProjectAuthorName>
-      </ProjectAuthor>
+      </Detail>
+      <Author imgSrc={UserIcon} name={"석지웅"} />
     </ProjectCardStyle>
   );
 };

@@ -12,7 +12,7 @@ import Header from "@/component/layout/Header/Header";
 import Footer from "@/component/layout/Footer/Footer";
 import theme from "./styles/theme";
 import MyPage from "./pages/MyPage/MyPage";
-import { ProjectDetail } from "./component/common/ProjectCard/Project.style";
+import ProjectDetail from "./pages/Project/Detail/ProjectDetail";
 
 function App() {
   const isLayout: string[] = ["/login", "/signUp"];
@@ -25,12 +25,12 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/main" element={<div>메인 페이지</div>} />
+            <Route path="/projects/detail/*" element={<ProjectDetail />} />
             <Route path="/projects" element={<ProjectList />} />
             <Route path="/projects/new" element={<ProjectNew />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/mypage/*" element={<MyPage />} />
-            <Route path="/projects/detail/*" element={<ProjectDetail />} />
           </Routes>
         </div>
         {!isLayout.includes(location.pathname) && <Footer />}

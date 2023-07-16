@@ -1,6 +1,7 @@
 import * as React from "react";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
 import {
+  FilterTag,
   ProjectListFilter,
   ProjectListFilterButton,
   ProjectListHeader,
@@ -10,22 +11,12 @@ import {
   ProjectListSelect,
   ProjectListSmallCircle,
   ProjectListSpan,
-  ProjectListTag,
   ProjectListTags,
 } from "./ProjectList.style";
 import { CommonCenterWrapper } from "@/styles/CommonStyles";
-import { useMediaQuery } from "react-responsive";
 import Search from "@/component/input/Search/Search";
 
 const ProjectList = () => {
-  const isTablet = useMediaQuery({
-    query: "(max-width: 1024px)",
-  });
-
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
-
   return (
     <CommonCenterWrapper>
       <ProjectListHeader>
@@ -45,15 +36,15 @@ const ProjectList = () => {
       <ProjectListHr />
 
       <ProjectListTags>
-        <ProjectListTag>모두 보기</ProjectListTag>
-        <ProjectListTag>웹 개발</ProjectListTag>
-        <ProjectListTag>앱 개발</ProjectListTag>
-        <ProjectListTag>단 기간 프로젝트</ProjectListTag>
-        <ProjectListTag>프로젝트 시작 임박</ProjectListTag>
-        <ProjectListTag>온라인</ProjectListTag>
-        <ProjectListTag>서울 / 오프라인</ProjectListTag>
-        <ProjectListTag>3 ~ 4일 프로젝트</ProjectListTag>
-        <ProjectListTag>여유로운 진행 기간</ProjectListTag>
+        <FilterTag type="large">모두 보기</FilterTag>
+        <FilterTag type="large">웹 개발</FilterTag>
+        <FilterTag type="large">앱 개발</FilterTag>
+        <FilterTag type="large">단 기간 프로젝트</FilterTag>
+        <FilterTag type="large">프로젝트 시작 임박</FilterTag>
+        <FilterTag type="large">온라인</FilterTag>
+        <FilterTag type="large">서울 / 오프라인</FilterTag>
+        <FilterTag type="large">3 ~ 4일 프로젝트</FilterTag>
+        <FilterTag type="large">여유로운 진행 기간</FilterTag>
       </ProjectListTags>
 
       <ProjectListMain>

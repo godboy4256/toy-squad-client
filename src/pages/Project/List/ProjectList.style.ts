@@ -1,3 +1,4 @@
+import { Tag } from "@/component/common/Tag/Tag";
 import styled from "styled-components";
 
 export const ProjectListHeader = styled.section`
@@ -60,23 +61,7 @@ export const ProjectListTags = styled.section`
   flex-wrap: wrap;
   margin-bottom: 150px;
 `;
-export const ProjectListTag = styled.span`
-  display: inline;
-  padding-left: 20px;
-  padding-right: 20px;
-  border: 1px solid ${({ theme }) => theme.color.lightGrey};
-  line-height: 52px;
-  text-align: center;
-  height: 52px;
-  border-radius: 26px;
-  font-size: ${({ theme }) => theme.fontSize.xxl};
-  font-weight: 700;
-  :hover {
-    border-color: ${({ theme }) => theme.color.red};
-    color: ${({ theme }) => theme.color.red};
-    cursor: pointer;
-  }
-`;
+
 export const ProjectListMain = styled.section`
   position: relative;
   display: grid;
@@ -97,6 +82,14 @@ export const ProjectListMain = styled.section`
 
   grid-row-gap: 20px;
   grid-column-gap: 0px;
+`;
+
+export const FilterTag = styled(Tag)`
+  :hover {
+    border-color: ${({ theme }) => theme.color.red};
+    color: ${({ theme }) => theme.color.red};
+    cursor: pointer;
+  }
 `;
 
 export const ProjectListSelect = styled.select`
