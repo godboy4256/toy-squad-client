@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   ProjectAuthor,
   ProjectAuthorImg,
@@ -10,12 +10,22 @@ import {
   ProjectTags,
   ProjectThumbnail,
   ProjectTitle,
-} from './Project.style';
-import UserIcon from '@assets/images/common/user.svg';
+} from "./Project.style";
+import UserIcon from "@assets/images/common/user.svg";
+import { useNavigate } from "react-router-dom";
 
-const ProjectCard = () => {
+interface ProjectCardProps {
+  id: number;
+}
+
+const ProjectCard = ({ id }: ProjectCardProps) => {
+  const navigate = useNavigate();
+  const handleCardClick = () => {
+    navigate(`/projects/detail/${id}`);
+  };
+
   return (
-    <ProjectCardStyle>
+    <ProjectCardStyle onClick={handleCardClick}>
       <ProjectThumbnail>
         <ProjectPeriod>
           <ProjectLabel>D-10</ProjectLabel>

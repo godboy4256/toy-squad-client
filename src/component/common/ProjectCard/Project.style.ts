@@ -1,6 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const ProjectCardStyle = styled.div``;
+export const ProjectCardStyle = styled.div`
+  padding: 5px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid ${({ theme }) => theme.color.lightGrey};
+  cursor: pointer;
+  box-sizing: border-box;
+`;
 
 export const ProjectThumbnail = styled.div`
   width: 100%;

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import ProjectCard from '@/component/common/ProjectCard/ProjectCard';
+import * as React from "react";
+import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
 import {
   ProjectListFilter,
   ProjectListFilterButton,
@@ -12,21 +12,20 @@ import {
   ProjectListSpan,
   ProjectListTag,
   ProjectListTags,
-} from './ProjectList.style';
-import { CommonCenterWrapper } from '@/styles/CommonStyles';
-import { useMediaQuery } from 'react-responsive';
-import Search from '@/component/input/Search/Search';
+} from "./ProjectList.style";
+import { CommonCenterWrapper } from "@/styles/CommonStyles";
+import { useMediaQuery } from "react-responsive";
+import Search from "@/component/input/Search/Search";
 
 const ProjectList = () => {
   const isTablet = useMediaQuery({
-    query: '(max-width: 1024px)',
+    query: "(max-width: 1024px)",
   });
 
   const isMobile = useMediaQuery({
-    query: '(max-width: 768px)',
+    query: "(max-width: 768px)",
   });
 
-  console.log(isTablet);
   return (
     <CommonCenterWrapper>
       <ProjectListHeader>
@@ -35,10 +34,10 @@ const ProjectList = () => {
           <ProjectListSpan>필터</ProjectListSpan>
           <ProjectListFilterButton>
             <ProjectListLine>
-              <ProjectListSmallCircle style={{ left: '4px' }} />
+              <ProjectListSmallCircle style={{ left: "4px" }} />
             </ProjectListLine>
             <ProjectListLine>
-              <ProjectListSmallCircle style={{ right: '4px' }} />
+              <ProjectListSmallCircle style={{ right: "4px" }} />
             </ProjectListLine>
           </ProjectListFilterButton>
         </ProjectListFilter>
@@ -63,40 +62,7 @@ const ProjectList = () => {
           <option value="view">조회순</option>
         </ProjectListSelect>
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((val, idx) => {
-          if (isMobile) {
-            if (idx % 2 === 0 && idx >= 2) {
-              return (
-                <>
-                  <hr />
-                  <ProjectCard />
-                </>
-              );
-            } else {
-              return <ProjectCard />;
-            }
-          } else if (isTablet) {
-            if (idx % 3 === 0 && idx >= 3) {
-              return (
-                <>
-                  <hr />
-                  <ProjectCard />
-                </>
-              );
-            } else {
-              return <ProjectCard />;
-            }
-          } else {
-            if (idx % 4 === 0 && idx >= 4) {
-              return (
-                <>
-                  <hr />
-                  <ProjectCard />
-                </>
-              );
-            } else {
-              return <ProjectCard />;
-            }
-          }
+          return <ProjectCard key={idx} id={idx} />;
         })}
       </ProjectListMain>
     </CommonCenterWrapper>

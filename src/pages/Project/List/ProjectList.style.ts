@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProjectListHeader = styled.section`
   display: flex;
@@ -83,27 +83,20 @@ export const ProjectListMain = styled.section`
   justify-content: space-between;
 
   /* 데스크탑 */
-  grid-template-columns: repeat(4, 267px);
+  grid-template-columns: repeat(4, 1fr);
 
   /* 테블릿 */
   @media screen and (max-width: 1024px) {
-    grid-template-columns: repeat(3, 267px);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* 모바일 */
   @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 267px);
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  hr {
-    grid-column: 1/-1;
-    width: 100%;
-    background: #d9d9d9;
-    height: 1px;
-    border: 0;
-    margin-bottom: 30px;
-    margin-top: 30px;
-  }
+  grid-row-gap: 20px;
+  grid-column-gap: 0px;
 `;
 
 export const ProjectListSelect = styled.select`
