@@ -19,7 +19,7 @@ export const TagStyle = styled.span<TagStyleProps>`
     } else if (bgColor === 'white') {
       return css`
         background-color: ${theme.color.white};
-        border: 1px solid ${theme.color.white};
+        border: 1px solid ${theme.color.black};
         color: ${theme.color.black};
       `;
     } else {
