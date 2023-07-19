@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Detail,
   ProjectPeriod,
@@ -6,11 +6,11 @@ import {
   ProjectTags,
   ProjectThumbnail,
   ProjectTitle,
-} from "./Project.style";
-import UserIcon from "@assets/images/common/user.svg";
-import { useNavigate } from "react-router-dom";
-import { Author } from "../Author/Author";
-import { Tag } from "../Tag/Tag";
+} from './Project.style';
+import UserIcon from '@assets/images/common/user.svg';
+import { useNavigate } from 'react-router-dom';
+import { Author } from '../Author/Author';
+import { Tag } from '../Tag/Tag';
 
 interface ProjectCardProps {
   id: number;
@@ -26,11 +26,17 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
     <ProjectCardStyle onClick={handleCardClick}>
       <ProjectThumbnail>
         <ProjectPeriod>
-          <Tag>D-10</Tag>
+          <Tag type="small" bgColor="black">
+            D-10
+          </Tag>
         </ProjectPeriod>
         <ProjectTags>
-          <Tag>건강/운동</Tag>
-          <Tag>Web</Tag>
+          <Tag type="small" bgColor="black">
+            건강/운동
+          </Tag>
+          <Tag type="small" bgColor="black">
+            Web
+          </Tag>
         </ProjectTags>
       </ProjectThumbnail>
       <ProjectTitle>프로젝트 제목</ProjectTitle>
@@ -38,7 +44,7 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
         프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한
         소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다.
       </Detail>
-      <Author imgSrc={UserIcon} name={"석지웅"} />
+      <Author imgSrc={UserIcon} name={'석지웅'} />
     </ProjectCardStyle>
   );
 };

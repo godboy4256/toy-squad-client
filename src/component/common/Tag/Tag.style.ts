@@ -1,16 +1,40 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-export const TagStyle = styled.span<{ type: string }>`
+export interface TagStyleProps {
+  type?: 'large' | 'small';
+  bgColor?: 'black' | 'white' | 'green';
+}
+
+export const TagStyle = styled.span<TagStyleProps>`
   display: inline-block;
   text-align: center;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 
+  ${({ bgColor, theme }) => {
+    if (bgColor === 'black') {
+      return css`
+        background-color: ${theme.color.black};
+        color: ${theme.color.white};
+      `;
+    } else if (bgColor === 'white') {
+      return css`
+        background-color: ${theme.color.white};
+        border: 1px solid ${theme.color.white};
+        color: ${theme.color.black};
+      `;
+    } else {
+      return css`
+        background-color: ${theme.color.green};
+        color: ${theme.color.white};
+      `;
+    }
+  }}
+
   ${({ type, theme }) => {
-    if (type === "large") {
+    if (type === 'large') {
       return css`
         height: 52px;
         font-size: ${theme.fontSize.xxl};
-        border: 1px solid ${theme.color.lightGrey};
         padding-left: 20px;
         padding-right: 20px;
         border-radius: 26px;
@@ -22,11 +46,8 @@ export const TagStyle = styled.span<{ type: string }>`
         max-width: 100px;
         padding-left: 10px;
         padding-right: 10px;
-        border: 1px solid ${theme.color.black};
-        background-color: ${theme.color.black};
         font-size: ${theme.fontSize.s};
         border-radius: 14px;
-        color: ${theme.color.white};
         line-height: 28px;
       `;
     }

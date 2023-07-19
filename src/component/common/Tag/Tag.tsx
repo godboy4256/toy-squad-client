@@ -1,10 +1,10 @@
-import React from "react";
-import { TagStyle } from "./Tag.style";
+import React from 'react';
+import { TagStyle, TagStyleProps } from './Tag.style';
 
-interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
-  type?: "large" | "small";
-}
+interface TagProps
+  extends TagStyleProps,
+    React.HTMLAttributes<HTMLSpanElement> {}
 
-export function Tag({ type = "small", ...props }: TagProps) {
-  return <TagStyle type={type} {...props}></TagStyle>;
+export function Tag({ type = 'small', bgColor = 'white', ...props }: TagProps) {
+  return <TagStyle type={type} bgColor={bgColor} {...props}></TagStyle>;
 }
