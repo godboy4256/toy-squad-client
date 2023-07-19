@@ -30,7 +30,7 @@ jobs:
             name: ${{ env.SERVICE_NAME  }}
             app: web
             options:
-              docbase: /build
+              docbase: /dist
               nodeversion: 18
               spa: true
             context:
