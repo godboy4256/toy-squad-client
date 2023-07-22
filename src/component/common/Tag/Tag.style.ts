@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export interface TagStyleProps {
   type?: 'large' | 'small';
-  bgColor?: 'black' | 'white' | 'green';
+  bgColor?: 'black' | 'white' | 'green' | 'red';
 }
 
 export const TagStyle = styled.span<TagStyleProps>`
@@ -21,6 +21,11 @@ export const TagStyle = styled.span<TagStyleProps>`
         background-color: ${theme.color.white};
         border: 1px solid ${theme.color.black};
         color: ${theme.color.black};
+      `;
+    } else if (bgColor === 'red') {
+      return css`
+        background-color: ${theme.color.red};
+        color: ${theme.color.white};
       `;
     } else {
       return css`

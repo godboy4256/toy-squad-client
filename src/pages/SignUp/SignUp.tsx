@@ -30,10 +30,7 @@ const SignUp = () => {
           <SignUpForm>
             <EmailAuth>
               <TextField placeholder="이메일을 입력해주세요." />
-              <Button
-                value="인증메일 전송"
-                click_func={() => setFormState(1)}
-              />
+              <Button onClick={() => setFormState(1)}>인증메일 전송</Button>
             </EmailAuth>
           </SignUpForm>
         </>
@@ -69,7 +66,7 @@ const SignUp = () => {
                 label="연락처"
                 placeholder="휴대폰 번호를 입력하세요."
               />
-              <Button value="가입하기" click_func={() => setFormState(2)} />
+              <Button onClick={() => setFormState(2)}>가입하기</Button>
             </SignUpForm>
             {position && (
               <Position confirmFunc={positionOff} cancelFunc={positionOff} />

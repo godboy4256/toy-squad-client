@@ -1,4 +1,11 @@
+import { CommonCenterWrapper } from '@/styles/CommonStyles';
 import styled from 'styled-components';
+
+export const ProjectDetailCenterWrapper = styled(CommonCenterWrapper)`
+  margin-top: 140px;
+  display: flex;
+  gap: 44px;
+`;
 
 export const Title = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
@@ -12,7 +19,6 @@ export const ProjectDetailHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 140px;
   margin-bottom: 30px;
 `;
 
@@ -36,10 +42,4 @@ export const Caption = styled.div`
 export const SimpleDesc = styled.span`
   font-size: ${({ theme }) => theme.fontSize.xxl};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-`;
-export const Hr = styled.hr`
-  background: ${({ theme }) => theme.color.lightGrey};
-  margin: 0;
-  height: 1px;
-  border: 0;
 `;
