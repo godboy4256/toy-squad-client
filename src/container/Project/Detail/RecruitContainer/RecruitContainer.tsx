@@ -11,7 +11,7 @@ import {
 import Hr from '@/component/common/Hr/Hr';
 import { Tag } from '@/component/common/Tag/Tag';
 
-export function RecruitContainer() {
+export default function RecruitContainer() {
   return (
     <RecruitContainerStyle>
       <RecruitSection>
