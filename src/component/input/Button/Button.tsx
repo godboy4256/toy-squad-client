@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NormalButtonStyle } from './Button.style';
 
-interface ButtonType extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   type?: 'submit' | 'button' | 'reset';
 }
 
