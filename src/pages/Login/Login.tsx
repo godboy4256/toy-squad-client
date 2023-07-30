@@ -38,7 +38,7 @@ const Login = () => {
       <LoginForm>
         <TextField placeholder="이메일을 입력해주세요." />
         <TextField type="password" placeholder="비밀번호를 입력해주세요." />
-        <Button value="로그인" click_func={() => {}} />
+        <Button onClick={() => {}}>로그인</Button>
       </LoginForm>
       <AccountContainer>
         <AccountButton onClick={() => navigate('/signUp')}>

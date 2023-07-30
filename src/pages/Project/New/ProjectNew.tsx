@@ -131,7 +131,7 @@ const ProjectNew = () => {
           </EditorBlock>
         </Section>
       </Form>
-      <Button value="작성하기"></Button>
+      <Button>작성하기</Button>
     </CommonCenterWrapper>
   );
 };

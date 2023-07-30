@@ -1,6 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const ProjectCardStyle = styled.div``;
+export const ProjectCardStyle = styled.div`
+  padding: 5px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid ${({ theme }) => theme.color.lightGrey};
+  cursor: pointer;
+  box-sizing: border-box;
+`;
 
 export const ProjectThumbnail = styled.div`
   width: 100%;
@@ -24,7 +30,7 @@ export const ProjectTitle = styled.div`
   margin-bottom: 17px;
 `;
 
-export const ProjectDetail = styled.p`
+export const Detail = styled.p`
   height: 48px;
   overflow: hidden;
   line-height: 24px;
@@ -39,19 +45,6 @@ export const ProjectDetail = styled.p`
   font-size: ${({ theme }) => theme.fontSize.m};
 `;
 
-export const ProjectAuthor = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: ${({ theme }) => theme.fontSize.m};
-`;
-export const ProjectAuthorImg = styled.img`
-  width: 26px;
-  height: 26px;
-  background-color: black;
-  border-radius: 50%;
-`;
-
 export const ProjectPeriod = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -60,19 +53,3 @@ export const ProjectTags = styled.div`
   display: flex;
   gap: 16px;
 `;
-export const ProjectLabel = styled.div`
-  background-color: black;
-  display: flex;
-  width: 62px;
-  height: 28px;
-  border-radius: 31px;
-  justify-content: center;
-  align-items: center;
-  font-size: ${({ theme }) => theme.fontSize.xs};
-  color: white;
-  font-weight: 700;
-  line-height: 20px;
-  letter-spacing: 0.0015em;
-`;
-
-export const ProjectAuthorName = styled.span``;
