@@ -1,4 +1,4 @@
-import { DefaultTheme } from "styled-components";
+import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   fontSize: {
@@ -16,14 +16,14 @@ const theme: DefaultTheme = {
     bold: 700,
   },
   color: {
-    red: "#e0234d",
-    green: "#00DD6",
-    lightGrey: "rgba(0, 0, 0, 0.2)",
-    black: "rgb(0,0,0)",
-    white: "rgb(255,255,255)",
+    red: '#e0234d',
+    green: '#00DD6D',
+    lightGrey: 'rgba(0, 0, 0, 0.2)',
+    black: 'rgb(0,0,0)',
+    white: 'rgb(255,255,255)',
   },
   border: {
-    boxRadius: "0.5em",
+    boxRadius: '0.5em',
   },
 };
 

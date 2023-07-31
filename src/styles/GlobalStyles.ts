@@ -17,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
     /* Box sizing border-box */  
     *{
         font-family: 'PoppinsSemiBold';
-        color: #0B2239;
     }
     button{
         font-family: normal;
@@ -46,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
     dd {
         margin: 0;
         padding: 0;
+        color: #0B2239;
     }
 
     /* Remove list styles (bullet points) */
