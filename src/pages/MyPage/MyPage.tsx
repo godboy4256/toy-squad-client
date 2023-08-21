@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { CommonCenterWrapper } from '@/styles/CommonStyles';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import IMGLogo from '@/assets/images/common/logo.svg';
@@ -11,49 +12,77 @@ import About from './About/About';
 import {
   MyPageContainer,
   MyPageSection,
-  MyPageSideMenu,
+  MyPageSideMenuContainer,
   MyPageTitle,
   MyPageWrapper,
 } from './MyPage.style';
 
-const MyPage = () => {
+const MyPageSideMenu = () => {
   const navigate = useNavigate();
+  const [path, setPath] = useState('my_info');
   const onClickRouting = (path: string) => {
+    setPath(path);
     navigate(path);
   };
+  return (
+    <MyPageSideMenuContainer>
+      <ul>
+        <li
+          className={path === 'my_info' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'my_info')}
+        >
+          내 정보
+        </li>
+        <li
+          className={path === 'project_management' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'project_management')}
+        >
+          프로젝트 관리
+        </li>
+        <li
+          className={path === 'user_management' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'user_management')}
+        >
+          유저 관리
+        </li>
+        <li
+          className={path === 'account_setting' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'account_setting')}
+        >
+          계정 설정
+        </li>
+      </ul>
+      <ul>
+        <li
+          className={path === 'toysquad_announcement' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'toysquad_announcement')}
+        >
+          공지사항
+        </li>
+        <li
+          className={path === 'toysquad_introduction' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'toysquad_introduction')}
+        >
+          <img src={IMGLogo} alt="logo" />
+          소개
+        </li>
+      </ul>
+    </MyPageSideMenuContainer>
+  );
+};
+
+const MyPage = () => {
   return (
     <MyPageContainer>
       <CommonCenterWrapper>
         <MyPageTitle>My 토이스쿼드</MyPageTitle>
         <MyPageWrapper>
-          <MyPageSideMenu>
-            <ul>
-              <li onClick={onClickRouting.bind(null, 'my_info')}>내 정보</li>
-              <li onClick={onClickRouting.bind(null, 'project_management')}>
-                프로젝트 관리
-              </li>
-              <li onClick={onClickRouting.bind(null, 'user_management')}>
-                유저 관리
-              </li>
-              <li onClick={onClickRouting.bind(null, 'account_setting')}>
-                계정 설정
-              </li>
-            </ul>
-            <ul>
-              <li onClick={onClickRouting.bind(null, 'toysquad_announcement')}>
-                공지사항
-              </li>
-              <li onClick={onClickRouting.bind(null, 'toysquad_introduction')}>
-                <img src={IMGLogo} alt="logo" />
-                소개
-              </li>
-            </ul>
-          </MyPageSideMenu>
+          <MyPageSideMenu />
           <MyPageSection>
             <Routes>
               <Route path="my_info" element={<MyInfo />} />
               <Route
-                path="project_management"
+                path="project_management/*"
                 element={<ProjectManagement />}
               />
               <Route path="user_management" element={<UserManagement />} />

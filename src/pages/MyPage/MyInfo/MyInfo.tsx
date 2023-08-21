@@ -73,14 +73,14 @@ const MyInfo = () => {
           <h3>주요 스킬</h3>
           <SkillTagList
             skillList={[
-              { name: 'REACT', icon: ReactICon },
-              { name: 'JS', icon: JSICon },
-              { name: 'TS', icon: TSICon },
-              { name: 'HTML', icon: HTMLICon },
-              { name: 'CSS', icon: CSSICon },
-              { name: 'NODE', icon: NodeJsICon },
-              { name: 'GIT', icon: GitICon },
-              { name: 'GITHUB', icon: GitHubICon },
+              { name: 'JavaScript', icon: ReactICon },
+              { name: 'TypeScript', icon: JSICon },
+              { name: 'Node JS', icon: TSICon },
+              { name: 'React JS', icon: HTMLICon },
+              { name: 'Git', icon: CSSICon },
+              { name: 'GitHub', icon: NodeJsICon },
+              { name: 'HTML', icon: GitICon },
+              { name: 'CSS', icon: GitHubICon },
             ]}
           />
         </MyInfoContent>

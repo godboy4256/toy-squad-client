@@ -23,7 +23,15 @@ const SkillTagListContainer = styled.div`
 `;
 
 type SkillType = {
-  name: 'JS' | 'TS' | 'NODE' | 'REACT' | 'GIT' | 'GITHUB' | 'HTML' | 'CSS';
+  name:
+    | 'JavaScript'
+    | 'TypeScript'
+    | 'Node JS'
+    | 'React JS'
+    | 'Git'
+    | 'GitHub'
+    | 'HTML'
+    | 'CSS';
   icon: string;
 };
 

@@ -21,7 +21,7 @@ const SignUp = () => {
   };
   return (
     <SignUpContainer>
-      {formState === 0 ? (
+      {/* {formState === 0 ? (
         <>
           <SignUpTitle>이메일 본인 확인</SignUpTitle>
           <SignUpGuide>
@@ -35,7 +35,7 @@ const SignUp = () => {
           </SignUpForm>
         </>
       ) : (
-        formState === 1 && (
+        formState === 0 && (
           <>
             <SignUpLogo src={LogoImg} alt="header logo" />
             <SignUpTitle>간편 회원가입</SignUpTitle>
@@ -73,7 +73,42 @@ const SignUp = () => {
             )}
           </>
         )
-      )}
+      )} */}
+      <>
+            <SignUpLogo src={LogoImg} alt="header logo" />
+            <SignUpTitle>간편 회원가입</SignUpTitle>
+            <SignUpForm>
+              <TextField
+                label="이메일"
+                placeholder="이메일을 입력하세요."
+              />
+              <TextField
+                type="password"
+                label="비밀번호"
+                placeholder="비밀번호을 입력해주세요."
+              />
+              <TextField
+                type="password"
+                label="비밀번호 확인"
+                placeholder="비밀번호를 확인해주세요."
+              />
+              <TextField label="이름" placeholder="이름을 입력해주세요." />
+              <TextField
+                type="text"
+                label="포지션"
+                placeholder="포지션 선택"
+                onFocus={() => setPosition(true)}
+              />
+              <TextField
+                label="연락처"
+                placeholder="휴대폰 번호를 입력하세요."
+              />
+              <Button onClick={() => setFormState(2)}>가입하기</Button>
+            </SignUpForm>
+            {position && (
+              <Position confirmFunc={positionOff} cancelFunc={positionOff} />
+            )}
+          </>
     </SignUpContainer>
   );
 };
