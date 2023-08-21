@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MyPageContainer = styled.div``;
-export const MyPageSideMenu = styled.nav`
+export const MyPageSideMenuContainer = styled.nav`
   width: 20%;
   padding-right: 30px;
   & ul {
@@ -17,6 +17,9 @@ export const MyPageSideMenu = styled.nav`
     cursor: pointer;
     display: flex;
     align-items: center;
+    &.active {
+      font-weight: 700;
+    }
   }
   & ul > li > img {
     width: 80px;

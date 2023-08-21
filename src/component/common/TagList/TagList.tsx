@@ -4,10 +4,12 @@ import styled from 'styled-components';
 type TagListPropsType = {
   tagList: string[];
   color?: 'green' | 'red' | string[];
+  fontSize?: string;
 };
 
 type TagContainerPropsType = {
   bgColor?: 'green' | 'red' | string[];
+  fontSize?: string;
 };
 
 const TagListContainer = styled.ul`
@@ -23,16 +25,21 @@ const TagContainer = styled.li<TagContainerPropsType>`
       : ''};
   color: white;
   padding: 10px 15px;
+  font-size: ${({ theme, fontSize }) =>
+    fontSize ? fontSize : theme.fontSize.m};
   margin-right: 10px;
-  font-size: ${({ theme }) => theme.fontSize.m};
   border-radius: 10px;
 `;
 
-const TagList = ({ tagList, color }: TagListPropsType) => {
+const TagList = ({ tagList, color, fontSize }: TagListPropsType) => {
   return (
     <TagListContainer>
       {tagList.map((tag) => {
-        return <TagContainer bgColor={color}>{tag}</TagContainer>;
+        return (
+          <TagContainer fontSize={fontSize} bgColor={color}>
+            {tag}
+          </TagContainer>
+        );
       })}
     </TagListContainer>
   );
