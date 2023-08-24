@@ -21,6 +21,10 @@ export const HeaderNav = styled.nav`
   margin-right: 48px;
 `;
 
+export const HeaderLogo = styled.img`
+  cursor: pointer;
+`;
+
 export const HeaderNavButton = styled.button`
   font-size: ${({ theme }) => theme.fontSize.l};
   margin: 0 1rem;
