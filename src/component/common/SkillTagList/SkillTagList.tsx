@@ -1,3 +1,4 @@
+import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -40,9 +41,9 @@ type SkillListType = SkillType[];
 const SkillTagList = ({ skillList }: { skillList: SkillListType }) => {
   return (
     <SkillTagListContainer>
-      {skillList.map((skill: SkillType) => {
+      {skillList.map((skill: SkillType, idx: number) => {
         return (
-          <SkillTag>
+          <SkillTag key={ListKeyGenerater(idx, String(skill))}>
             <img src={skill.icon} />
             <span>{skill.name}</span>
           </SkillTag>

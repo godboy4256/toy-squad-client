@@ -8,6 +8,7 @@ import {
   PositionTab,
   PositionTitle,
 } from './Position.style';
+import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
 
 type Category = 'MANAGER' | 'DEVELOPER' | 'DESIGNER';
 type PositionProps = {
@@ -82,8 +83,8 @@ const Position = ({ confirmFunc, cancelFunc }: PositionProps) => {
             </li>
           </PositionCategory>
           <PositionList>
-            {POSITION_LIST[category].map((position: string) => {
-              return <li>{position}</li>;
+            {POSITION_LIST[category].map((position: string, idx: number) => {
+              return <li key={ListKeyGenerater(idx, position)}>{position}</li>;
             })}
           </PositionList>
         </PositionTab>

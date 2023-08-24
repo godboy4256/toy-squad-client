@@ -11,6 +11,7 @@ import {
   HeaderInfoButton,
   HeaderRightBox,
   HeaderMargin,
+  HeaderLogo,
 } from './Header.style';
 import { CommonCenterWrapper } from '@/styles/CommonStyles';
 
@@ -23,7 +24,11 @@ const Header = () => {
     <>
       <HeaderContainer>
         <CommonCenterWrapper>
-          <img src={LogoImg} alt="header logo" />
+          <HeaderLogo
+            onClick={() => onClickNavRouter('/main')}
+            src={LogoImg}
+            alt="header logo"
+          />
           <HeaderRightBox>
             <HeaderNav id="header_menu" className="flex_left flex_box">
               <HeaderNavButton onClick={() => onClickNavRouter('/projects')}>

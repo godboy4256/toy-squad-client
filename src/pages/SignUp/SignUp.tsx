@@ -73,6 +73,7 @@ const SignUp = () => {
             )}
           </>
         )
+        
       )} */}
       <>
             <SignUpLogo src={LogoImg} alt="header logo" />
