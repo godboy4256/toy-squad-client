@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const UserCard = () => {
-  return <div>유저 카드</div>;
+  return <div></div>;
 };
 
 export default UserCard;

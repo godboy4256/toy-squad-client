@@ -1,6 +1,6 @@
 import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
 
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const SettingMenuContainer = styled.ul`
@@ -37,16 +37,25 @@ const SettingMenu = ({
   menuList,
   onClickOff,
 }: {
-  menuList: string[];
+  menuList: { menu: string; onClickFunc: () => void }[];
   onClickOff: () => void;
 }) => {
   return (
     <>
       <SettingBackground onClick={onClickOff}></SettingBackground>
       <SettingMenuContainer>
-        {menuList.map((menu: string, idx: number) => {
-          return <li key={ListKeyGenerater(idx, menu)}>{menu}</li>;
-        })}
+        {menuList.map(
+          (menu: { menu: string; onClickFunc: () => void }, idx: number) => {
+            return (
+              <li
+                onClick={menu.onClickFunc}
+                key={ListKeyGenerater(idx, menu.menu)}
+              >
+                {menu.menu}
+              </li>
+            );
+          },
+        )}
       </SettingMenuContainer>
     </>
   );
