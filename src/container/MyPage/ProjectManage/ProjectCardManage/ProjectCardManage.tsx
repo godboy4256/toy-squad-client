@@ -24,7 +24,8 @@ type ProjectCardManagePropsType = {
     infoKey: string;
     infoValue: string;
   }[];
-  settingMenu: string[];
+  settingMenu: { menu: string; onClickFunc: () => void }[];
+  openAppList?: () => void;
 };
 
 const ProjectCardManage = ({
@@ -34,6 +35,7 @@ const ProjectCardManage = ({
   appNum,
   infoList,
   settingMenu,
+  openAppList,
 }: ProjectCardManagePropsType) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
@@ -59,7 +61,7 @@ const ProjectCardManage = ({
           </ProjectCardManageDate>
         </div>
         {appNum ? (
-          <ProjectCardManageApplication>
+          <ProjectCardManageApplication onClick={openAppList}>
             참여 신청 : {appNum}건
           </ProjectCardManageApplication>
         ) : (

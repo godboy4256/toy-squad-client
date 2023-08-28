@@ -96,10 +96,74 @@ export const projectDataApplication: [] | ProjectDataType[] = [
     infoList: [
       { infoKey: '신청일', infoValue: '2023.08.04' },
       { infoKey: '신청 결과', infoValue: '수락' },
-      {
-        infoKey: '신청글',
-        infoValue: '재밌어 보이네요. 꼭 참여하고 싶습니다.',
-      },
+      // {
+      //   infoKey: '신청글',
+      //   infoValue: '재밌어 보이네요. 꼭 참여하고 싶습니다.',
+      // },
     ],
+  },
+];
+
+export const projectApplicationUser = [
+  {
+    name: '김민수',
+    postion: 'UIUX 디자이너',
+    level: '중급자',
+    appPosition: 'UIUX 디자이너',
+    rating: 5.0,
+    like: 51,
+    profile: '',
+  },
+  {
+    name: '김철수',
+    postion: '프론트엔드 개발자',
+    level: '입문자',
+    appPosition: '풀스택 개발자',
+    rating: 4.2,
+    like: 30,
+    profile: '',
+  },
+];
+
+export const projectMemberList = [
+  {
+    id: 1,
+    name: '석지웅',
+    postion: '풀스택 개발자',
+    level: '주니어',
+    appPosition: '풀스택 개발자',
+    rating: 3.2,
+    like: 1,
+    profile: '',
+  },
+  {
+    id: 192,
+    name: '마이클',
+    postion: 'UIUX 디자이너',
+    level: '중급자',
+    appPosition: 'UIUX 디자이너',
+    rating: 5.0,
+    like: 51,
+    profile: '',
+  },
+  {
+    id: 33,
+    name: '김영희',
+    postion: '풀스택 개발자',
+    level: '입문자',
+    appPosition: '풀스택 개발자',
+    rating: 3.2,
+    like: 1,
+    profile: '',
+  },
+  {
+    id: 56,
+    name: '이진호',
+    postion: '백엔드 개발자',
+    level: '시니어',
+    appPosition: '백엔드 개발자',
+    rating: 4.5,
+    like: 30,
+    profile: '',
   },
 ];

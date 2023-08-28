@@ -7,4 +7,5 @@ export const NormalButtonStyle = styled.button`
   border-radius: 8px;
   color: white;
   font-size: 1.6rem;
+  height: fit-content;
 `;

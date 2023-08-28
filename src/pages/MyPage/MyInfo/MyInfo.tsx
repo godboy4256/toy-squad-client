@@ -1,27 +1,20 @@
 import React from 'react';
 import { MyPageSectionTitle } from '../MyPage.style';
-import UserProfile from '@/assets/images/common/default_profile.svg';
 import {
-  MyInfoUserProfile,
-  MyInfoName,
-  MyInfoPosition,
-  MyInfoUserImage,
-  MyInfoDefaultInfo,
   MyInfoSetting,
   MyPageMyInfoHeader,
   MyInfoIntro,
-  MyInfoEvaluationInfo,
   MyInfoContents,
   MyInfoContent,
   MyInfoTendency,
   MyInfoContact,
 } from './MyInfo.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+
 import SkillTagList from '@/component/common/SkillTagList/SkillTagList';
 
 import NodeJsICon from '@/assets/images/skills/nodejs.svg';
@@ -33,6 +26,7 @@ import HTMLICon from '@/assets/images/skills/html.svg';
 import GitICon from '@/assets/images/skills/git.svg';
 import GitHubICon from '@/assets/images/skills/github.svg';
 import TagList from '@/component/common/TagList/TagList';
+import MiniProfileCard from '@/component/common/UserInfo/MiniProfileCard';
 
 const MyInfo = () => {
   return (
@@ -44,27 +38,13 @@ const MyInfo = () => {
           <div>내 정보 변경</div>
         </MyInfoSetting>
       </MyPageMyInfoHeader>
-      <MyInfoUserProfile>
-        <MyInfoUserImage src={UserProfile} />
-        <div>
-          <MyInfoDefaultInfo>
-            <MyInfoName>석지웅</MyInfoName>
-          </MyInfoDefaultInfo>
-          <MyInfoPosition>
-            프론트엔드 개발자 <span>(주니어)</span>
-          </MyInfoPosition>
-          <MyInfoEvaluationInfo>
-            <div>
-              <FontAwesomeIcon icon={faThumbsUp} />
-              <span>54</span>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faStar} />
-              <span>5.0</span>
-            </div>
-          </MyInfoEvaluationInfo>
-        </div>
-      </MyInfoUserProfile>
+      <MiniProfileCard
+        name="석지웅"
+        position="프론트엔드 개발자"
+        level="주니어"
+        rating={5}
+        like={35}
+      />
       <MyInfoIntro>
         안녕하세요. 1년차 주니어 프론트엔드 개발자 석지웅입니다.
       </MyInfoIntro>

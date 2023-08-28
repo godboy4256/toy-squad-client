@@ -8,6 +8,7 @@ import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
 import { ProjectDataType } from '../ProjectManagement.type';
 
 const Application = ({ projectData }: { projectData: ProjectDataType[] }) => {
+  const settingMenu = [{ menu: '신청 취소', onClickFunc: () => {} }];
   return (
     <>
       <ProjectManageSubTitle>참여 신청 현황</ProjectManageSubTitle>
@@ -22,7 +23,7 @@ const Application = ({ projectData }: { projectData: ProjectDataType[] }) => {
                 type={project.type}
                 appNum={project.appNum}
                 infoList={project.infoList}
-                settingMenu={['신청 취소', '글 수정']}
+                settingMenu={settingMenu}
               />
             );
           })}
