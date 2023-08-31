@@ -40,6 +40,7 @@ export const MemberSetting = styled.div`
     font-size: 1.4rem;
     &:last-child {
       background-color: #777;
+      /* background-color: ${({ theme }) => theme.color.red}; */
     }
   }
 `;

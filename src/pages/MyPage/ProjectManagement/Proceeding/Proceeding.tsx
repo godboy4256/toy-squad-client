@@ -45,7 +45,7 @@ const Proceeding = ({ projectData }: { projectData: ProjectDataType[] }) => {
             })}
           </ul>
           <Modal
-            content={<MemberList />}
+            content={<MemberList type="PRO" />}
             open={isMemberList}
             setOpen={setIsMemberList}
           />

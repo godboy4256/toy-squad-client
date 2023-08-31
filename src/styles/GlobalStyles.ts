@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     html{
         font-size: 10px;
-        background-color: #F9F9F9;
     }
     /* Reset CSS */
     /* Box sizing border-box */  

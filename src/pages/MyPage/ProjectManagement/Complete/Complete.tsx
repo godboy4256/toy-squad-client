@@ -35,7 +35,7 @@ const Complete = ({ projectData }: { projectData: ProjectDataType[] }) => {
             })}
           </ul>
           <Modal
-            content={<MemberList />}
+            content={<MemberList type="COM" />}
             open={isMemberList}
             setOpen={setIsMemberList}
           />
