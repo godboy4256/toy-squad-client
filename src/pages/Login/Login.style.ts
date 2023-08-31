@@ -66,7 +66,7 @@ export const EmailLoginTitle = styled.p`
   }
   & span {
     display: block;
-    background-color: #f9f9f9;
+    background-color: #fff;
     padding: 10px;
     font-size: 1.6rem;
     position: absolute;

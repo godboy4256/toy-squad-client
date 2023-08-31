@@ -167,3 +167,10 @@ export const projectMemberList = [
     profile: '',
   },
 ];
+
+export const userCommentsList = [
+  {
+    content: '안녕하세요.',
+    createAt: '2022-12-03',
+  },
+];

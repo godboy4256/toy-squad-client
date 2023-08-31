@@ -75,7 +75,7 @@ const MyPage = () => {
   return (
     <MyPageContainer>
       <CommonCenterWrapper>
-        <MyPageTitle>My 토이스쿼드</MyPageTitle>
+        <MyPageTitle>마이페이지</MyPageTitle>
         <MyPageWrapper>
           <MyPageSideMenu />
           <MyPageSection>
@@ -85,7 +85,7 @@ const MyPage = () => {
                 path="project_management/*"
                 element={<ProjectManagement />}
               />
-              <Route path="user_management" element={<UserManagement />} />
+              <Route path="user_management/*" element={<UserManagement />} />
               <Route path="user_setting" element={<UserSetting />} />
               <Route path="announcement" element={<Announcement />} />
               <Route path="about" element={<About />} />
