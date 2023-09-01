@@ -56,32 +56,3 @@ export const ProjectCardManageApplication = styled.div`
   color: white;
   font-size: 1.3rem;
 `;
-
-export const ProjectCardSettingContainer = styled.div`
-  position: relative;
-  width: 30px;
-  height: 30px;
-`;
-
-export const ProjectCardSetting = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 5px 0;
-  align-items: center;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: 0.4s;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  & span {
-    display: block;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-`;

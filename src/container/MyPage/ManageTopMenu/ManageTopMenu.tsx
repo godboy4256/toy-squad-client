@@ -1,3 +1,4 @@
+import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -45,17 +46,23 @@ const MyPageManageTopMenu = ({
   };
   return (
     <ManageTopMenuContainer width={100 / menuList.length}>
-      {menuList.map((menu: { title: string; path: string; length: number }) => {
-        return (
-          <li
-            className={path === menu.path ? 'active' : ''}
-            onClick={onClickRouting.bind(null, menu.path)}
-          >
-            <div>{menu.length}</div>
-            <div>{menu.title}</div>
-          </li>
-        );
-      })}
+      {menuList.map(
+        (
+          menu: { title: string; path: string; length: number },
+          idx: number,
+        ) => {
+          return (
+            <li
+              key={ListKeyGenerater(idx, menu.title)}
+              className={path === menu.path ? 'active' : ''}
+              onClick={onClickRouting.bind(null, menu.path)}
+            >
+              <div>{menu.length}</div>
+              <div>{menu.title}</div>
+            </li>
+          );
+        },
+      )}
     </ManageTopMenuContainer>
   );
 };

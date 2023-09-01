@@ -1,7 +1,13 @@
 import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
 
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
+
+type SettingMenuButtonPropsType = {
+  settingMenu: { menu: string; onClickFunc: () => void }[];
+  openMenu: boolean;
+  setOpenMenu: Dispatch<SetStateAction<boolean>>;
+};
 
 const SettingMenuContainer = styled.ul`
   position: absolute;
@@ -22,6 +28,35 @@ const SettingMenuContainer = styled.ul`
       color: ${({ theme }) => theme.color.green};
     }
   }
+`;
+
+export const ProjectCardSetting = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 5px 0;
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: 0.4s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  & span {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+`;
+
+export const ProjectCardSettingContainer = styled.div`
+  position: relative;
+  width: 30px;
+  height: 30px;
 `;
 
 const SettingBackground = styled.div`
@@ -61,4 +96,26 @@ const SettingMenu = ({
   );
 };
 
-export default SettingMenu;
+const SettingMenuButton = ({
+  settingMenu,
+  openMenu,
+  setOpenMenu,
+}: SettingMenuButtonPropsType) => {
+  return (
+    <ProjectCardSettingContainer>
+      <ProjectCardSetting onClick={() => setOpenMenu(true)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </ProjectCardSetting>
+      {openMenu && (
+        <SettingMenu
+          menuList={settingMenu}
+          onClickOff={() => setOpenMenu(false)}
+        />
+      )}
+    </ProjectCardSettingContainer>
+  );
+};
+
+export default SettingMenuButton;

@@ -172,5 +172,34 @@ export const userCommentsList = [
   {
     content: '안녕하세요.',
     createAt: '2022-12-03',
+    project: '새로운 토이 프로젝트1',
+  },
+  {
+    content: '안녕하세요.',
+    createAt: '2022-12-03',
+    project: '새로운 토이 프로젝트2',
+  },
+];
+
+export const userAnswerList = [
+  {
+    content: '4일 뒤 바로 시작합니다!.',
+    targetComment: {
+      project: '새로운 토이 프로젝트3',
+      content: '언제 시작하나요?',
+      user: 2,
+    },
+    createAt: '2023-03-12',
+    project: '카카오 프로젝트',
+  },
+  {
+    content: '넵, 감사합니다.',
+    targetComment: {
+      project: '새로운 토이 프로젝트3',
+      content: '언제 시작하나요?',
+      user: 2,
+    },
+    createAt: '2023-12-03',
+    project: '카카오 프로젝트',
   },
 ];
