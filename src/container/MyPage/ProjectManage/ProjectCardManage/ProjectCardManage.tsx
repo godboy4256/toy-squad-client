@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import TagList from '@/component/common/TagList/TagList';
-import SettingMenu from '@/component/common/SettingMenu/SettingMenu';
 import {
   ProjectCardManageApplication,
   ProjectCardManageContent,
@@ -9,10 +8,9 @@ import {
   ProjectCardManageStyle,
   ProjectCardManageThumnail,
   ProjectCardManageTitle,
-  ProjectCardSetting,
-  ProjectCardSettingContainer,
 } from './ProjectCardManage.style';
 import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
+import SettingMenuButton from '@/component/common/SettingMenuButton/SettingMenuButton';
 
 type ProjectCardManagePropsType = {
   title: string;
@@ -67,19 +65,11 @@ const ProjectCardManage = ({
         ) : (
           <></>
         )}
-        <ProjectCardSettingContainer>
-          <ProjectCardSetting onClick={() => setOpenMenu(true)}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </ProjectCardSetting>
-          {openMenu && (
-            <SettingMenu
-              menuList={settingMenu}
-              onClickOff={() => setOpenMenu(false)}
-            />
-          )}
-        </ProjectCardSettingContainer>
+        <SettingMenuButton
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+          settingMenu={settingMenu}
+        />
       </ProjectCardManageContent>
     </ProjectCardManageStyle>
   );

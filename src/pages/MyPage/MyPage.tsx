@@ -9,6 +9,7 @@ import UserManagement from './UserManagement/UserManagement';
 import UserSetting from './UserSetting/UserSetting';
 import Announcement from './Announcement/Announcement';
 import About from './About/About';
+import { useEffect } from 'react';
 import {
   MyPageContainer,
   MyPageSection,
@@ -24,6 +25,11 @@ const MyPageSideMenu = () => {
     setPath(path);
     navigate(path);
   };
+  useEffect(() => {
+    if (location.pathname === '/mypage') {
+      navigate('/mypage/my_info');
+    }
+  }, []);
   return (
     <MyPageSideMenuContainer>
       <ul>
@@ -34,14 +40,14 @@ const MyPageSideMenu = () => {
           내 정보
         </li>
         <li
-          className={path === 'project_management' ? 'active' : ''}
-          onClick={onClickRouting.bind(null, 'project_management')}
+          className={path === 'project_management/recruitment' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'project_management/recruitment')}
         >
           프로젝트 관리
         </li>
         <li
-          className={path === 'user_management' ? 'active' : ''}
-          onClick={onClickRouting.bind(null, 'user_management')}
+          className={path === 'user_management/comments' ? 'active' : ''}
+          onClick={onClickRouting.bind(null, 'user_management/comments')}
         >
           유저 관리
         </li>

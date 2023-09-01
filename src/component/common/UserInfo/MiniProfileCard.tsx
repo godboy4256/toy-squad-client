@@ -8,7 +8,6 @@ import {
   MiniProfilePosition,
   MiniProfileImage,
   MiniProfileContainer,
-  // MiniProfileAppPosition,
 } from './MiniProfileCard.style';
 
 type ApplicationCardPropsType = {
@@ -24,7 +23,6 @@ type ApplicationCardPropsType = {
 const MiniProfileCard = ({
   name,
   position,
-  // appPosition,
   level,
   rating,
   like,
