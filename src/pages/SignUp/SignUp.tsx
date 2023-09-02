@@ -4,17 +4,15 @@ import LogoImg from '@/assets/images/common/logo.svg';
 import Button from '@/component/input/Button/Button';
 import TextField from '@/component/input/TextField/TextField';
 import {
-  EmailAuth,
   SignUpContainer,
   SignUpForm,
-  SignUpGuide,
   SignUpLogo,
   SignUpTitle,
 } from './SignUp.style';
 import Position from '@/component/input/Position/Position';
 
 const SignUp = () => {
-  const [formState, setFormState] = useState(0);
+  const [_, setFormState] = useState(0);
   const [position, setPosition] = useState(false);
   const positionOff = () => {
     setPosition(false);
