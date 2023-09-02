@@ -57,7 +57,10 @@ const ReviewStar = styled.div`
 
 const ReviewCard = ({ type }: { type: 'write' | 'get' }) => {
   const [openMenu, setOpenMenu] = useState(false);
-  const settingMenu = [{ menu: '수정하기', onClickFunc: () => {} }];
+  const settingMenu = [
+    { menu: '수정하기', onClickFunc: () => {} },
+    { menu: '삭제하기', onClickFunc: () => {} },
+  ];
   return (
     <ReviewCardContainer>
       <ReviewerProfile>
