@@ -12,7 +12,7 @@ import Modal from '@/component/common/Modal/Modal';
 const Complete = ({ projectData }: { projectData: ProjectDataType[] }) => {
   const [isMemberList, setIsMemberList] = useState(false);
   const settingMenu = [
-    { menu: '팀원 정보', onClickFunc: () => setIsMemberList(true) },
+    { menu: '팀원 리뷰', onClickFunc: () => setIsMemberList(true) },
   ];
   return (
     <>
