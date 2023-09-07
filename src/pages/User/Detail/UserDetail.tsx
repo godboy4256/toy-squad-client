@@ -4,7 +4,7 @@ import Header from '@/component/layout/Header/Header';
 const UserDetail = () => {
   return (
     <div>
-      <Header></Header>유저
+      <Header></Header>
     </div>
   );
 };
