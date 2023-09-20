@@ -29,7 +29,7 @@ const TextField = ({
       <TextFieldStyle
         type={type}
         autoComplete="off"
-        {...register(params)}
+        // {...register(params)}
         placeholder={placeholder}
         onClick={onclickFunc}
         onFocus={onFocusFunc}
