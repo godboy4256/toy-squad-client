@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState } from "react";
 import LogoImg from "@/assets/images/common/logo.svg";
 import Button from "@/component/input/Button/Button";
 import TextField from "@/component/input/TextField/TextField";
@@ -9,7 +8,6 @@ import {
   SignUpLogo,
   SignUpTitle,
 } from "./SignUp.style";
-import Position from "@/component/input/PositionFiled/Position";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import PositionField from "@/component/input/PositionFiled/Position";
@@ -28,7 +26,7 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
 
   const onSubmit = async (data: SignUpDataType) => {
