@@ -6,7 +6,6 @@ import IMGLogo from "@/assets/images/common/logo.svg";
 import MyInfo from "./MyInfo/MyInfo";
 import ProjectManagement from "./ProjectManagement/ProjectManagement";
 import UserManagement from "./UserManagement/UserManagement";
-import UserSetting from "./UserSetting/UserSetting";
 import Announcement from "./Announcement/Announcement";
 import About from "./About/About";
 import { useEffect } from "react";
@@ -17,6 +16,7 @@ import {
   MyPageTitle,
   MyPageWrapper,
 } from "./MyPage.style";
+import UserDelete from "./UserDelete/UserDelete";
 
 const MyPageSideMenu = () => {
   const navigate = useNavigate();
@@ -51,23 +51,30 @@ const MyPageSideMenu = () => {
         >
           유저 관리
         </li>
-        <li
+        <li onClick={() => alert("로그아웃")}>로그아웃</li>
+        {/* <li
+          className={path === "user_delete" ? "active" : ""}
+          onClick={onClickRouting.bind(null, "user_delete")}
+        >
+          회원 탈퇴
+        </li> */}
+        {/* <li
           className={path === "user_setting" ? "active" : ""}
           onClick={onClickRouting.bind(null, "user_setting")}
         >
           계정 설정
-        </li>
+        </li> */}
       </ul>
       <ul>
         <li
-          className={path === "toysquad_announcement" ? "active" : ""}
-          onClick={onClickRouting.bind(null, "toysquad_announcement")}
+          className={path === "announcement" ? "active" : ""}
+          onClick={onClickRouting.bind(null, "announcement")}
         >
           공지사항
         </li>
         <li
-          className={path === "toysquad_introduction" ? "active" : ""}
-          onClick={onClickRouting.bind(null, "toysquad_introduction")}
+          className={path === "about" ? "active" : ""}
+          onClick={onClickRouting.bind(null, "about")}
         >
           <img src={IMGLogo} alt="logo" />
           소개
@@ -92,7 +99,8 @@ const MyPage = () => {
                 element={<ProjectManagement />}
               />
               <Route path="user_management/*" element={<UserManagement />} />
-              <Route path="user_setting/*" element={<UserSetting />} />
+              <Route path="user_delete" element={<UserDelete />} />
+              {/* <Route path="user_setting/*" element={<UserSetting />} /> */}
               <Route path="announcement" element={<Announcement />} />
               <Route path="about" element={<About />} />
             </Routes>

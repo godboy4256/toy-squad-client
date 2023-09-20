@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const MyPageContainer = styled.div``;
 export const MyPageSideMenuContainer = styled.nav`
@@ -29,7 +29,6 @@ export const MyPageSideMenuContainer = styled.nav`
 export const MyPageSection = styled.div`
   width: 80%;
   background-color: white;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
   padding: 30px;
 `;
