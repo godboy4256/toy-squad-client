@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const MyInfoSetting = styled.button`
   background-color: ${({ theme }) => theme.color.red};
@@ -20,16 +20,13 @@ export const MyInfoContents = styled.div`
   margin-top: 40px;
 `;
 export const MyInfoIntro = styled.p`
+  margin-top: 10px;
   font-size: 1.6rem;
-  padding: 30px 0;
-  border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
-  margin-top: 30px;
 `;
 export const MyInfoContent = styled.div`
   margin-bottom: 40px;
   & > h3 {
-    font-size: ${({ theme }) => theme.fontSize.xl};
+    font-size: 1.6rem;
     margin-bottom: 5px;
     font-weight: 700;
   }

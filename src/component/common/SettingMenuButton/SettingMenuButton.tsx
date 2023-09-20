@@ -1,7 +1,7 @@
-import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
+import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
 
-import React, { Dispatch, SetStateAction } from 'react';
-import styled from 'styled-components';
+import React, { Dispatch, SetStateAction } from "react";
+import styled from "styled-components";
 
 type SettingMenuButtonPropsType = {
   settingMenu: { menu: string; onClickFunc: () => void }[];
@@ -89,7 +89,7 @@ const SettingMenu = ({
                 {menu.menu}
               </li>
             );
-          },
+          }
         )}
       </SettingMenuContainer>
     </>
