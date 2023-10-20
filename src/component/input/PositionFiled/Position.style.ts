@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const PositionContainer = styled.div`
   background-color: white;
@@ -20,6 +20,10 @@ export const ModalBackground = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
+export const PositionCategoryHidden = styled.div`
+  display: none;
+`;
+
 export const PositionCategory = styled.div`
   font-size: 1.5rem;
   padding-top: 10px;
@@ -36,7 +40,7 @@ export const PositionCategory = styled.div`
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        content: '';
+        content: "";
         width: 5px;
         height: 20px;
         background-color: ${({ theme }) => theme.color.red};
@@ -62,6 +66,10 @@ export const PositionList = styled.ul`
     cursor: pointer;
     font-size: 1.5rem;
     padding: 10px;
+    &.active {
+      background-color: ${({ theme }) => theme.color.red};
+      color: white;
+    }
   }
 `;
 

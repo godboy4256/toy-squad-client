@@ -1,7 +1,7 @@
-import * as React from 'react';
-import LogoImg from '@/assets/images/common/logo.svg';
-import KakaoLogoImg from '@/assets/images/common/kakao_login_icon.svg';
-import GoogleLogoImg from '@/assets/images/common/google_login_icon.svg';
+import * as React from "react";
+import LogoImg from "@/assets/images/common/logo.svg";
+import KakaoLogoImg from "@/assets/images/common/kakao_login_icon.svg";
+import GoogleLogoImg from "@/assets/images/common/google_login_icon.svg";
 
 import {
   AccountButton,
@@ -14,16 +14,20 @@ import {
   LoginContainer,
   LoginForm,
   LoginLogo,
-} from './Login.style';
-import { useNavigate } from 'react-router-dom';
-import TextField from '@/component/input/TextField/TextField';
-import Button from '@/component/input/Button/Button';
+} from "./Login.style";
+import { useNavigate } from "react-router-dom";
+import TextField from "@/component/input/TextField/TextField";
+import Button from "@/component/input/Button/Button";
 
 const Login = () => {
   const navigate = useNavigate();
   return (
     <LoginContainer>
-      <LoginLogo src={LogoImg} alt="login page logo" />
+      <LoginLogo
+        onClick={() => navigate("/main")}
+        src={LogoImg}
+        alt="login page logo"
+      />
       <LoginButtonGoogle>
         <GoogleIcon src={GoogleLogoImg} />
         구글로 로그인하기
@@ -41,7 +45,7 @@ const Login = () => {
         <Button onClick={() => {}}>로그인</Button>
       </LoginForm>
       <AccountContainer>
-        <AccountButton onClick={() => navigate('/signUp')}>
+        <AccountButton onClick={() => navigate("/signUp")}>
           회원가입
         </AccountButton>
         <AccountButton>비밀번호 재설정</AccountButton>

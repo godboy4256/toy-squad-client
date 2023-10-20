@@ -7,6 +7,7 @@ interface InputType extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   params?: string;
   placeholder?: string;
+  disabled?: boolean;
   onclickFunc?: () => void;
   onFocusFunc?: () => void;
   type?: string;
@@ -21,6 +22,7 @@ const TextField = ({
   onclickFunc,
   onFocusFunc,
   type,
+  disabled,
   value,
 }: InputType) => {
   return (
@@ -28,13 +30,15 @@ const TextField = ({
       {label && <TextFieldLabel>{label}</TextFieldLabel>}
       <TextFieldStyle
         type={type}
+        disabled={disabled}
         autoComplete="off"
         {...(register && params && register(params))}
         placeholder={placeholder}
         onClick={onclickFunc}
         onFocus={onFocusFunc}
-        value={value && value}
+        defaultValue={value}
       />
+      {/* <ErrorMessage /> */}
     </>
   );
 };

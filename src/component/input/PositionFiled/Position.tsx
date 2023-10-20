@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   ModalBackground,
   PositionCategory,
+  PositionCategoryHidden,
   PositionConfirm,
   PositionContainer,
   PositionList,
@@ -15,6 +16,7 @@ import { FieldValues, UseFormRegister } from "react-hook-form";
 type Category = "MANAGER" | "DEVELOPER" | "DESIGNER" | "";
 type PositionProps = {
   register?: UseFormRegister<FieldValues>;
+  errorMessage?: string;
 };
 
 const POSITION_LIST = {
@@ -50,35 +52,38 @@ const POSITION_LIST = {
   ],
 };
 
-const PositionField = ({ register }: PositionProps) => {
+const PositionField = ({ register, errorMessage }: PositionProps) => {
   const [category, setCategory] = useState<Category>("MANAGER");
   const [positionSelect, setPositionSelect] = useState(false);
-  const [position, setPosition] = useState("");
-  const positionConfirm = () => setPositionSelect(false);
-  const positionCancel = () => {
-    setCategory("");
-    setPosition("");
+  const [positionClick, setPositionClick] = useState("");
+  const [positionConfirm, setPositionConfirm] = useState("");
+  const handleConfirm = () => {
+    setPositionConfirm(positionClick);
+    setPositionSelect(false);
+  };
+  const handleCancel = () => {
+    setPositionClick(positionConfirm);
     setPositionSelect(false);
   };
   const onClickCategory = (category: Category) => {
     setCategory(category);
   };
-
   return (
     <>
-      <TextField
-        register={register}
-        params="position_category"
-        value={category}
-        type="hidden"
-      />
+      <PositionCategoryHidden>
+        <TextField
+          register={register}
+          params="position_category"
+          value={category}
+        />
+      </PositionCategoryHidden>
       <TextField
         register={register}
         params="position"
         type="text"
         label="포지션"
         placeholder="포지션 선택"
-        value={position}
+        value={positionConfirm}
         onFocusFunc={() => setPositionSelect(true)}
       />
       {positionSelect && (
@@ -112,7 +117,8 @@ const PositionField = ({ register }: PositionProps) => {
                   (position: string, idx: number) => {
                     return (
                       <li
-                        onClick={() => setPosition(position)}
+                        className={position === positionClick ? "active" : ""}
+                        onClick={() => setPositionClick(position)}
                         key={ListKeyGenerater(idx, position)}
                       >
                         {position}
@@ -123,8 +129,12 @@ const PositionField = ({ register }: PositionProps) => {
               </PositionList>
             </PositionTab>
             <PositionConfirm>
-              <button onClick={positionConfirm}>선택</button>
-              <button onClick={positionCancel}>취소</button>
+              <button type="button" onClick={handleConfirm}>
+                선택
+              </button>
+              <button type="button" onClick={handleCancel}>
+                취소
+              </button>
             </PositionConfirm>
           </PositionContainer>
         </>
