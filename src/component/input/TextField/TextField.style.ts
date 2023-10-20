@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TextFieldStyle = styled.input`
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: ${({ theme }) => theme.fontSize.l};
   padding: 10px;
-  margin-bottom: 20px;
   border-radius: 5px;
+  margin-bottom: 30px;
 `;
 
 export const TextFieldLabel = styled.label`

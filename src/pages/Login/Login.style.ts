@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const LoginContainer = styled.section`
   display: flex;
@@ -15,6 +15,7 @@ export const LoginLogo = styled.img`
   flex: 0;
   width: 130px;
   margin-bottom: 30px;
+  cursor: pointer;
 `;
 export const LoginButtonGoogle = styled.button`
   background-color: white;
@@ -56,7 +57,7 @@ export const EmailLoginTitle = styled.p`
   position: relative;
   margin: 50px 0;
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 0;

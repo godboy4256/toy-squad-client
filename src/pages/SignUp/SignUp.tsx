@@ -11,6 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import PositionField from "@/component/input/PositionFiled/Position";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type SignUpDataType = {
   email: string;
@@ -22,15 +23,12 @@ type SignUpDataType = {
 
 const SignUp = () => {
   // const [_, setFormState] = useState(0);
-
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const onSubmit = async (data: SignUpDataType) => {
-    console.log(data);
+    console.log(location);
     try {
       const postData = {
         email: data.email,
@@ -39,20 +37,16 @@ const SignUp = () => {
         position_category: "DEVELOPER",
         position: "웹 프론트엔드 개발자",
       };
-      const response = await axios.post(
-        "http://localhost:3001/api/join",
-        postData
-      );
-
-      const result = response.data; // JSON 형태의 응답 데이터를 파싱
-      console.log(result);
+      await axios.post("http://localhost:3001/api/join", postData);
+      alert("회원가입이 완료되었습니다.");
+      navigate("/login");
     } catch (error) {
       alert(error.response.data.message);
     }
   };
 
   return (
-    <SignUpContainer onSubmit={handleSubmit(onSubmit)}>
+    <SignUpContainer>
       {/* {formState === 0 ? (
         <>
           <SignUpTitle>이메일 본인 확인</SignUpTitle>
@@ -110,7 +104,7 @@ const SignUp = () => {
       <>
         <SignUpLogo src={LogoImg} alt="header logo" />
         <SignUpTitle>간편 회원가입</SignUpTitle>
-        <SignUpForm>
+        <SignUpForm onSubmit={handleSubmit(onSubmit)}>
           <TextField
             register={register}
             params="email"
@@ -138,17 +132,8 @@ const SignUp = () => {
             placeholder="이름을 입력해주세요."
           />
           <PositionField register={register} />
-          {/* <TextField
-            register={register}
-            params="phone_number"
-            label="연락처"
-            placeholder="휴대폰 번호를 입력하세요."
-          /> */}
           <Button>가입하기</Button>
         </SignUpForm>
-        {/* {position && (
-          <Position confirmFunc={positionOff} cancelFunc={positionOff} />
-        )} */}
       </>
     </SignUpContainer>
   );
