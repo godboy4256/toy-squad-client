@@ -48,8 +48,9 @@ const Login = () => {
         <AccountButton onClick={() => navigate("/signUp")}>
           회원가입
         </AccountButton>
-        <AccountButton>비밀번호 재설정</AccountButton>
-        <AccountButton>아이디 찾기</AccountButton>
+        <AccountButton onClick={() => navigate("/findPw")}>
+          비밀번호 찾기
+        </AccountButton>
       </AccountContainer>
     </LoginContainer>
   );

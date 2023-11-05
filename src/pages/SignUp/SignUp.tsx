@@ -11,7 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import PositionField from "@/component/input/PositionFiled/Position";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type SignUpDataType = {
   email: string;
@@ -24,11 +24,9 @@ type SignUpDataType = {
 const SignUp = () => {
   // const [_, setFormState] = useState(0);
   const { register, handleSubmit } = useForm();
-  const location = useLocation();
   const navigate = useNavigate();
 
   const onSubmit = async (data: SignUpDataType) => {
-    console.log(location);
     try {
       const postData = {
         email: data.email,
@@ -37,7 +35,10 @@ const SignUp = () => {
         position_category: "DEVELOPER",
         position: "웹 프론트엔드 개발자",
       };
-      await axios.post("http://localhost:3001/api/join", postData);
+      await axios.post(
+        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/join",
+        postData
+      );
       alert("회원가입이 완료되었습니다.");
       navigate("/login");
     } catch (error) {
