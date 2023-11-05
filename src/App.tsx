@@ -13,9 +13,11 @@ import Footer from "@/component/layout/Footer/Footer";
 import theme from "./styles/theme";
 import MyPage from "./pages/MyPage/MyPage";
 import ProjectDetail from "./pages/Project/Detail/ProjectDetail";
+import FindPw from "./pages/FindPw/FindPw";
+import UpdatePw from "./pages/UpdatePw/UpdatePw";
 
 function App() {
-  const isLayout: string[] = ["/login", "/signUp"];
+  const isLayout: string[] = ["/login", "/signUp", "/findPw", "/updatePw"];
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -36,6 +38,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/mypage/*" element={<MyPage />} />
+            <Route path="/findPw" element={<FindPw />} />
+            <Route path="/updatePw" element={<UpdatePw />} />
           </Routes>
         </div>
         {!isLayout.includes(location.pathname) && <Footer />}
