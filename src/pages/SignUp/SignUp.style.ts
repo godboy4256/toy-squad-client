@@ -1,3 +1,4 @@
+import theme from "@/styles/theme";
 import styled from "styled-components";
 
 type SignUpPositionProps = {
@@ -62,18 +63,20 @@ export const SignUpGuide = styled.h3`
 export const SignUpPosition = styled.div`
   cursor: pointer;
   width: 100%;
-  border: 1px solid
-    ${(props: SignUpPositionProps) => (props.active ? "#e0234d" : "#ccc")};
-  color: ${(props: SignUpPositionProps) => props.active && "#e0234d"};
+  border: 1px solid #ccc;
+  /* border: 1px solid
+    ${(props: SignUpPositionProps) => (props.active ? "#e0234d" : "#ccc")}; */
+  /* color: ${(props: SignUpPositionProps) => props.active && "#e0234d"}; */
   font-size: 1.4rem;
   padding: 15px;
   border-radius: 5px;
   margin-bottom: ${(props: SignUpPositionProps) =>
-    props.error ? "5px" : "30px"};
+    props.error ? "0" : "30px"};
   background-color: ${(props: SignUpPositionProps) =>
     props.active ? "#fff" : "#f7f7f7"};
   text-align: center;
   &:hover {
+    transition: 0.4s;
     background-color: #ccc;
   }
 `;

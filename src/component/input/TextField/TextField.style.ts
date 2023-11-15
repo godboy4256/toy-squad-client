@@ -7,6 +7,10 @@ export const TextFieldStyle = styled.input`
   padding: 10px;
   border-radius: 5px;
   margin-bottom: ${(props: { marginBottom: string }) => props.marginBottom};
+  &:focus {
+    transition: 0.4s;
+    border-color: ${({ theme }) => theme.color.red};
+  }
 `;
 
 export const TextFieldLabel = styled.label`
