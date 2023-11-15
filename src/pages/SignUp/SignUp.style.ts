@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+type SignUpPositionProps = {
+  active: boolean;
+  error: string;
+};
+
 export const SignUpContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,6 +31,7 @@ export const SignUpPositionBox = styled.div`
 export const SignUpLogo = styled.img`
   width: 130px;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 export const EmailAuth = styled.div`
   width: 100%;
@@ -51,4 +57,23 @@ export const SignUpGuide = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.m};
   word-break: break-all;
   margin-bottom: 30px;
+`;
+
+export const SignUpPosition = styled.div`
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid
+    ${(props: SignUpPositionProps) => (props.active ? "#e0234d" : "#ccc")};
+  color: ${(props: SignUpPositionProps) => props.active && "#e0234d"};
+  font-size: 1.4rem;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: ${(props: SignUpPositionProps) =>
+    props.error ? "5px" : "30px"};
+  background-color: ${(props: SignUpPositionProps) =>
+    props.active ? "#fff" : "#f7f7f7"};
+  text-align: center;
+  &:hover {
+    background-color: #ccc;
+  }
 `;

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { TextFieldStyle, TextFieldLabel } from "./TextField.style";
 import { FieldValues, UseFormRegister } from "react-hook-form";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 interface InputType extends React.InputHTMLAttributes<HTMLInputElement> {
   register?: UseFormRegister<FieldValues>;
@@ -8,10 +9,13 @@ interface InputType extends React.InputHTMLAttributes<HTMLInputElement> {
   params?: string;
   placeholder?: string;
   disabled?: boolean;
+  onChangeFunc?: () => void;
   onclickFunc?: () => void;
   onFocusFunc?: () => void;
   type?: string;
   value?: string;
+  marginBottom?: string;
+  errorsMessage?: string;
 }
 
 const TextField = ({
@@ -19,11 +23,14 @@ const TextField = ({
   label,
   params,
   placeholder,
+  onChangeFunc,
   onclickFunc,
   onFocusFunc,
   type,
   disabled,
   value,
+  marginBottom,
+  errorsMessage,
 }: InputType) => {
   return (
     <>
@@ -36,9 +43,11 @@ const TextField = ({
         placeholder={placeholder}
         onClick={onclickFunc}
         onFocus={onFocusFunc}
+        onChange={onChangeFunc}
         defaultValue={value}
+        marginBottom={errorsMessage ? "0" : marginBottom}
       />
-      {/* <ErrorMessage /> */}
+      {errorsMessage && <ErrorMessage message={errorsMessage} />}
     </>
   );
 };

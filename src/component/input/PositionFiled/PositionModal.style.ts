@@ -97,3 +97,14 @@ export const PositionConfirm = styled.div`
     }
   }
 `;
+
+export const PositionFieldView = styled.div`
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-align: center;
+  background-color: #f5f5f5;
+`;

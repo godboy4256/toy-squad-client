@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CommonCenterWrapper = styled.div`
   width: 1110px;

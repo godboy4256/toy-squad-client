@@ -6,7 +6,7 @@ export const TextFieldStyle = styled.input`
   font-size: ${({ theme }) => theme.fontSize.l};
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 30px;
+  margin-bottom: ${(props: { marginBottom: string }) => props.marginBottom};
 `;
 
 export const TextFieldLabel = styled.label`
