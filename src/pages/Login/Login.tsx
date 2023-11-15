@@ -40,8 +40,12 @@ const Login = () => {
         <span>이메일 로그인</span>
       </EmailLoginTitle>
       <LoginForm>
-        <TextField placeholder="이메일을 입력해주세요." />
-        <TextField type="password" placeholder="비밀번호를 입력해주세요." />
+        <TextField marginBottom="10px" placeholder="이메일을 입력해주세요." />
+        <TextField
+          marginBottom="50px"
+          type="password"
+          placeholder="비밀번호를 입력해주세요."
+        />
         <Button onClick={() => {}}>로그인</Button>
       </LoginForm>
       <AccountContainer>

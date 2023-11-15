@@ -17,6 +17,8 @@ import PositionModal from "@/component/input/PositionFiled/PositionModal";
 
 import { TextFieldLabel } from "@/component/input/TextField/TextField.style";
 import ErrorMessage from "@/component/input/ErrorMessage/ErrorMessage";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 type SignUpDataType = {
   email: string;
@@ -25,79 +27,73 @@ type SignUpDataType = {
   name: string;
 };
 
-const CustomNullErrorCheck = (target, setState, message) => {
-  if (!target) {
-    setState(message);
-  } else {
-    setState("");
-  }
-};
+const schema = yup
+  .object({
+    email: yup
+      .string()
+      .required("이메일을 입력해주세요.")
+      .email("이메일 형식이 올바르지 않습니다."),
+    password: yup
+      .string()
+      .required("비밀번호를 입력해주세요.")
+      .min(8, "비밀번호는 8글자 이상입니다.")
+      .max(15, "비밀번호는 15글자 이하입니다."),
+    password_check: yup
+      .string()
+      .required("비밀번호 확인을 입력해주세요.")
+      .oneOf([yup.ref("password"), null], "비밀번호 확인이 올바르지 않습니다."),
+    name: yup
+      .string()
+      .required("이름을 입력해주세요.")
+      .min(2, "이름은 두 글자 이상입니다.")
+      .max(10, "이름은 10자 이하입니다."),
+  })
+  .required();
 
 const SignUp = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   const [positionModal, setPositionModal] = useState(false);
-
+  const [positionError, setPositionError] = useState("");
   const [position, setPosition] = useState({
     name: "",
     category: "",
   });
 
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [passwordCheckError, setPasswordCheckError] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [positionError, setPositionError] = useState("");
-
   const navigate = useNavigate();
   const onClickPosition = (isOpen: boolean) => setPositionModal(isOpen);
-  const onSubmit = async (data: SignUpDataType) => {
-    CustomNullErrorCheck(data.email, setEmailError, "이메일을 입력해주세요.");
-    CustomNullErrorCheck(data.name, setNameError, "이름을 입력해주세요.");
-    CustomNullErrorCheck(
-      data.password,
-      setPasswordError,
-      "비밀번호를 입력해주세요."
-    );
-    CustomNullErrorCheck(
-      data.password_check,
-      setPasswordCheckError,
-      "비밀번호 확인을 입력해주세요."
-    );
-    CustomNullErrorCheck(
-      position.name,
-      setPositionError,
-      "포지션을 선택해주세요."
-    );
-
-    if (
-      !(
-        data.name &&
-        data.email &&
-        data.password &&
-        data.password_check &&
-        position.name
-      )
-    ) {
-      return;
+  const customSubmit = (event) => {
+    event.preventDefault();
+    if (!position.name) {
+      setPositionError("포지션을 선택해주세요.");
+    } else {
+      setPositionError("");
     }
-
-    try {
-      const postData = {
-        email: data.email,
-        password: data.password,
-        name: data.name,
-        position_category: position.category,
-        position: position.name,
-      };
-      await axios.post(
-        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/join",
-        postData
-      );
-      alert("회원가입이 완료되었습니다.");
-      navigate("/login");
-    } catch (error) {
-      alert(error.response.data.message);
-    }
+    handleSubmit(async (formData: SignUpDataType) => {
+      try {
+        if (!position.name) return;
+        const postData = {
+          email: formData.email,
+          password: formData.password,
+          name: formData.name,
+          position_category: position.category,
+          position: position.name,
+        };
+        await axios.post(
+          "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/join",
+          postData
+        );
+        alert("회원가입이 완료되었습니다.");
+        navigate("/login");
+      } catch (error) {
+        alert(error.response.data.message);
+      }
+    })(event);
   };
 
   return (
@@ -108,14 +104,14 @@ const SignUp = () => {
         alt="header logo"
       />
       <SignUpTitle>간편 회원가입</SignUpTitle>
-      <SignUpForm onSubmit={handleSubmit(onSubmit)}>
+      <SignUpForm onSubmit={customSubmit}>
         <TextField
           register={register}
           params="email"
           label="이메일"
           placeholder="이메일을 입력하세요."
           marginBottom="30px"
-          errorsMessage={emailError}
+          errorsMessage={errors?.email?.message}
         />
         <TextField
           register={register}
@@ -124,7 +120,7 @@ const SignUp = () => {
           label="비밀번호"
           placeholder="비밀번호을 입력해주세요."
           marginBottom="30px"
-          errorsMessage={passwordError}
+          errorsMessage={errors?.password?.message}
         />
         <TextField
           register={register}
@@ -133,7 +129,7 @@ const SignUp = () => {
           label="비밀번호 확인"
           placeholder="비밀번호를 확인해주세요."
           marginBottom="30px"
-          errorsMessage={passwordCheckError}
+          errorsMessage={errors?.password_check?.message}
         />
         <TextField
           register={register}
@@ -141,7 +137,7 @@ const SignUp = () => {
           label="이름"
           placeholder="이름을 입력해주세요."
           marginBottom="30px"
-          errorsMessage={nameError}
+          errorsMessage={errors?.name?.message}
         />
         <TextFieldLabel>나의 포지션</TextFieldLabel>
         <SignUpPosition
