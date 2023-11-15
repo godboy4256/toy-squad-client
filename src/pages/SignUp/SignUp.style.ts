@@ -1,4 +1,3 @@
-import theme from "@/styles/theme";
 import styled from "styled-components";
 
 type SignUpPositionProps = {
@@ -64,9 +63,6 @@ export const SignUpPosition = styled.div`
   cursor: pointer;
   width: 100%;
   border: 1px solid #ccc;
-  /* border: 1px solid
-    ${(props: SignUpPositionProps) => (props.active ? "#e0234d" : "#ccc")}; */
-  /* color: ${(props: SignUpPositionProps) => props.active && "#e0234d"}; */
   font-size: 1.4rem;
   padding: 15px;
   border-radius: 5px;
