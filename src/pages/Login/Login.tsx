@@ -53,8 +53,7 @@ const Login = () => {
       };
       const response = await axios.post(
         "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in",
-        postData,
-        { withCredentials: true }
+        postData
       );
       sessionStorage.setItem("accessToken", response?.data?.access_token);
       sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
