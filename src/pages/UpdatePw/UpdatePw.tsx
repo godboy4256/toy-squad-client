@@ -11,11 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 // import axios from "axios";
 import LogoImg from "@/assets/images/common/logo.svg";
-import {
-  AccountButton,
-  AccountContainer,
-  LoginLogo,
-} from "../Login/Login.style";
+import { LoginLogo } from "../Login/Login.style";
 
 type FindPwDataType = {
   email: string;
