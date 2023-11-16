@@ -89,4 +89,6 @@ export const AccountButton = styled.a`
   }
 `;
 
-export const LoginForm = styled.form``;
+export const LoginForm = styled.form`
+  width: 100%;
+`;

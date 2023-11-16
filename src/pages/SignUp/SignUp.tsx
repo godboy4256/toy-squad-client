@@ -32,7 +32,10 @@ const schema = yup
     email: yup
       .string()
       .required("이메일을 입력해주세요.")
-      .email("이메일 형식이 올바르지 않습니다."),
+      .matches(
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+        "올바른 이메일 형식이 아닙니다."
+      ),
     password: yup
       .string()
       .required("비밀번호를 입력해주세요.")

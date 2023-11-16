@@ -49,16 +49,18 @@ const UpdatePw = () => {
         링크를 통해 인증을 완료했습니다. 비밀번호를 변경할 수 있습니다.
       </UpdatePwGuide>
       <UpdatePwForm onSubmit={handleSubmit(onSubmit)}>
-        <TextField type="password" placeholder="새 비밀번호 입력" />
-        <TextField type="password" placeholder="새 비밀번호 확인" />
+        <TextField
+          marginBottom="10px"
+          type="password"
+          placeholder="새 비밀번호 입력"
+        />
+        <TextField
+          marginBottom="30px"
+          type="password"
+          placeholder="새 비밀번호 확인"
+        />
         <Button>비밀번호 변경</Button>
       </UpdatePwForm>
-      <AccountContainer>
-        <AccountButton onClick={() => navigate("/login")}>로그인</AccountButton>
-        <AccountButton onClick={() => navigate("/signUp")}>
-          회원가입
-        </AccountButton>
-      </AccountContainer>
     </UpdatePwContainer>
   );
 };
