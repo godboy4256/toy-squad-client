@@ -45,6 +45,7 @@ const Login = () => {
     resolver: yupResolver(schema),
   });
   const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     try {
       const postData = {
@@ -57,7 +58,13 @@ const Login = () => {
       );
       sessionStorage.setItem("accessToken", response?.data?.access_token);
       sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
-      // navigate("/main");
+
+      if (sessionStorage.getItem("login_from_path")) {
+        navigate(sessionStorage.getItem("login_from_path"));
+        sessionStorage.setItem("login_from_path", "");
+      } else {
+        navigate("/main");
+      }
     } catch (error) {
       alert(error.response.data.message);
     }
