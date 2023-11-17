@@ -15,7 +15,7 @@ import {
   LoginForm,
   LoginLogo,
 } from "./Login.style";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TextField from "@/component/input/TextField/TextField";
 import Button from "@/component/input/Button/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
