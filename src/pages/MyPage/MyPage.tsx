@@ -17,10 +17,19 @@ import {
   MyPageWrapper,
 } from "./MyPage.style";
 import UserDelete from "./UserDelete/UserDelete";
+import axios from "axios";
 
 const MyPageSideMenu = () => {
   const navigate = useNavigate();
   const [path, setPath] = useState("my_info");
+  const getMyPage = async () => {
+    const response = await axios.get(
+      "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/mypage"
+      // { withCredentials: true }
+    );
+    console.log(response);
+  };
+  getMyPage();
   const onClickRouting = (path: string) => {
     setPath(path);
     navigate(path);

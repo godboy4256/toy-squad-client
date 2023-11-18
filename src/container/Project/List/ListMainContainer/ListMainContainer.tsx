@@ -1,6 +1,6 @@
-import ProjectCard from '@/component/common/ProjectCard/ProjectCard';
-import { ProjectListMain, ProjectListSelect } from './ListMainContainer.style';
-import React from 'react';
+import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
+import { ProjectListMain, ProjectListSelect } from "./ListMainContainer.style";
+import React from "react";
 
 export default function ListMainContainer() {
   return (

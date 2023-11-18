@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProjectListHeader = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 168px;
+  padding-top: 100px;
 `;
 export const ProjectListFilterButton = styled.button`
   width: 70px;

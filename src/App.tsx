@@ -15,6 +15,7 @@ import MyPage from "./pages/MyPage/MyPage";
 import ProjectDetail from "./pages/Project/Detail/ProjectDetail";
 import FindPw from "./pages/FindPw/FindPw";
 import UpdatePw from "./pages/UpdatePw/UpdatePw";
+import MainPage from "./pages/MainPage/MainPage";
 
 function App() {
   const isLayout: string[] = ["/login", "/signUp", "/findPw", "/updatePw"];
@@ -31,7 +32,7 @@ function App() {
         {!isLayout.includes(location.pathname) && <Header />}
         <div className="App">
           <Routes>
-            <Route path="/main" element={<div>메인 페이지</div>} />
+            <Route path="/main" element={<MainPage />} />
             <Route path="/projects/detail/*" element={<ProjectDetail />} />
             <Route path="/projects" element={<ProjectList />} />
             <Route path="/projects/new" element={<ProjectNew />} />

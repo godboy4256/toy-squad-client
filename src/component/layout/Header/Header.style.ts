@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 100001;
   background-color: white;
   & > div {
     height: 100%;

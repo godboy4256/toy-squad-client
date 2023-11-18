@@ -46,6 +46,19 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
+  const onClickSocialLogin = async (socail: "G" | "K") => {
+    if (socail === "G") {
+      await axios.get(
+        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/google"
+      );
+    }
+    if (socail === "K") {
+      await axios.get(
+        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/kakao"
+      );
+    }
+  };
+
   const onSubmit = async (data) => {
     try {
       const postData = {
@@ -54,7 +67,8 @@ const Login = () => {
       };
       const response = await axios.post(
         "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in",
-        postData
+        postData,
+        { withCredentials: false }
       );
       sessionStorage.setItem("accessToken", response?.data?.access_token);
       sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
@@ -70,6 +84,13 @@ const Login = () => {
     }
   };
 
+  // const reflash = async () => {
+  //   const response = await axios.get(
+  //     "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/refresh"
+  //   );
+  //   console.log(response);
+  // };
+
   return (
     <LoginContainer>
       <LoginLogo
@@ -81,7 +102,7 @@ const Login = () => {
         <GoogleIcon src={GoogleLogoImg} />
         구글로 로그인하기
       </LoginButtonGoogle>
-      <LoginButtonKaKao>
+      <LoginButtonKaKao onClick={() => onClickSocialLogin("K")}>
         <KaKaoIcon src={KakaoLogoImg} />
         카카오로 로그인하기
       </LoginButtonKaKao>
