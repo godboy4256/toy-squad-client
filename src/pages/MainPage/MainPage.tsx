@@ -8,7 +8,6 @@ import {
   MainPageUserList,
   MainSection,
   MainSectionHeader,
-  MainSectionTopProject,
   MainSliderWrapper,
 } from "./MainPage.style";
 import MainBannerIMG from "@/assets/images/common/main_banner.jpg";
@@ -17,7 +16,6 @@ import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
 import MoreArrowIMG from "@/assets/images/common/more_arrow.svg";
 import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
-import ExpoCard from "@/component/common/ExpoListCard/ExpoCard";
 
 const ExampleUserList = [
   {
