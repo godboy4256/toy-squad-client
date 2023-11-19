@@ -1,14 +1,14 @@
-import React from 'react';
-import { faStar, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import UserProfile from '@/assets/images/common/default_profile.svg';
+import React from "react";
+import { faStar, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import UserProfile from "@/assets/images/common/default_profile.svg";
 import {
   MiniProfileLikeAndRating,
   MiniProfileName,
   MiniProfilePosition,
   MiniProfileImage,
   MiniProfileContainer,
-} from './MiniProfileCard.style';
+} from "./MiniProfileCard.style";
 
 type ApplicationCardPropsType = {
   name: string;

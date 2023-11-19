@@ -5,13 +5,92 @@ import {
   MainBanner,
   MainContainer,
   MainPageProjectList,
+  MainPageUserList,
   MainSection,
+  MainSectionHeader,
+  MainSectionTopProject,
   MainSliderWrapper,
 } from "./MainPage.style";
 import MainBannerIMG from "@/assets/images/common/main_banner.jpg";
 import { Link } from "react-router-dom";
 import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
+import MoreArrowIMG from "@/assets/images/common/more_arrow.svg";
+import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
+import ExpoCard from "@/component/common/ExpoListCard/ExpoCard";
+
+const ExampleUserList = [
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+  {
+    name: "김민수",
+    position: "웹 프론트엔드 개발자",
+    level: "주니어",
+    rating: 5,
+    like: 30,
+  },
+];
 
 const MainPage = () => {
   let settings = {
@@ -63,14 +142,16 @@ const MainPage = () => {
           </MainSliderWrapper>
         </Slider>
       </MainBanner>
+
       <MainSection>
         <CommonCenterWrapper>
-          <h2>인기 완성 프로젝트 TOP 3</h2>
-        </CommonCenterWrapper>
-      </MainSection>
-      <MainSection>
-        <CommonCenterWrapper>
-          <h2>팀원을 모집중인 프로젝트</h2>
+          <MainSectionHeader>
+            <h2>팀원을 모집중인 프로젝트</h2>
+            <Link to="/projects">
+              모두 보기
+              <img src={MoreArrowIMG} alt="more arrow icon" />
+            </Link>
+          </MainSectionHeader>
           <MainPageProjectList>
             {[1, 2, 3, 4, 5, 6, 7, 8].fill(1).map((el) => {
               return <ProjectCard id={el} />;
@@ -80,7 +161,26 @@ const MainPage = () => {
       </MainSection>
       <MainSection>
         <CommonCenterWrapper>
-          <h2>프로젝트를 함께할 팀원 모집</h2>
+          <MainSectionHeader>
+            <h2>프로젝트를 함께할 팀원 모집</h2>
+            <Link to="/users">
+              모두 보기
+              <img src={MoreArrowIMG} alt="more arrow icon" />
+            </Link>
+          </MainSectionHeader>
+          <MainPageUserList>
+            {ExampleUserList.map((user_info) => {
+              return (
+                <MiniProfileCard
+                  name={user_info.name}
+                  position={user_info.position}
+                  level={user_info.level}
+                  rating={user_info.rating}
+                  like={user_info.like}
+                />
+              );
+            })}
+          </MainPageUserList>
         </CommonCenterWrapper>
       </MainSection>
     </MainContainer>
