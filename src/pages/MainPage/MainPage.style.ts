@@ -64,12 +64,28 @@ export const BannerContent = styled.div`
 `;
 
 export const MainSection = styled.section`
-  & > div > h2 {
+  padding: 50px 0;
+`;
+
+export const MainSectionHeader = styled.div`
+  & > h2 {
     font-size: 2.4rem;
     font-weight: 600;
-    margin-bottom: 50px;
   }
-  padding: 50px 0;
+  & > a {
+    padding: 11px 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0b2239;
+    border-radius: 30px;
+    font-size: 1.4rem;
+  }
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin-bottom: 20px;
 `;
 
 export const MainPageProjectList = styled.div`
@@ -79,3 +95,18 @@ export const MainPageProjectList = styled.div`
     width: 25%;
   }
 `;
+export const MainPageUserList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  & > div {
+    width: 49%;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+`;
+
+export const MainSectionTopProject = styled.div``;
