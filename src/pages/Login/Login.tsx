@@ -67,8 +67,7 @@ const Login = () => {
       };
       const response = await axios.post(
         "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in",
-        postData,
-        { withCredentials: false }
+        postData
       );
       sessionStorage.setItem("accessToken", response?.data?.access_token);
       sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
@@ -84,13 +83,6 @@ const Login = () => {
     }
   };
 
-  // const reflash = async () => {
-  //   const response = await axios.get(
-  //     "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/refresh"
-  //   );
-  //   console.log(response);
-  // };
-
   return (
     <LoginContainer>
       <LoginLogo
@@ -98,7 +90,7 @@ const Login = () => {
         src={LogoImg}
         alt="login page logo"
       />
-      <LoginButtonGoogle>
+      <LoginButtonGoogle onClick={() => onClickSocialLogin("G")}>
         <GoogleIcon src={GoogleLogoImg} />
         구글로 로그인하기
       </LoginButtonGoogle>
