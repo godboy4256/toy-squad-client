@@ -16,6 +16,7 @@ import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
 import MoreArrowIMG from "@/assets/images/common/more_arrow.svg";
 import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
+import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
 
 const ExampleUserList = [
   {
@@ -140,7 +141,6 @@ const MainPage = () => {
           </MainSliderWrapper>
         </Slider>
       </MainBanner>
-
       <MainSection>
         <CommonCenterWrapper>
           <MainSectionHeader>
@@ -151,8 +151,10 @@ const MainPage = () => {
             </Link>
           </MainSectionHeader>
           <MainPageProjectList>
-            {[1, 2, 3, 4, 5, 6, 7, 8].fill(1).map((el) => {
-              return <ProjectCard id={el} />;
+            {[1, 2, 3, 4, 5, 6, 7, 8].fill(1).map((el, idx) => {
+              return (
+                <ProjectCard key={ListKeyGenerater(idx, String(el))} id={el} />
+              );
             })}
           </MainPageProjectList>
         </CommonCenterWrapper>
@@ -167,9 +169,10 @@ const MainPage = () => {
             </Link>
           </MainSectionHeader>
           <MainPageUserList>
-            {ExampleUserList.map((user_info) => {
+            {ExampleUserList.map((user_info, idx) => {
               return (
                 <MiniProfileCard
+                  key={ListKeyGenerater(idx, user_info.name)}
                   name={user_info.name}
                   position={user_info.position}
                   level={user_info.level}

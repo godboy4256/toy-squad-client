@@ -16,6 +16,7 @@ import ProjectDetail from "./pages/Project/Detail/ProjectDetail";
 import FindPw from "./pages/FindPw/FindPw";
 import UpdatePw from "./pages/UpdatePw/UpdatePw";
 import MainPage from "./pages/MainPage/MainPage";
+import UserList from "./pages/User/List/UserList";
 
 function App() {
   const isLayout: string[] = ["/login", "/signUp", "/findPw", "/updatePw"];
@@ -36,6 +37,7 @@ function App() {
             <Route path="/projects/detail/*" element={<ProjectDetail />} />
             <Route path="/projects" element={<ProjectList />} />
             <Route path="/projects/new" element={<ProjectNew />} />
+            <Route path="/users/*" element={<UserList />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/mypage/*" element={<MyPage />} />
