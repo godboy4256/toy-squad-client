@@ -15,6 +15,9 @@ export const MainBanner = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 500px) {
+      display: none !important;
+    }
   }
   & .slick-next {
     right: -100px;
@@ -24,32 +27,31 @@ export const MainBanner = styled.section`
     left: -100px;
     z-index: 100000;
   }
+  @media screen and (max-width: 500px) {
+    width: 94vw;
+  }
 `;
 
 export const MainSliderWrapper = styled.div`
   width: 100%;
   height: 350px;
   position: relative;
-  border-radius: 30px;
-  & > img {
-    width: 100%;
-    height: 100%;
-  }
+  background-color: #ccc;
+  border-radius: 20px;
   @media screen and (max-width: 500px) {
-    height: 200px;
-    /* & > img {
-      width: 100%;
-      height: auto;
-    } */
+    height: 240px;
   }
 `;
 
 export const BannerContent = styled.div`
-  width: 397px;
   & > h2 {
     font-size: 3.2rem;
     font-weight: 700;
     padding-bottom: 40px;
+    @media screen and (max-width: 500px) {
+      font-size: 2rem;
+      padding-bottom: 24px;
+    }
   }
   & > a {
     width: fit-content;
@@ -61,14 +63,31 @@ export const BannerContent = styled.div`
     border-radius: 20px;
     line-height: 48px;
     margin-bottom: 20px;
+    @media screen and (max-width: 500px) {
+      font-size: 1.3rem;
+      padding: 0 20px;
+      margin-bottom: 15px;
+      line-height: 40px;
+    }
   }
   & > p {
     font-size: 1.6rem;
     line-height: 1.4;
+    @media screen and (max-width: 500px) {
+      font-size: 1.3rem;
+    }
   }
+  width: 397px;
   position: absolute;
   top: 79px;
   left: 55px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 30px;
+  }
 `;
 
 export const MainSection = styled.section`
@@ -101,6 +120,9 @@ export const MainPageProjectList = styled.div`
   flex-wrap: wrap;
   & > div {
     width: 25%;
+    @media screen and (max-width: 500px) {
+      width: 50%;
+    }
   }
 `;
 export const MainPageUserList = styled.div`

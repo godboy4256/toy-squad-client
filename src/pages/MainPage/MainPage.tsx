@@ -10,7 +10,7 @@ import {
   MainSectionHeader,
   MainSliderWrapper,
 } from "./MainPage.style";
-import MainBannerIMG from "@/assets/images/common/main_banner.jpg";
+// import MainBannerIMG from "@/assets/images/common/main_banner.jpg";
 import { Link } from "react-router-dom";
 import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
@@ -115,7 +115,7 @@ const MainPage = () => {
                 모집하세요. 프로젝트를 함께 할 팀원을 모집
               </p>
             </BannerContent>
-            <img src={MainBannerIMG} alt="main banner slider 1" />
+            {/* <img src={MainBannerIMG} alt="main banner slider 1" /> */}
           </MainSliderWrapper>
           <MainSliderWrapper>
             <BannerContent>
@@ -126,7 +126,7 @@ const MainPage = () => {
                 모집하세요. 프로젝트를 함께 할 팀원을 모집
               </p>
             </BannerContent>
-            <img src={MainBannerIMG} alt="main banner slider 2" />
+            {/* <img src={MainBannerIMG} alt="main banner slider 2" /> */}
           </MainSliderWrapper>
           <MainSliderWrapper>
             <BannerContent>
@@ -137,7 +137,7 @@ const MainPage = () => {
                 모집하세요. 프로젝트를 함께 할 팀원을 모집
               </p>
             </BannerContent>
-            <img src={MainBannerIMG} alt="main banner slider 3" />
+            {/* <img src={MainBannerIMG} alt="main banner slider 3" /> */}
           </MainSliderWrapper>
         </Slider>
       </MainBanner>
