@@ -30,8 +30,9 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {!isLayout.includes(location.pathname) && <Header />}
+
         <div className="App">
+          {!isLayout.includes(location.pathname) && <Header />}
           <Routes>
             <Route path="/main" element={<MainPage />} />
             <Route path="/projects/detail/*" element={<ProjectDetail />} />
@@ -44,8 +45,8 @@ function App() {
             <Route path="/findPw" element={<FindPw />} />
             <Route path="/updatePw" element={<UpdatePw />} />
           </Routes>
+          {!isLayout.includes(location.pathname) && <Footer />}
         </div>
-        {!isLayout.includes(location.pathname) && <Footer />}
       </ThemeProvider>
     </>
   );

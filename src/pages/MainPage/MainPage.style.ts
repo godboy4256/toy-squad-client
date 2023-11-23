@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  padding-top: 60px;
+  padding-top: 50px;
 `;
 export const MainBanner = styled.section`
-  width: 1110px;
+  max-width: 1110px;
+  width: 100vw;
   margin: 0 auto;
   & .slick-arrow {
     width: 48px;
@@ -33,6 +34,13 @@ export const MainSliderWrapper = styled.div`
   & > img {
     width: 100%;
     height: 100%;
+  }
+  @media screen and (max-width: 500px) {
+    height: 200px;
+    /* & > img {
+      width: 100%;
+      height: auto;
+    } */
   }
 `;
 
