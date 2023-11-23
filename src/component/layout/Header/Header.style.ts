@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  width: 100%;
+  width: 100vw;
   height: 90px;
   border-bottom: 1px solid #ccc;
   position: fixed;
@@ -14,6 +14,9 @@ export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
   }
+  @media screen and (max-width: 500px) {
+    height: 70px;
+  }
 `;
 
 export const HeaderNav = styled.nav`
@@ -23,6 +26,10 @@ export const HeaderNav = styled.nav`
 
 export const HeaderLogo = styled.img`
   cursor: pointer;
+  @media screen and (max-width: 500px) {
+    width: 150px;
+    margin: 0 auto;
+  }
 `;
 
 export const HeaderNavButton = styled.button`
@@ -56,5 +63,8 @@ export const HeaderInfoButton = styled.button`
 `;
 
 export const HeaderMargin = styled.div`
-  margin-top: 90px;
+  height: 90px;
+  @media screen and (max-width: 500px) {
+    height: 70px;
+  }
 `;
