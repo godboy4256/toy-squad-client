@@ -42,6 +42,9 @@ const Header = () => {
               <HeaderNavButton onClick={() => navigate("/expos")}>
                 전시회
               </HeaderNavButton>
+              <HeaderNavButton onClick={() => navigate("/mypage")}>
+                마이페이지
+              </HeaderNavButton>
             </HeaderNav>
             <HeaderInfoContainer>
               <HeaderInfoButton>
