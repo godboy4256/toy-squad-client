@@ -15,7 +15,7 @@ import {
   LoginForm,
   LoginLogo,
 } from "./Login.style";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@/component/input/TextField/TextField";
 import Button from "@/component/input/Button/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -102,11 +102,15 @@ const Login = () => {
       />
       <LoginButtonGoogle onClick={() => onClickSocialLogin("G")}>
         <GoogleIcon src={GoogleLogoImg} />
-        구글로 로그인하기
+        <Link to="https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/google">
+          구글로 로그인하기
+        </Link>
       </LoginButtonGoogle>
       <LoginButtonKaKao onClick={() => onClickSocialLogin("K")}>
         <KaKaoIcon src={KakaoLogoImg} />
-        카카오로 로그인하기
+        <Link to="https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/kakao">
+          카카오로 로그인하기
+        </Link>
       </LoginButtonKaKao>
       <EmailLoginTitle>
         <span>이메일 로그인</span>

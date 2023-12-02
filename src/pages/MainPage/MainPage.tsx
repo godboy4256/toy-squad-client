@@ -10,7 +10,6 @@ import {
   MainSectionHeader,
   MainSliderWrapper,
 } from "./MainPage.style";
-// import MainBannerIMG from "@/assets/images/common/main_banner.jpg";
 import { Link } from "react-router-dom";
 import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
