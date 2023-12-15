@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { useForm } from 'react-hook-form';
+import * as React from "react";
+import { useForm } from "react-hook-form";
 import {
   CheckBoxInput,
   CheckBoxStyle,
   CheckIcon,
   Label,
   Span,
-} from './CheckBox.style';
+} from "./CheckBox.style";
 
 interface CheckBoxProps {
   name: string;

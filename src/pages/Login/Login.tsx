@@ -100,17 +100,13 @@ const Login = () => {
         src={LogoImg}
         alt="login page logo"
       />
-      <LoginButtonGoogle onClick={() => onClickSocialLogin("G")}>
+      <LoginButtonGoogle>
         <GoogleIcon src={GoogleLogoImg} />
-        <Link to="https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/google">
-          구글로 로그인하기
-        </Link>
+        구글로 로그인하기
       </LoginButtonGoogle>
-      <LoginButtonKaKao onClick={() => onClickSocialLogin("K")}>
+      <LoginButtonKaKao>
         <KaKaoIcon src={KakaoLogoImg} />
-        <Link to="https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/kakao">
-          카카오로 로그인하기
-        </Link>
+        카카오로 로그인하기
       </LoginButtonKaKao>
       <EmailLoginTitle>
         <span>이메일 로그인</span>
