@@ -15,7 +15,7 @@ import {
   LoginForm,
   LoginLogo,
 } from "./Login.style";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TextField from "@/component/input/TextField/TextField";
 import Button from "@/component/input/Button/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -46,28 +46,28 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
-  const onClickSocialLogin = async (socail: "G" | "K") => {
-    if (socail === "G") {
-      await axios.get(
-        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/google",
-        {
-          headers: {
-            "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-          },
-        }
-      );
-    }
-    if (socail === "K") {
-      await axios.get(
-        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/kakao",
-        {
-          headers: {
-            "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-          },
-        }
-      );
-    }
-  };
+  // const onClickSocialLogin = async (socail: "G" | "K") => {
+  //   if (socail === "G") {
+  //     await axios.get(
+  //       "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/google",
+  //       {
+  //         headers: {
+  //           "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+  //         },
+  //       }
+  //     );
+  //   }
+  //   if (socail === "K") {
+  //     await axios.get(
+  //       "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/kakao",
+  //       {
+  //         headers: {
+  //           "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+  //         },
+  //       }
+  //     );
+  //   }
+  // };
 
   const onSubmit = async (data) => {
     try {
