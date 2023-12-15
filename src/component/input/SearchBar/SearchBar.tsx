@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Circle, Input, SearchStyle } from "./Search.style";
+import { Circle, Input, SearchStyle } from "./SearchBar.style";
 import SearchIcon from "@/assets/images/common/search.svg";
 
-function Search() {
+function SearchBar() {
   return (
     <SearchStyle>
       <Input placeholder="검색어를 입력해주세요..."></Input>
@@ -13,4 +13,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchBar;

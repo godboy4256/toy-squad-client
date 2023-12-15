@@ -30,6 +30,11 @@ export const LoginButtonGoogle = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  & > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 `;
 export const LoginButtonKaKao = styled.button`
   background-color: #fce51e;
@@ -43,6 +48,11 @@ export const LoginButtonKaKao = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  & > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 `;
 export const GoogleIcon = styled.img`
   width: 19px;
