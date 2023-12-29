@@ -6,9 +6,9 @@ export const TextFieldStyle = styled.input`
   font-size: ${({ theme }) => theme.fontSize.l};
   padding: 10px;
   border-radius: 5px;
+  transition: 0.4s;
   margin-bottom: ${(props: { marginBottom: string }) => props.marginBottom};
   &:focus {
-    transition: 0.4s;
     border-color: ${({ theme }) => theme.color.red};
   }
 `;

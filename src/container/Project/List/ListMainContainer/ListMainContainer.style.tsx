@@ -44,3 +44,14 @@ export const ProjectListWrapper = styled.div`
   grid-row-gap: 20px;
   grid-column-gap: 0px;
 `;
+
+export const PrjectListHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  & > button {
+    width: fit-content;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+  }
+`;

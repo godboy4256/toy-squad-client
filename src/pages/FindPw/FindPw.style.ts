@@ -21,11 +21,12 @@ export const FindPwGuide = styled.h2`
 `;
 
 export const FindPwForm = styled.form`
-  display: flex;
   width: 100%;
-  & button {
-    width: 40%;
-    font-size: 1.3rem;
-    margin-left: 10px;
+  & > button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 `;
