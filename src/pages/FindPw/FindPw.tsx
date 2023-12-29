@@ -72,7 +72,7 @@ const FindPw = () => {
           params="email"
           register={register}
           marginBottom="10px"
-          placeholder="비밀번호를 찾을 이메일을 입력해주세요."
+          placeholder="이메일을 입력해주세요."
           errorsMessage={errors?.email?.message}
         />
         <Button>비밀번호 찾기</Button>
