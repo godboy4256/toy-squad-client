@@ -1,5 +1,5 @@
 import TextField from "@/component/input/TextField/TextField";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   UpdatePwContainer,
   UpdatePwForm,
@@ -9,29 +9,64 @@ import {
 import Button from "@/component/input/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-// import axios from "axios";
 import LogoImg from "@/assets/images/common/logo.svg";
 import { LoginLogo } from "../Login/Login.style";
+import axios from "axios";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 type FindPwDataType = {
-  email: string;
+  password: string;
+  password_check: string;
 };
 
+const schema = yup
+  .object({
+    password: yup.string().required("새로운 비밀번호를 입력해주세요."),
+    password_check: yup
+      .string()
+      .required("비밀번호 확인을 입력해주세요.")
+      .oneOf([yup.ref("password"), null], "비밀번호 확인이 올바르지 않습니다."),
+  })
+  .required();
+
 const UpdatePw = () => {
-  const { handleSubmit } = useForm();
   const navigate = useNavigate();
+  const urlParams = new URL(location.href).searchParams;
+
+  useEffect(() => {
+    if (!urlParams.size) {
+      navigate("/main");
+    }
+  }, []);
+
+  const authEmail = urlParams.get("email");
+  const authToken = urlParams.get("token");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
   const onSubmit = async (data: FindPwDataType) => {
-    // try {
-    //   const postData = {
-    //     email: data.email,
-    //   };
-    //   await axios.post("http://localhost:3001/api/join", postData);
-    //   alert("회원가입이 완료되었습니다.");
-    //   navigate("/login");
-    // } catch (error) {
-    //   alert(error.response.data.message);
-    // }
-    alert("비밀번호가 변경되었습니다.");
+    try {
+      const postData = {
+        email: authEmail,
+        token: authToken,
+        newPassword: data.password,
+      };
+      await axios.patch(
+        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/users/pwd",
+        postData
+      );
+      alert("비밀번호가 변경되었습니다.");
+      navigate("/login");
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
   return (
     <UpdatePwContainer>
@@ -46,14 +81,20 @@ const UpdatePw = () => {
       </UpdatePwGuide>
       <UpdatePwForm onSubmit={handleSubmit(onSubmit)}>
         <TextField
-          marginBottom="10px"
+          register={register}
+          params="password"
           type="password"
-          placeholder="새 비밀번호 입력"
+          placeholder="비밀번호을 입력해주세요."
+          marginBottom="30px"
+          errorsMessage={errors?.password?.message}
         />
         <TextField
-          marginBottom="30px"
+          register={register}
+          params="password_check"
           type="password"
-          placeholder="새 비밀번호 확인"
+          placeholder="비밀번호를 확인해주세요."
+          marginBottom="30px"
+          errorsMessage={errors?.password_check?.message}
         />
         <Button>비밀번호 변경</Button>
       </UpdatePwForm>

@@ -46,29 +46,6 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
-  // const onClickSocialLogin = async (socail: "G" | "K") => {
-  //   if (socail === "G") {
-  //     await axios.get(
-  //       "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/google",
-  //       {
-  //         headers: {
-  //           "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-  //         },
-  //       }
-  //     );
-  //   }
-  //   if (socail === "K") {
-  //     await axios.get(
-  //       "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in/kakao",
-  //       {
-  //         headers: {
-  //           "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-  //         },
-  //       }
-  //     );
-  //   }
-  // };
-
   const onSubmit = async (data) => {
     try {
       const postData = {
