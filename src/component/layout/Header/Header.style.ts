@@ -79,10 +79,12 @@ export const HeaderInfoButton = styled.button`
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  font-weight: 700;
   align-items: center;
   justify-content: center;
   margin-left: 1rem;
   display: flex;
+  color: white;
   background-color: #e0234d;
   @media screen and (max-width: 500px) {
     width: 40px;

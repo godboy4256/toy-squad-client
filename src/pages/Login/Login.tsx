@@ -21,7 +21,7 @@ import Button from "@/component/input/Button/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import { SendToServer } from "@/utils/SendToServer";
 
 const schema = yup
   .object({
@@ -45,29 +45,28 @@ const Login = () => {
     resolver: yupResolver(schema),
   });
   const navigate = useNavigate();
+  const onSubmit = (data) => {
+    const postData = {
+      email: data.email,
+      password: data.password,
+    };
+    SendToServer({
+      path: "sign-in",
+      method: "POST",
+      data: postData,
+      callBackSuccess: (response) => {
+        sessionStorage.setItem("accessToken", response?.data?.access_token);
+        sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
+        sessionStorage.setItem("user_id", response?.data?.user_id);
 
-  const onSubmit = async (data) => {
-    try {
-      const postData = {
-        email: data.email,
-        password: data.password,
-      };
-      const response = await axios.post(
-        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/sign-in",
-        postData
-      );
-      sessionStorage.setItem("accessToken", response?.data?.access_token);
-      sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
-
-      if (sessionStorage.getItem("login_from_path")) {
-        navigate(sessionStorage.getItem("login_from_path"));
-        sessionStorage.setItem("login_from_path", "");
-      } else {
-        navigate("/main");
-      }
-    } catch (error) {
-      alert(error.response.data.message);
-    }
+        if (sessionStorage.getItem("login_from_path")) {
+          navigate(sessionStorage.getItem("login_from_path"));
+          sessionStorage.setItem("login_from_path", "");
+        } else {
+          navigate("/main");
+        }
+      },
+    });
   };
 
   return (

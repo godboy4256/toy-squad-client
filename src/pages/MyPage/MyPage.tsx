@@ -17,19 +17,28 @@ import {
   MyPageWrapper,
 } from "./MyPage.style";
 import UserDelete from "./UserDelete/UserDelete";
-import axios from "axios";
+import { SendToServer } from "@/utils/SendToServer";
+import WithAuth from "@/component/common/WithAuth/WithAuth";
 
 const MyPageSideMenu = () => {
   const navigate = useNavigate();
   const [path, setPath] = useState("my_info");
-  const getMyPage = async () => {
-    const response = await axios.get(
-      "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/mypage"
-      // { withCredentials: true }
-    );
-    console.log(response);
+
+  const onClickLogout = () => {
+    SendToServer({
+      path: "log-out",
+      method: "GET",
+      needAuth: true,
+      callBackSuccess: () => {
+        alert("로그아웃 되었습니다.");
+        sessionStorage.setItem("accessToken", "");
+        sessionStorage.setItem("refreshToken", "");
+        sessionStorage.setItem("user_id", "");
+        navigate("/main");
+      },
+    });
   };
-  getMyPage();
+
   const onClickRouting = (path: string) => {
     setPath(path);
     navigate(path);
@@ -60,19 +69,7 @@ const MyPageSideMenu = () => {
         >
           유저 관리
         </li>
-        <li onClick={() => alert("로그아웃")}>로그아웃</li>
-        {/* <li
-          className={path === "user_delete" ? "active" : ""}
-          onClick={onClickRouting.bind(null, "user_delete")}
-        >
-          회원 탈퇴
-        </li> */}
-        {/* <li
-          className={path === "user_setting" ? "active" : ""}
-          onClick={onClickRouting.bind(null, "user_setting")}
-        >
-          계정 설정
-        </li> */}
+        <li onClick={onClickLogout}>로그아웃</li>
       </ul>
       <ul>
         <li
@@ -120,4 +117,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default WithAuth(MyPage);

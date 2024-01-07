@@ -10,7 +10,6 @@ import {
   SignUpPosition,
 } from "./SignUp.style";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import PositionModal from "@/component/input/PositionFiled/PositionModal";
@@ -19,6 +18,7 @@ import { TextFieldLabel } from "@/component/input/TextField/TextField.style";
 import ErrorMessage from "@/component/input/ErrorMessage/ErrorMessage";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { SendToServer } from "@/utils/SendToServer";
 
 type SignUpDataType = {
   email: string;
@@ -87,12 +87,16 @@ const SignUp = () => {
           position_category: position.category,
           position: position.name,
         };
-        await axios.post(
-          "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/join",
-          postData
-        );
-        alert("회원가입이 완료되었습니다.");
-        navigate("/login");
+        SendToServer({
+          path: "join",
+          method: "POST",
+          data: postData,
+          callBack: (response) => {
+            if (!response) return;
+            alert("회원가입이 완료되었습니다.");
+            navigate("/login");
+          },
+        });
       } catch (error) {
         alert(error.response.data.message);
       }

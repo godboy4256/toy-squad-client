@@ -12,7 +12,6 @@ const SideFilter = () => {
     <SideFilterContainer>
       <FilterTitle>필터</FilterTitle>
       <div>
-        {" "}
         <FilterLabel>팀 인원</FilterLabel>
         <CustomSelect
           placeHolder="팀 인원 선택"

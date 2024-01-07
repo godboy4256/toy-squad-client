@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogoImg from "@/assets/images/common/logo.svg";
-import UserIcon from "@/assets/images/common/user.svg";
 import SearchIcon from "@/assets/images/common/search.svg";
 import {
   HeaderInfoContainer,
@@ -18,9 +17,14 @@ import { CommonCenterWrapper } from "@/styles/CommonStyles";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const onClickMoveLogin = () => {
-    sessionStorage.setItem("login_from_path", location.pathname);
-    navigate("/login");
+  const checkLogin = sessionStorage.getItem("accessToken");
+  const onClickMoveMyPage = () => {
+    if (!checkLogin) {
+      sessionStorage.setItem("login_from_path", location.pathname);
+      navigate("/login");
+    } else {
+      navigate("/mypage");
+    }
   };
   return (
     <>
@@ -50,8 +54,8 @@ const Header = () => {
               <HeaderInfoButton>
                 <img src={SearchIcon} alt="header search icon" />
               </HeaderInfoButton>
-              <HeaderInfoButton onClick={onClickMoveLogin}>
-                <img src={UserIcon} alt="header users icon" />
+              <HeaderInfoButton onClick={onClickMoveMyPage}>
+                {checkLogin ? "MY" : "로그인"}
               </HeaderInfoButton>
             </HeaderInfoContainer>
           </HeaderRightBox>

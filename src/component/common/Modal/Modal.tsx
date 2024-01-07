@@ -1,5 +1,5 @@
-import React, { Dispatch, ReactElement, SetStateAction } from 'react';
-import { ModalBackground, ModalContainer } from './Modal.style';
+import React, { Dispatch, ReactElement, SetStateAction } from "react";
+import { ModalBackground, ModalContainer } from "./Modal.style";
 
 type ModalPropsType = {
   content: string | ReactElement;
