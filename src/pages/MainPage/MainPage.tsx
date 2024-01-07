@@ -101,6 +101,7 @@ const MainPage = () => {
     slidesToScroll: 1,
     arrow: true,
   };
+
   return (
     <MainContainer>
       <MainBanner>

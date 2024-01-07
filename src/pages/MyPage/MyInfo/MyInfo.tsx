@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MyPageSectionTitle } from "../MyPage.style";
 import {
   MyPageMyInfoHeader,
@@ -24,8 +24,19 @@ import GitICon from "@/assets/images/skills/git.svg";
 import GitHubICon from "@/assets/images/skills/github.svg";
 import TagList from "@/component/common/TagList/TagList";
 import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
+import { SendToServer } from "@/utils/SendToServer";
 
 const MyInfo = () => {
+  useEffect(() => {
+    SendToServer({
+      path: "mypage",
+      method: "GET",
+      callBackSuccess: (response) => {
+        console.log(response);
+      },
+      needAuth: true,
+    });
+  }, []);
   return (
     <div>
       <MyPageMyInfoHeader>
@@ -36,7 +47,6 @@ const MyInfo = () => {
         </MyInfoSetting> */}
       </MyPageMyInfoHeader>
       <MyInfoContent>
-        {" "}
         <MiniProfileCard
           name="석지웅"
           position="프론트엔드 개발자"

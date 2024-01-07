@@ -11,9 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import LogoImg from "@/assets/images/common/logo.svg";
 import { LoginLogo } from "../Login/Login.style";
-import axios from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { SendToServer } from "@/utils/SendToServer";
 
 type FindPwDataType = {
   password: string;
@@ -58,12 +58,15 @@ const UpdatePw = () => {
         token: authToken,
         newPassword: data.password,
       };
-      await axios.patch(
-        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/users/pwd",
-        postData
-      );
-      alert("비밀번호가 변경되었습니다.");
-      navigate("/login");
+      SendToServer({
+        path: "users/pwd",
+        method: "PATCH",
+        data: postData,
+        callBackSuccess: () => {
+          alert("비밀번호가 변경되었습니다.");
+          navigate("/login");
+        },
+      });
     } catch (error) {
       alert(error.response.data.message);
     }

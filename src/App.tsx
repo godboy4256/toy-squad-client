@@ -18,6 +18,7 @@ import UpdatePw from "./pages/UpdatePw/UpdatePw";
 import MainPage from "./pages/MainPage/MainPage";
 import UserList from "./pages/User/List/UserList";
 import { ConfigProvider } from "antd";
+import GlobalAlert from "./component/common/Alert/Alert";
 
 function App() {
   const isLayout: string[] = ["/login", "/signUp", "/findPw", "/updatePw"];
@@ -27,11 +28,13 @@ function App() {
   useEffect(() => {
     if (location.pathname === "/") navigate("/main");
   }, []);
+
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
         <div className="App">
+          <GlobalAlert />
+          <GlobalStyle />
           <ConfigProvider
             theme={{
               components: {

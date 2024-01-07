@@ -15,9 +15,9 @@ import {
   AccountContainer,
   LoginLogo,
 } from "../Login/Login.style";
-import axios from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { SendToServer } from "@/utils/SendToServer";
 
 type FindPwDataType = {
   email: string;
@@ -49,14 +49,15 @@ const FindPw = () => {
       const postData = {
         inputEmail: data.email,
       };
-      await axios.post(
-        "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/email/pwd",
-        postData
-      );
+      SendToServer({
+        path: "email/pwd",
+        method: "POST",
+        data: postData,
+        callBack: () => alert("이메일이 전송되었습니다."),
+      });
     } catch (error) {
       alert(error.response.data.message);
     }
-    alert("이메일이 전송되었습니다.");
   };
   return (
     <FindPwContainer>
