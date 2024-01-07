@@ -36,12 +36,12 @@ export const SendToServer = async (options: SendToServerOptionType) => {
 
   const headers = { "Content-Type": "application/json" };
 
-  // if (needAuth) {
-  //   if (!sessionStorage.getItem("accessToken")) return;
-  //   headers["Authorization"] = `Bearer ${sessionStorage.getItem(
-  //     "accessToken"
-  //   )}`;
-  // }
+  if (needAuth) {
+    if (!sessionStorage.getItem("accessToken")) return;
+    headers["Authorization"] = `Bearer ${sessionStorage.getItem(
+      "accessToken"
+    )}`;
+  }
 
   try {
     const response = await axios({
