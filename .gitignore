@@ -27,3 +27,7 @@ dist-ssr
 .eslintrc.json
 .prettierignore
 .prettierrc
+
+# env
+.env.development
+.env.production

@@ -45,7 +45,7 @@ export const SendToServer = async (options: SendToServerOptionType) => {
 
   try {
     const response = await axios({
-      url: BASE_URL_LOCAL + path,
+      url: `${process.env.VITE_API_URL}api/${path}`,
       method,
       data,
       headers,
