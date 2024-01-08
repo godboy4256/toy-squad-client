@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# dotenv environment variables file
+*.env
+.env
+.env.test
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -28,5 +33,3 @@ dist-ssr
 .prettierignore
 .prettierrc
 
-# env
-.env
