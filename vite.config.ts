@@ -1,10 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import reactRefresh from "@vitejs/plugin-react-refresh";
+import envCompatiblePlugin from "vite-plugin-env-compatible";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), envCompatiblePlugin()],
+  define: {
+    "process.env": process.env, // process.env를 전달
+  },
   resolve: {
     alias: [
       { find: "@utils", replacement: "/src/utils" },
