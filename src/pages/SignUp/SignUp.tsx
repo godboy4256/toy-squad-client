@@ -91,7 +91,7 @@ const SignUp = () => {
           path: "join",
           method: "POST",
           data: postData,
-          callBack: (response) => {
+          callBackSuccess: (response) => {
             if (!response) return;
             alert("회원가입이 완료되었습니다.");
             navigate("/login");
@@ -123,7 +123,6 @@ const SignUp = () => {
         <TextField
           register={register}
           params="password"
-          type="password"
           label="비밀번호"
           placeholder="비밀번호을 입력해주세요."
           marginBottom="30px"
@@ -132,7 +131,6 @@ const SignUp = () => {
         <TextField
           register={register}
           params="password_check"
-          type="password"
           label="비밀번호 확인"
           placeholder="비밀번호를 확인해주세요."
           marginBottom="30px"

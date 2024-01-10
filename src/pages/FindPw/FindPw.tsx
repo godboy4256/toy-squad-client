@@ -53,7 +53,7 @@ const FindPw = () => {
         path: "email/pwd",
         method: "POST",
         data: postData,
-        callBack: () => alert("이메일이 전송되었습니다."),
+        callBackSuccess: () => alert("이메일이 전송되었습니다."),
       });
     } catch (error) {
       alert(error.response.data.message);

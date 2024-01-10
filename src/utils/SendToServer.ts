@@ -1,9 +1,5 @@
 import axios from "axios";
 
-const BASE_URL_LOCAL = "http://localhost:3001/api/";
-// const BASE_URL_PRODUCT =
-//   "https://port-0-toy-squad-nest-dihik2mlj5vp0tb.sel4.cloudtype.app/api/";
-
 type SendToServerOptionType = {
   path: string;
   method: "GET" | "POST" | "PATCH" | "DELETE" | "PUT";
@@ -15,10 +11,13 @@ type SendToServerOptionType = {
 
 const TokenRefresh = async () => {
   try {
-    const refreshTokens = await axios.put(BASE_URL_LOCAL + "refresh", {
-      user_id: sessionStorage.getItem("user_id"),
-      refresh_token: sessionStorage.getItem("refreshToken"),
-    });
+    const refreshTokens = await axios.put(
+      process.env.VITE_API_URL + "refresh",
+      {
+        user_id: sessionStorage.getItem("user_id"),
+        refresh_token: sessionStorage.getItem("refreshToken"),
+      }
+    );
     sessionStorage.setItem("user_id", refreshTokens?.data?.user_id);
     sessionStorage.setItem("accessToken", refreshTokens?.data?.access_token);
     sessionStorage.setItem("refreshToken", refreshTokens?.data?.refresh_token);
@@ -50,7 +49,7 @@ export const SendToServer = async (options: SendToServerOptionType) => {
       data,
       headers,
     });
-    callBackSuccess(response);
+    callBackSuccess && callBackSuccess(response);
   } catch (error) {
     if (error?.response?.data?.statusCode === 401) {
       TokenRefresh();

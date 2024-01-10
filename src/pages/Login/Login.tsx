@@ -15,13 +15,14 @@ import {
   LoginForm,
   LoginLogo,
 } from "./Login.style";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@/component/input/TextField/TextField";
 import Button from "@/component/input/Button/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { SendToServer } from "@/utils/SendToServer";
+import { GetMyInfo } from "@/utils/GetMyInfo";
 
 const schema = yup
   .object({
@@ -44,6 +45,7 @@ const Login = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const navigate = useNavigate();
   const onSubmit = (data) => {
     const postData = {
@@ -58,7 +60,7 @@ const Login = () => {
         sessionStorage.setItem("accessToken", response?.data?.access_token);
         sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
         sessionStorage.setItem("user_id", response?.data?.user_id);
-
+        GetMyInfo();
         if (sessionStorage.getItem("login_from_path")) {
           navigate(sessionStorage.getItem("login_from_path"));
           sessionStorage.setItem("login_from_path", "");
@@ -77,12 +79,23 @@ const Login = () => {
         alt="login page logo"
       />
       <LoginButtonGoogle>
-        <GoogleIcon src={GoogleLogoImg} />
-        구글로 로그인하기
+        <Link to="https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Foauth%2Fgoogle&scope=email%20profile&client_id=704521567721-t80c231gu4ef450l4mpss9unknrlf8hj.apps.googleusercontent.com&service=lso&o2v=2&theme=glif&flowName=GeneralOAuthFlow">
+          <GoogleIcon src={GoogleLogoImg} />
+          구글로 로그인하기
+        </Link>
       </LoginButtonGoogle>
-      <LoginButtonKaKao>
-        <KaKaoIcon src={KakaoLogoImg} />
-        카카오로 로그인하기
+      <LoginButtonKaKao
+        onClick={() => {
+          SendToServer({
+            path: "sign-in/kakao",
+            method: "GET",
+          });
+        }}
+      >
+        <Link to="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fscope%3Daccount_email%26response_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3001%252Fapi%252Foauth%252Fkakao%26through_account%3Dtrue%26client_id%3D4441ea3e02fbd6fa8472e2ef63d17aeb&talk_login=hidden">
+          <KaKaoIcon src={KakaoLogoImg} />
+          카카오로 로그인하기
+        </Link>
       </LoginButtonKaKao>
       <EmailLoginTitle>
         <span>이메일 로그인</span>

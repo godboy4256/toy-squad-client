@@ -10,8 +10,6 @@ interface InputType extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   disabled?: boolean;
   onChangeFunc?: () => void;
-  onclickFunc?: () => void;
-  onFocusFunc?: () => void;
   type?: string;
   value?: string;
   marginBottom?: string;
@@ -24,8 +22,6 @@ const TextField = ({
   params,
   placeholder,
   onChangeFunc,
-  onclickFunc,
-  onFocusFunc,
   type,
   disabled,
   value,
@@ -41,8 +37,6 @@ const TextField = ({
         autoComplete="off"
         {...(register && params && register(params))}
         placeholder={placeholder}
-        onClick={onclickFunc}
-        onFocus={onFocusFunc}
         onChange={onChangeFunc}
         defaultValue={value}
         marginBottom={errorsMessage ? "0" : marginBottom}

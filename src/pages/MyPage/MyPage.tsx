@@ -34,6 +34,7 @@ const MyPageSideMenu = () => {
         sessionStorage.setItem("accessToken", "");
         sessionStorage.setItem("refreshToken", "");
         sessionStorage.setItem("user_id", "");
+        sessionStorage.setItem("my_info", "");
         navigate("/main");
       },
     });
