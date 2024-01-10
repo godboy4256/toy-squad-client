@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MyPageSectionTitle } from "../MyPage.style";
 import {
   MyPageMyInfoHeader,
@@ -6,10 +6,11 @@ import {
   MyInfoContent,
   MyInfoTendency,
   MyInfoContact,
+  MyInfoSetting,
 } from "./MyInfo.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import SkillTagList from "@/component/common/SkillTagList/SkillTagList";
@@ -24,42 +25,45 @@ import GitICon from "@/assets/images/skills/git.svg";
 import GitHubICon from "@/assets/images/skills/github.svg";
 import TagList from "@/component/common/TagList/TagList";
 import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
+import { myUserId } from "@/utils/GetMyInfo";
 import { SendToServer } from "@/utils/SendToServer";
 
 const MyInfo = () => {
-  useEffect(() => {
+  const myInfoData = JSON.parse(sessionStorage.getItem("my_info"));
+  const EdifInfo = () => {
+    const postData = {
+      userId: myUserId,
+      skills: ["React", "NODE"],
+    };
     SendToServer({
-      path: "mypage",
-      method: "GET",
-      callBackSuccess: (response) => {
-        console.log(response);
-      },
+      path: `users/${myUserId}`,
+      method: "PATCH",
+      data: postData,
       needAuth: true,
     });
-  }, []);
+  };
+
   return (
     <div>
       <MyPageMyInfoHeader>
         <MyPageSectionTitle>내 정보</MyPageSectionTitle>
-        {/* <MyInfoSetting>
+        <MyInfoSetting>
           <FontAwesomeIcon icon={faEdit} />
-          <div>내 정보 변경</div>
-        </MyInfoSetting> */}
+          <div onClick={EdifInfo}>내 정보 변경</div>
+        </MyInfoSetting>
       </MyPageMyInfoHeader>
       <MyInfoContent>
         <MiniProfileCard
-          name="석지웅"
-          position="프론트엔드 개발자"
+          name={myInfoData?.name}
+          position={myInfoData?.position}
           level="주니어"
           rating={5}
-          like={35}
+          like={!myInfoData?.like && 0}
         />
       </MyInfoContent>
       <MyInfoContent>
         <h3>소개</h3>
-        <MyInfoIntro>
-          안녕하세요. 1년차 주니어 프론트엔드 개발자 석지웅입니다.
-        </MyInfoIntro>
+        <MyInfoIntro>{myInfoData?.intro || "-"}</MyInfoIntro>
       </MyInfoContent>
       <MyInfoContent>
         <h3>주요 스킬</h3>
@@ -78,26 +82,35 @@ const MyInfo = () => {
       </MyInfoContent>
       <MyInfoContent>
         <h3>선호 분야</h3>
-        <TagList tagList={["건강/운동", "뷰티/패션", "금융"]} color="green" />
+        {myInfoData?.fields?.length ? (
+          <TagList tagList={myInfoData?.fields} color="green" />
+        ) : (
+          "-"
+        )}
       </MyInfoContent>
       <MyInfoContent>
         <h3>작업 성향</h3>
-        <MyInfoTendency>
-          <li>• 디테일한 부분을 체크하고 꼼꼼하게 작업해요.</li>
-          <li>• 효과적인 커뮤니케이션을 중요하게 생각해요.</li>
-          <li>• 문제 해결 능력이 뛰어나고 창의적이에요.</li>
-        </MyInfoTendency>
+        {myInfoData?.tendency?.length ? (
+          <MyInfoTendency>
+            {myInfoData?.tendency?.map((tendency: string) => {
+              return <li>• {tendency}</li>;
+            })}
+          </MyInfoTendency>
+        ) : (
+          "-"
+        )}
       </MyInfoContent>
+
       <MyInfoContent>
         <h3>연락처</h3>
         <MyInfoContact>
           <li>
             <FontAwesomeIcon icon={faPhone} />
-            <div>010-9019-2172</div>
+            <div>{myInfoData?.phone}</div>
           </li>
           <li>
             <FontAwesomeIcon icon={faEnvelope} />
-            <div>godboy4256@gmail.com</div>
+            <div>{myInfoData?.email}</div>
           </li>
         </MyInfoContact>
       </MyInfoContent>

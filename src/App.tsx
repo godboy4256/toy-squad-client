@@ -46,6 +46,10 @@ function App() {
                   colorPrimary: "#e0234d",
                   algorithm: true,
                 },
+                Input: {
+                  colorPrimary: "#e0234d",
+                  algorithm: true,
+                },
               },
             }}
           >
