@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
-import fontSemiBold from '@assets/fonts/Poppins-SemiBold.ttf';
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+import fontSemiBold from "@assets/fonts/Poppins-SemiBold.ttf";
 
 export const GlobalStyle = createGlobalStyle`
    ${reset}
@@ -78,8 +78,13 @@ export const GlobalStyle = createGlobalStyle`
         background: none;
         border: none;
         cursor: pointer;
+        padding: 0;
+        line-height: 1;
     }
     #root,.App{
         min-height: 100vh;
+    }
+    .ant-select-dropdown{
+        z-index: 9999999!important;
     }
 `;

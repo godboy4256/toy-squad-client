@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   Detail,
   ProjectPeriod,
@@ -6,11 +6,11 @@ import {
   ProjectTags,
   ProjectThumbnail,
   ProjectTitle,
-} from './Project.style';
-import UserIcon from '@assets/images/common/user.svg';
-import { useNavigate } from 'react-router-dom';
-import { Author } from '../Author/Author';
-import { Tag } from '../Tag/Tag';
+} from "./Project.style";
+// import UserIcon from '@';
+import { useNavigate } from "react-router-dom";
+import { Author } from "../Author/Author";
+import { Tag } from "../Tag/Tag";
 
 interface ProjectCardProps {
   id: number;
@@ -44,7 +44,7 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
         프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한
         소개입니다. 프로젝트에 대한 소개입니다. 프로젝트에 대한 소개입니다.
       </Detail>
-      <Author imgSrc={UserIcon} name={'석지웅'} />
+      <Author imgSrc="assets/images/common/user.svg" name={"석지웅"} />
     </ProjectCardStyle>
   );
 };

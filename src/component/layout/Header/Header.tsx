@@ -1,7 +1,5 @@
 import * as React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import LogoImg from "@/assets/images/common/logo.svg";
-import SearchIcon from "@/assets/images/common/search.svg";
 import {
   HeaderInfoContainer,
   HeaderContainer,
@@ -32,7 +30,7 @@ const Header = () => {
         <CommonCenterWrapper>
           <HeaderLogo
             onClick={() => navigate("/main")}
-            src={LogoImg}
+            src="/assets/images/common/logo.svg"
             alt="header logo"
           />
           <HeaderRightBox>
@@ -52,7 +50,10 @@ const Header = () => {
             </HeaderNav>
             <HeaderInfoContainer>
               <HeaderInfoButton>
-                <img src={SearchIcon} alt="header search icon" />
+                <img
+                  src="/assets/images/common/search.svg"
+                  alt="header search icon"
+                />
               </HeaderInfoButton>
               <HeaderInfoButton onClick={onClickMoveMyPage}>
                 {checkLogin ? "MY" : "로그인"}

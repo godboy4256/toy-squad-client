@@ -175,9 +175,9 @@ const MainPage = () => {
                   key={ListKeyGenerater(idx, user_info.name)}
                   name={user_info.name}
                   position={user_info.position}
-                  level={user_info.level}
                   rating={user_info.rating}
                   like={user_info.like}
+                  imgUrl=""
                 />
               );
             })}

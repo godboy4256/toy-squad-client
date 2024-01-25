@@ -1,7 +1,6 @@
 import React from "react";
 import { faStar, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import UserProfile from "@/assets/images/common/default_profile.svg";
 import {
   MiniProfileLikeAndRating,
   MiniProfileName,
@@ -14,32 +13,30 @@ type ApplicationCardPropsType = {
   name: string;
   appPosition?: string;
   position: string;
-  level: string;
+  imgUrl: string;
   rating: number;
   like: number;
-  profile?: string;
 };
 
 const MiniProfileCard = ({
   name,
   position,
-  level,
+  imgUrl,
   rating,
   like,
-  profile,
 }: ApplicationCardPropsType) => {
   return (
     <MiniProfileContainer>
-      <MiniProfileImage src={profile ? profile : UserProfile} />
+      <MiniProfileImage
+        src={imgUrl ? imgUrl : "/assets/images/common/default_profile.svg"}
+      />
       <div>
         <MiniProfileName>{name}</MiniProfileName>
-        <MiniProfilePosition>
-          {position} <span>{level}</span>
-        </MiniProfilePosition>
+        <MiniProfilePosition>{position}</MiniProfilePosition>
         <MiniProfileLikeAndRating>
           <div>
             <FontAwesomeIcon icon={faThumbsUp} />
-            <span>{like}</span>
+            <span>{like || 0}</span>
           </div>
           <div>
             <FontAwesomeIcon icon={faStar} />

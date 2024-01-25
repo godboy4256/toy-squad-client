@@ -98,7 +98,7 @@ const Login = () => {
         </Link>
       </LoginButtonKaKao>
       <EmailLoginTitle>
-        <span>이메일 로그인</span>
+        <span>로그인</span>
       </EmailLoginTitle>
       <LoginForm onSubmit={handleSubmit(onSubmit)}>
         <TextField

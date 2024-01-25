@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
   ApplicationListBody,
   ApplicationListContainer,
   ApplicationListTitle,
-} from './ApplicationList.style';
-import ApplicationCard from '../ApplicationCard/ApplicationCard';
-import { projectApplicationUser } from '@/assets/data/temp';
-import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
+} from "./ApplicationList.style";
+import ApplicationCard from "../ApplicationCard/ApplicationCard";
+import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
+import { projectApplicationUser } from "@/data/temp";
 
 const ApplicationList = () => {
   return (
@@ -21,11 +21,9 @@ const ApplicationList = () => {
               key={ListKeyGenerater(idx, user.name)}
               name={user.name}
               position={user.postion}
-              level={user.level}
               appPosition={user.appPosition}
               rating={user.rating}
               like={user.like}
-              profile={user.profile}
             />
           );
         })}
