@@ -50,6 +50,10 @@ function App() {
                   colorPrimary: "#e0234d",
                   algorithm: true,
                 },
+                Button: {
+                  colorPrimary: "#e0234d",
+                  algorithm: true,
+                },
               },
             }}
           >

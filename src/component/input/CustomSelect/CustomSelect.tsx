@@ -30,8 +30,8 @@ const CustomSelect = ({
   onSearchFunc?: CallableFunction;
   mode?: "tags" | "multiple";
 }) => {
-  const handleChange = () => {
-    onChangeFunc && onChangeFunc();
+  const handleChange = (e) => {
+    onChangeFunc && onChangeFunc(e);
     setValue && setValue("");
   };
   const handleSearch = (value: string) => {

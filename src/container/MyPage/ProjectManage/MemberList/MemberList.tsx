@@ -1,6 +1,5 @@
-import { projectMemberList } from '@/assets/data/temp';
-import MiniProfileCard from '@/component/common/UserInfo/MiniProfileCard';
-import React, { useState } from 'react';
+import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
+import React, { useState } from "react";
 import {
   LeaderMark,
   MemberContainer,
@@ -8,12 +7,13 @@ import {
   MemberListContainer,
   MemberListTitle,
   MemberSetting,
-} from './MemberList.style';
-import Button from '@/component/input/Button/Button';
-import { ListKeyGenerater } from '@/utils/ListKeyGenerate';
-import MemberReviewModal from '../MemberReviewModal/MemberReviewModal';
+} from "./MemberList.style";
+import Button from "@/component/input/Button/Button";
+import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
+import MemberReviewModal from "../MemberReviewModal/MemberReviewModal";
+import { projectMemberList } from "@/data/temp";
 
-const MemberList = ({ type }: { type: 'COM' | 'PRO' }) => {
+const MemberList = ({ type }: { type: "COM" | "PRO" }) => {
   const [isReviewModal, setIsReviewModal] = useState(false);
   const projectLeader = 1;
   return (
@@ -29,14 +29,13 @@ const MemberList = ({ type }: { type: 'COM' | 'PRO' }) => {
                 <MemberContainer key={ListKeyGenerater(idx, member.name)}>
                   <MiniProfileCard
                     name={member.name}
-                    level={member.level}
                     appPosition={member.appPosition}
                     rating={member.rating}
                     like={member.like}
-                    profile={member.profile}
                     position={member.postion}
+                    imgUrl=""
                   />
-                  {type === 'PRO' ? (
+                  {type === "PRO" ? (
                     projectLeader !== member.id ? (
                       <MemberSetting>
                         <Button>팀장 임명</Button>

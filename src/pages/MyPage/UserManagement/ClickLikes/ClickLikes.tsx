@@ -1,7 +1,7 @@
-import SettingMenuButton from '@/component/common/SettingMenuButton/SettingMenuButton';
-import MiniProfileCard from '@/component/common/UserInfo/MiniProfileCard';
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import SettingMenuButton from "@/component/common/SettingMenuButton/SettingMenuButton";
+import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const ClickLikesContainer = styled.section`
   margin-top: 50px;
@@ -25,7 +25,7 @@ const ClickLikesBody = styled.div`
 `;
 
 const ClickLikes = () => {
-  const settingMenu = [{ menu: '좋아요 취소', onClickFunc: () => {} }];
+  const settingMenu = [{ menu: "좋아요 취소", onClickFunc: () => {} }];
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
@@ -39,9 +39,9 @@ const ClickLikes = () => {
           <MiniProfileCard
             name="최은강"
             position="풀스택 개발자"
-            level="주니어"
             rating={5}
             like={50}
+            imgUrl=""
           />
           <SettingMenuButton
             openMenu={open1}
@@ -53,7 +53,7 @@ const ClickLikes = () => {
           <MiniProfileCard
             name="박지성"
             position="프론트엔드 개발자"
-            level="주니어"
+            imgUrl=""
             rating={5}
             like={50}
           />
@@ -67,7 +67,7 @@ const ClickLikes = () => {
           <MiniProfileCard
             name="알렉스"
             position="기획자"
-            level="시니어"
+            imgUrl=""
             rating={5}
             like={50}
           />
@@ -81,7 +81,7 @@ const ClickLikes = () => {
           <MiniProfileCard
             name="김철수"
             position="백엔드 개발자"
-            level="주니어"
+            imgUrl=""
             rating={5}
             like={50}
           />
@@ -95,7 +95,7 @@ const ClickLikes = () => {
           <MiniProfileCard
             name="정지원"
             position="백엔드 개발자"
-            level="주니어"
+            imgUrl=""
             rating={5}
             like={50}
           />

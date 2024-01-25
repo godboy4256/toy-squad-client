@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import IMGLogo from "@/assets/images/common/logo.svg";
-import MyInfo from "./MyInfo/MyInfo";
+import MyInfo from "./Profile/Profile";
 import ProjectManagement from "./ProjectManagement/ProjectManagement";
 import UserManagement from "./UserManagement/UserManagement";
 import Announcement from "./Announcement/Announcement";
@@ -16,9 +16,8 @@ import {
   MyPageTitle,
   MyPageWrapper,
 } from "./MyPage.style";
-import UserDelete from "./UserDelete/UserDelete";
 import { SendToServer } from "@/utils/SendToServer";
-import WithAuth from "@/component/common/WithAuth/WithAuth";
+// import WithAuth from "@/component/common/WithAuth/WithAuth";
 
 const MyPageSideMenu = () => {
   const navigate = useNavigate();
@@ -56,7 +55,7 @@ const MyPageSideMenu = () => {
           className={path === "my_info" ? "active" : ""}
           onClick={onClickRouting.bind(null, "my_info")}
         >
-          내 정보
+          프로필 관리
         </li>
         <li
           className={path === "project_management/recruitment" ? "active" : ""}
@@ -106,8 +105,6 @@ const MyPage = () => {
                 element={<ProjectManagement />}
               />
               <Route path="user_management/*" element={<UserManagement />} />
-              <Route path="user_delete" element={<UserDelete />} />
-              {/* <Route path="user_setting/*" element={<UserSetting />} /> */}
               <Route path="announcement" element={<Announcement />} />
               <Route path="about" element={<About />} />
             </Routes>
@@ -118,4 +115,5 @@ const MyPage = () => {
   );
 };
 
-export default WithAuth(MyPage);
+// export default WithAuth(MyPage);
+export default MyPage;
