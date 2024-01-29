@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import fontSemiBold from "@assets/fonts/Poppins-SemiBold.ttf";
+import fontSemiBold from "/assets/fonts/Poppins-SemiBold.ttf";
 
 export const GlobalStyle = createGlobalStyle`
    ${reset}

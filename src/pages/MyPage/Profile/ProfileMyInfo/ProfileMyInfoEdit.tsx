@@ -1,7 +1,7 @@
 import { Button, Input } from "antd";
 import React, { useRef } from "react";
 import styled from "styled-components";
-import UserProfile from "@/assets/images/common/default_profile.svg";
+import UserProfile from "/assets/images/common/default_profile.svg";
 import CustomSelect from "@/component/input/CustomSelect/CustomSelect";
 import { ModalBackground } from "@/component/common/Modal/Modal.style";
 import { EditButtonWrapper } from "../ProfileIntro/ProfileIntro.style";

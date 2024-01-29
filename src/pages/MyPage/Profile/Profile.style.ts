@@ -10,12 +10,7 @@ export const MyInfoIntro = styled.p`
   margin-top: 10px;
   font-size: 1.6rem;
 `;
-export const MyInfoTendency = styled.ul`
-  & > li {
-    font-size: ${({ theme }) => theme.fontSize.m};
-    line-height: 1.4;
-  }
-`;
+
 export const MyInfoContact = styled.ul`
   & > li {
     display: flex;

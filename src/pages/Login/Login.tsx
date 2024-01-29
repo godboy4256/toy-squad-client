@@ -1,7 +1,4 @@
 import * as React from "react";
-import LogoImg from "@/assets/images/common/logo.svg";
-import KakaoLogoImg from "@/assets/images/common/kakao_login_icon.svg";
-import GoogleLogoImg from "@/assets/images/common/google_login_icon.svg";
 
 import {
   AccountButton,
@@ -15,7 +12,7 @@ import {
   LoginForm,
   LoginLogo,
 } from "./Login.style";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TextField from "@/component/input/TextField/TextField";
 import Button from "@/component/input/Button/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -60,7 +57,7 @@ const Login = () => {
         sessionStorage.setItem("accessToken", response?.data?.access_token);
         sessionStorage.setItem("refreshToken", response?.data?.refresh_token);
         sessionStorage.setItem("user_id", response?.data?.user_id);
-        GetMyInfo();
+        GetMyInfo(response?.data?.user_id);
         if (sessionStorage.getItem("login_from_path")) {
           navigate(sessionStorage.getItem("login_from_path"));
           sessionStorage.setItem("login_from_path", "");
@@ -75,27 +72,20 @@ const Login = () => {
     <LoginContainer>
       <LoginLogo
         onClick={() => navigate("/main")}
-        src={LogoImg}
+        src="/assets/images/common/logo.svg"
         alt="login page logo"
       />
       <LoginButtonGoogle>
-        <Link to="https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Foauth%2Fgoogle&scope=email%20profile&client_id=704521567721-t80c231gu4ef450l4mpss9unknrlf8hj.apps.googleusercontent.com&service=lso&o2v=2&theme=glif&flowName=GeneralOAuthFlow">
-          <GoogleIcon src={GoogleLogoImg} />
+        <a href={process.env.GOOGLE_LOGIN_URL}>
+          <GoogleIcon src="/assets/images/common/google_login_icon.svg" />
           구글로 로그인하기
-        </Link>
+        </a>
       </LoginButtonGoogle>
-      <LoginButtonKaKao
-        onClick={() => {
-          SendToServer({
-            path: "sign-in/kakao",
-            method: "GET",
-          });
-        }}
-      >
-        <Link to="https://accounts.kakao.com/login?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fscope%3Daccount_email%26response_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3001%252Fapi%252Foauth%252Fkakao%26through_account%3Dtrue%26client_id%3D4441ea3e02fbd6fa8472e2ef63d17aeb&talk_login=hidden">
-          <KaKaoIcon src={KakaoLogoImg} />
+      <LoginButtonKaKao>
+        <a href={process.env.KAKAO_LOGIN_URL}>
+          <KaKaoIcon src="/assets/images/common/kakao_login_icon.svg" />
           카카오로 로그인하기
-        </Link>
+        </a>
       </LoginButtonKaKao>
       <EmailLoginTitle>
         <span>로그인</span>

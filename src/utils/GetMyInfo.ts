@@ -7,9 +7,9 @@ export const myInfoData =
   sessionStorage.getItem("my_info") &&
   JSON.parse(sessionStorage.getItem("my_info"));
 
-export const GetMyInfo = () => {
+export const GetMyInfo = (userId: string) => {
   SendToServer({
-    path: `users/${myUserId}/detail`,
+    path: `users/${userId}/detail`,
     method: "GET",
     needAuth: true,
     callBackSuccess: (response) => {
