@@ -19,6 +19,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import UserList from "./pages/User/List/UserList";
 import { ConfigProvider } from "antd";
 import GlobalAlert from "./component/common/Alert/Alert";
+import { GetMyInfo } from "./utils/GetMyInfo";
 
 function App() {
   const isLayout: string[] = ["/login", "/signUp", "/findPw", "/updatePw"];
@@ -26,6 +27,17 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (location.pathname.includes("oauth")) {
+      let params = new URLSearchParams(window.location.search);
+      if (params.size) {
+        sessionStorage.setItem("accessToken", params.get("accessToken"));
+        sessionStorage.setItem("refreshToken", params.get("refreshToken"));
+        sessionStorage.setItem("user_id", params.get("user_id"));
+        GetMyInfo(params.get("user_id"));
+        navigate("/main");
+      }
+    }
+
     if (location.pathname === "/") navigate("/main");
   }, []);
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MyPageSectionTitle } from "../MyPage.style";
 // import { MyInfoContact, MyInfoTendency } from "./Profile.style";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,8 +22,18 @@ import ProfileMyInfoEdit from "./ProfileMyInfo/ProfileMyInfoEdit";
 // import { SendToServer } from "@/utils/SendToServer";
 // import { myUserId } from "@/utils/GetMyInfo";
 import ProfileIntroEdit from "./ProfileIntro/ProfileIntroEdit";
+import ProfileSkillsEdit from "./ProfileSkills/ProfileSkillsEdit";
+import ProfilePreField from "./ProfilePreField/ProfilePreField";
+import ProfilePreFieldEdit from "./ProfilePreField/ProfilePreFieldEdit";
+import ProfileTendency from "./ProfileTendency/ProfileTendency";
+import ProfileTendencyEdit from "./ProfileTendency/ProfileTendencyEdit";
 
 const Profile = () => {
+  useEffect(() => {
+    return () => {
+      // 수정 API 통신 코드
+    };
+  });
   const myInfoData = JSON.parse(sessionStorage.getItem("my_info"));
   // const handlerChange = () => {
   //   const postData = {
@@ -59,29 +69,23 @@ const Profile = () => {
         title="주요 스킬"
         Content={ProfileSkills}
         valueData={myInfoData?.skills}
+        EditField={ProfileSkillsEdit}
       />
-      {/*  />
+
       <MyInfoContent
         title="선호 분야"
-        content={
-          myInfoData?.fields?.length ? (
-            <TagList tagList={myInfoData?.fields} color="green" />
-          ) : (
-            "-"
-          )
-        }
-      /> */}
-      {/* 
-      <MyInfoContent
-        title="작업 성향"
-        content={
-          <MyInfoTendency>
-            {myInfoData?.tendency?.map((tendency: string) => {
-              return <li>• {tendency}</li>;
-            })}
-          </MyInfoTendency>
-        }
+        Content={ProfilePreField}
+        EditField={ProfilePreFieldEdit}
+        valueData={myInfoData?.fields}
       />
+      <MyInfoContent
+        title="프로젝트 참여 성향"
+        Content={ProfileTendency}
+        EditField={ProfileTendencyEdit}
+        valueData={myInfoData?.tendency}
+      />
+      {/* 
+     
       <MyInfoContent
         title="연락처"
         content={

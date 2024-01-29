@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import IMGLogo from "@/assets/images/common/logo.svg";
+import IMGLogo from "/assets/images/common/logo.svg";
 import MyInfo from "./Profile/Profile";
 import ProjectManagement from "./ProjectManagement/ProjectManagement";
 import UserManagement from "./UserManagement/UserManagement";

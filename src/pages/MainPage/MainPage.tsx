@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import Slider from "react-slick";
 import {
   BannerContent,
@@ -13,9 +14,9 @@ import {
 import { Link } from "react-router-dom";
 import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
-import MoreArrowIMG from "@/assets/images/common/more_arrow.svg";
 import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
 import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
+import { myInfoData } from "@/utils/GetMyInfo";
 
 const ExampleUserList = [
   {
@@ -102,6 +103,10 @@ const MainPage = () => {
     arrow: true,
   };
 
+  useEffect(() => {
+    console.log(sessionStorage.getItem("my_info"));
+  }, []);
+
   return (
     <MainContainer>
       <MainBanner>
@@ -147,7 +152,10 @@ const MainPage = () => {
             <h2>팀원을 모집중인 프로젝트</h2>
             <Link to="/projects">
               모두 보기
-              <img src={MoreArrowIMG} alt="more arrow icon" />
+              <img
+                src="/assets/images/common/more_arrow.svg"
+                alt="more arrow icon"
+              />
             </Link>
           </MainSectionHeader>
           <MainPageProjectList>
@@ -165,7 +173,10 @@ const MainPage = () => {
             <h2>프로젝트를 함께할 팀원 모집</h2>
             <Link to="/users">
               모두 보기
-              <img src={MoreArrowIMG} alt="more arrow icon" />
+              <img
+                src="/assets/images/common/more_arrow.svg"
+                alt="more arrow icon"
+              />
             </Link>
           </MainSectionHeader>
           <MainPageUserList>

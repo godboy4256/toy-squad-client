@@ -21,17 +21,15 @@ export const LoginButtonGoogle = styled.button`
   background-color: white;
   width: 100%;
   height: 56px;
-  line-height: 56px;
-  font-size: 1.6rem;
   border-radius: 4px;
-  font-weight: 500;
   margin-bottom: 10px;
   border: 1px solid #ebebeb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   & > a {
-    display: block;
+    font-weight: 500;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
   }
@@ -40,18 +38,16 @@ export const LoginButtonKaKao = styled.button`
   background-color: #fce51e;
   height: 56px;
   width: 100%;
-  line-height: 56px;
-  font-size: 1.6rem;
-  color: #3b1d14;
   border-radius: 4px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   & > a {
-    display: block;
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #3b1d14;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 export const GoogleIcon = styled.img`

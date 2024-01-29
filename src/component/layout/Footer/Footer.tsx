@@ -1,19 +1,18 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   FooterDeveloperInfo,
   FooterContainer,
   FooterPolicy,
   FooterLogo,
   FooterContent,
-} from './Footer.style';
-import IMGLogo from '@/assets/images/common/logo.svg';
-import { CommonCenterWrapper } from '@/styles/CommonStyles';
+} from "./Footer.style";
+import { CommonCenterWrapper } from "@/styles/CommonStyles";
 
 const Footer = () => {
   return (
     <FooterContainer>
       <CommonCenterWrapper>
-        <FooterLogo src={IMGLogo} alt="header logo" />
+        <FooterLogo src="/assets/images/common/logo.svg" alt="header logo" />
         <FooterDeveloperInfo>
           <div>
             <FooterContent>개발자 전화번호: 010-9019-2172</FooterContent>

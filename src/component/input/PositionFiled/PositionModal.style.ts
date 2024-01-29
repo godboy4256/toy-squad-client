@@ -18,6 +18,7 @@ export const ModalBackground = styled.div`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999999;
 `;
 
 export const PositionCategoryHidden = styled.div`
