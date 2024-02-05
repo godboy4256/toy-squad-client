@@ -22,7 +22,6 @@ import { SendToServer } from "@/utils/SendToServer";
 const MyPageSideMenu = () => {
   const navigate = useNavigate();
   const [path, setPath] = useState("my_info");
-
   const onClickLogout = () => {
     SendToServer({
       path: "log-out",

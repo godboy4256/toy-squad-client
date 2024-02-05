@@ -5,6 +5,9 @@ import UserProfile from "/assets/images/common/default_profile.svg";
 import CustomSelect from "@/component/input/CustomSelect/CustomSelect";
 import { ModalBackground } from "@/component/common/Modal/Modal.style";
 import { EditButtonWrapper } from "../ProfileIntro/ProfileIntro.style";
+import { myUserId } from "@/utils/GetMyInfo";
+import { SendToServer } from "@/utils/SendToServer";
+import axios from "axios";
 
 const ProfileMyInfoEditContainer = styled.div`
   & > h4 {
@@ -13,6 +16,7 @@ const ProfileMyInfoEditContainer = styled.div`
     margin-bottom: 30px;
     text-align: center;
   }
+  width: 300px;
   background-color: white;
   position: fixed;
   top: 50%;
@@ -58,9 +62,24 @@ const ProfileMyInfoEdit = ({ value, setValue, offEdit }) => {
       reader.onload = (e) => {
         profileRef.current.src = e.target.result;
       };
+
+      const formData = new FormData();
+      formData.append("profile", input.files[0]);
+
+      axios.patch("http://localhost:3001/api/users/profile", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+        },
+      });
     }
   };
   const handleEdit = () => {
+    const postData = {
+      userId: myUserId,
+      name: nameVal || value?.name,
+      position: positionVal || value?.position,
+    };
     setValue((prev) => {
       return {
         name: nameVal || prev.name,
@@ -68,13 +87,32 @@ const ProfileMyInfoEdit = ({ value, setValue, offEdit }) => {
         imgUrl: profileRef.current.src || prev.imgUrl,
       };
     });
+    sessionStorage.setItem(
+      "my_info",
+      JSON.stringify({
+        ...JSON.parse(sessionStorage.getItem("my_info")),
+        imgUrl: profileRef.current.src || value.imgUrl,
+        name: nameVal || value?.name,
+        position: positionVal || value?.position,
+      })
+    );
+    SendToServer({
+      path: `users`,
+      method: "PATCH",
+      data: postData,
+      needAuth: true,
+    });
     offEdit();
   };
   return (
     <>
       <ModalBackground />
       <ProfileMyInfoEditContainer>
-        <h4>내 정보 편집</h4>
+        <h4>
+          {value?.name === "미연동 계정" || !value.position
+            ? "기본 정보를 입력해주세요."
+            : "내 정보"}
+        </h4>
         <ProfileMyInfoEditImage onClick={onClickEditImageUrl}>
           <img
             ref={profileRef}
@@ -85,11 +123,10 @@ const ProfileMyInfoEdit = ({ value, setValue, offEdit }) => {
         </ProfileMyInfoEditImage>
         <Input
           onChange={(e) => {
-            console.log(e.currentTarget.value);
             nameVal = e.currentTarget.value;
           }}
           style={{ marginBottom: "10px" }}
-          defaultValue={value?.name}
+          defaultValue={value?.name !== "미연동 계정" ? value?.name : ""}
           placeholder="이름을 입력해주세요."
         />
         <CustomSelect

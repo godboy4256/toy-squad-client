@@ -1,5 +1,7 @@
 import { ModalBackground } from "@/component/input/PositionFiled/PositionModal.style";
+import { myUserId } from "@/utils/GetMyInfo";
 import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
+import { SendToServer } from "@/utils/SendToServer";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "antd";
@@ -159,7 +161,7 @@ const ProfileSkillsEditAdds = styled.div`
 `;
 
 const ProfileSkillsEdit = ({ value, setValue, offEdit }) => {
-  const [addSkills, setAddSkills] = useState(value);
+  const [addSkills, setAddSkills] = useState(value || []);
   const [searchList, setSearchList] = useState([]);
   const [serachValue, setSerachValue] = useState("");
   const onClickSkliiAdd = (skill: string) => {
@@ -207,7 +209,7 @@ const ProfileSkillsEdit = ({ value, setValue, offEdit }) => {
       <ProfileSkillsEditContainer>
         <h3>스킬 관리</h3>
         <ProfileSkillsEditAdds>
-          {addSkills.map((skill: string, idx: number) => {
+          {addSkills?.map((skill: string, idx: number) => {
             return (
               <li key={ListKeyGenerater(idx, skill)}>
                 <div>{skill}</div>
@@ -222,6 +224,24 @@ const ProfileSkillsEdit = ({ value, setValue, offEdit }) => {
           <Button
             onClick={() => {
               setValue(addSkills);
+              const postData = {
+                userId: myUserId,
+                skills: [...addSkills],
+              };
+              sessionStorage.setItem(
+                "my_info",
+                JSON.stringify({
+                  ...JSON.parse(sessionStorage.getItem("my_info")),
+                  skills: [...addSkills],
+                })
+              );
+
+              SendToServer({
+                path: `users`,
+                method: "PATCH",
+                data: postData,
+                needAuth: true,
+              });
               offEdit();
             }}
             type="primary"
@@ -235,9 +255,9 @@ const ProfileSkillsEdit = ({ value, setValue, offEdit }) => {
             onChange={onKeyWordSearch}
             placeholder="스킬을 추가해주세요."
           />
-          {searchList.length > 0 ? (
+          {searchList?.length > 0 ? (
             <ProfileSkillsSearchList>
-              {searchList.map((skill: string, idx: number) => {
+              {searchList?.map((skill: string, idx: number) => {
                 return (
                   <li
                     key={ListKeyGenerater(idx, skill)}
@@ -250,7 +270,7 @@ const ProfileSkillsEdit = ({ value, setValue, offEdit }) => {
             </ProfileSkillsSearchList>
           ) : (
             serachValue &&
-            !addSkills.includes(serachValue) && (
+            (!addSkills?.includes(serachValue) || !addSkills) && (
               <ProfileSkillsSearchList>
                 <button
                   onClick={() => {

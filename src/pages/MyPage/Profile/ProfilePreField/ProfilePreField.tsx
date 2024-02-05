@@ -11,7 +11,7 @@ const ProfilePreField = ({ value }) => {
   return (
     <ProfilePreFieldContainer>
       {value?.length > 0 ? (
-        <TagList tagList={value} color="green" />
+        <TagList tagList={value} color="red" />
       ) : (
         <ProfileNoValue>선호 분야가 없습니다.</ProfileNoValue>
       )}
