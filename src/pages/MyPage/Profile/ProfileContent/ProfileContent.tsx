@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ProfileContentHeader,
   ProfileContentContainer,
@@ -14,6 +14,7 @@ const ProfileContent = ({
   ContentProps,
   EditField,
   EditFieldProps,
+  autoEditOn,
 }: {
   title: string;
   valueData?: any;
@@ -21,9 +22,16 @@ const ProfileContent = ({
   ContentProps?: any;
   EditField?: any;
   EditFieldProps?: any;
+  autoEditOn?: boolean;
 }) => {
   const [onEditFiled, setOnEditField] = useState(false);
   const [value, setValue] = useState(valueData);
+
+  useEffect(() => {
+    if (autoEditOn) {
+      setOnEditField(true);
+    }
+  }, []);
 
   return (
     <ProfileContentContainer>

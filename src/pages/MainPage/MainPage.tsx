@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useEffect } from "react";
 import Slider from "react-slick";
 import {
   BannerContent,
@@ -16,7 +15,6 @@ import { CommonCenterWrapper } from "@/styles/CommonStyles";
 import ProjectCard from "@/component/common/ProjectCard/ProjectCard";
 import MiniProfileCard from "@/component/common/UserInfo/MiniProfileCard";
 import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
-import { myInfoData } from "@/utils/GetMyInfo";
 
 const ExampleUserList = [
   {
@@ -102,10 +100,6 @@ const MainPage = () => {
     slidesToScroll: 1,
     arrow: true,
   };
-
-  useEffect(() => {
-    console.log(sessionStorage.getItem("my_info"));
-  }, []);
 
   return (
     <MainContainer>

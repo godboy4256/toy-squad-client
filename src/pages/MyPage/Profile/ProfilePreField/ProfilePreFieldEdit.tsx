@@ -1,4 +1,6 @@
 import CustomSelect from "@/component/input/CustomSelect/CustomSelect";
+import { myUserId } from "@/utils/GetMyInfo";
+import { SendToServer } from "@/utils/SendToServer";
 import { Button } from "antd";
 import React from "react";
 import styled from "styled-components";
@@ -19,11 +21,11 @@ const ProfilePreFieldEditButtons = styled.div`
 `;
 
 const ProfilePreFieldEdit = ({ value, setValue, offEdit }) => {
-  let addList = [...value];
+  let addList: any = value ? [...value] : [];
   return (
     <ProfilePreFieldEditContainer>
       <CustomSelect
-        defaultValue={value.map((filed) => {
+        defaultValue={value?.map((filed) => {
           return { value: filed };
         })}
         onChangeFunc={(event) => {
@@ -49,7 +51,25 @@ const ProfilePreFieldEdit = ({ value, setValue, offEdit }) => {
         <Button
           onClick={() => {
             const set: any = new Set([...addList]);
+            const postData = {
+              userId: myUserId,
+              fields: [...set],
+            };
             setValue([...set]);
+            sessionStorage.setItem(
+              "my_info",
+              JSON.stringify({
+                ...JSON.parse(sessionStorage.getItem("my_info")),
+                fields: [...set],
+              })
+            );
+
+            SendToServer({
+              path: `users`,
+              method: "PATCH",
+              data: postData,
+              needAuth: true,
+            });
             offEdit();
           }}
           type="primary"

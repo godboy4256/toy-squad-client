@@ -1,11 +1,15 @@
 import { ModalBackground } from "@/component/common/Modal/Modal.style";
-import { myInfoData } from "@/utils/GetMyInfo";
+import { myUserId } from "@/utils/GetMyInfo";
 import { ListKeyGenerater } from "@/utils/ListKeyGenerate";
+import { SendToServer } from "@/utils/SendToServer";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AutoComplete, Button } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const ProfileTendencyEditContainer = styled.div`
+  width: 500px;
   margin-top: 50px;
   position: fixed;
   background-color: white;
@@ -18,6 +22,9 @@ const ProfileTendencyEditContainer = styled.div`
   & .ant-select.ant-select-auto-complete {
     width: 500px;
   }
+  & .ant-select-dropdown .ant-select-item-option-content {
+    color: red;
+  }
 `;
 
 const ProfileTendencyEditButtons = styled.div`
@@ -27,8 +34,36 @@ const ProfileTendencyEditButtons = styled.div`
   }
 `;
 
+const ProfileTendencyList = styled.ul`
+  height: 200px;
+  overflow: auto;
+  margin: 20px 0;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  & > li {
+    font-size: 1.4rem;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    & > div {
+      width: 80%;
+    }
+  }
+`;
+
+const ProjectTendenchAdd = styled.div`
+  display: flex;
+  & > button {
+    margin-left: 20px;
+  }
+`;
+
 const ProfileTendencyEdit = ({ value, setValue, offEdit }) => {
-  let addValue;
+  const [addList, setAddList] = useState(value || []);
+  const [addValue, setAddValue] = useState("");
+
   const options = [
     {
       value: "계획 수립과 일정 관리를 통해 프로젝트를 체계적으로 추진합니다.",
@@ -74,41 +109,74 @@ const ProfileTendencyEdit = ({ value, setValue, offEdit }) => {
   return (
     <>
       <ModalBackground />
-
       <ProfileTendencyEditContainer>
-        <ul>
-          {value.map((tendency, idx) => {
+        <ProjectTendenchAdd>
+          <AutoComplete
+            value={addValue}
+            onChange={(event) => setAddValue(event)}
+            onSelect={(event) => setAddValue(event)}
+            options={options}
+            placeholder={`"${
+              JSON.parse(sessionStorage.getItem("my_info")).name
+            }" 님의 프로젝트 참여 성향을 입력해주세요.`}
+          />
+          <Button
+            onClick={() => {
+              if (addList?.length >= 5) {
+                alert("5개 이상 추가할 수 없습니다.");
+                return;
+              } else {
+                setAddValue("");
+                addValue && setAddList((prev) => [...prev, addValue]);
+              }
+            }}
+            type="primary"
+          >
+            추가
+          </Button>
+        </ProjectTendenchAdd>
+
+        <ProfileTendencyList>
+          {addList?.map((tendency, idx) => {
             return (
               <li key={ListKeyGenerater(idx, tendency)}>
-                {tendency}{" "}
+                <div>{tendency}</div>
                 <button
-                  onClick={() => {
-                    setValue((prev) => {
-                      return prev.filter((item) => {
+                  onClick={() =>
+                    setAddList((prev) =>
+                      prev.filter((item) => {
                         return item !== tendency;
-                      });
-                    });
-                  }}
+                      })
+                    )
+                  }
                 >
-                  x
+                  <FontAwesomeIcon icon={faX} />
                 </button>
               </li>
             );
           })}
-        </ul>
-        <AutoComplete
-          onChange={(event) => (addValue = event)}
-          onSelect={(event) => (addValue = event)}
-          options={options}
-          placeholder={`"${myInfoData.name}" 님의 프로젝트 참여 성향을 입력해주세요.`}
-          filterOption={(inputValue, option) =>
-            option!.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-          }
-        />
+        </ProfileTendencyList>
         <ProfileTendencyEditButtons>
           <Button
             onClick={() => {
-              setValue((prev) => [...prev, addValue]);
+              setValue(addList);
+              const postData = {
+                userId: myUserId,
+                tendency: [...addList],
+              };
+              sessionStorage.setItem(
+                "my_info",
+                JSON.stringify({
+                  ...JSON.parse(sessionStorage.getItem("my_info")),
+                  tendency: [...addList],
+                })
+              );
+              SendToServer({
+                path: `users`,
+                method: "PATCH",
+                data: postData,
+                needAuth: true,
+              });
               offEdit();
             }}
             type="primary"

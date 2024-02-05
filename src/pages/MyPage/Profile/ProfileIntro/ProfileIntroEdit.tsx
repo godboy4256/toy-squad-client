@@ -1,3 +1,5 @@
+import { myUserId } from "@/utils/GetMyInfo";
+import { SendToServer } from "@/utils/SendToServer";
 import { Button } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import React from "react";
@@ -16,7 +18,24 @@ const ProfileIntroEditButtons = styled.div`
 const ProfileIntroEdit = ({ value, setValue, offEdit }) => {
   let introValue = "";
   const onClickEdit = () => {
+    const postData = {
+      userId: myUserId,
+      intro: introValue,
+    };
+    SendToServer({
+      path: `users`,
+      method: "PATCH",
+      data: postData,
+      needAuth: true,
+    });
     setValue(introValue);
+    sessionStorage.setItem(
+      "my_info",
+      JSON.stringify({
+        ...JSON.parse(sessionStorage.getItem("my_info")),
+        intro: introValue,
+      })
+    );
     offEdit();
   };
   return (

@@ -1,5 +1,4 @@
 import * as React from "react";
-import LogoImg from "@/assets/images/common/logo.svg";
 import Button from "@/component/input/Button/Button";
 import TextField from "@/component/input/TextField/TextField";
 import {
@@ -107,7 +106,7 @@ const SignUp = () => {
     <SignUpContainer>
       <SignUpLogo
         onClick={() => navigate("/main")}
-        src={LogoImg}
+        src="/assets/images/common/logo.svg"
         alt="header logo"
       />
       <SignUpTitle>간편 회원가입</SignUpTitle>

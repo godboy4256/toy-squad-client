@@ -87,4 +87,8 @@ export const GlobalStyle = createGlobalStyle`
     .ant-select-dropdown{
         z-index: 9999999!important;
     }
+    .ant-select-dropdown .ant-select-item-option-content {
+        text-overflow: unset;
+        white-space: normal;
+    }
 `;
