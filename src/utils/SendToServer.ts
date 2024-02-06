@@ -7,6 +7,7 @@ type SendToServerOptionType = {
   callBackSuccess?: CallableFunction;
   callBackFailed?: CallableFunction;
   needAuth?: boolean;
+  headerCustom?: any;
 };
 
 const TokenRefresh = async () => {
@@ -30,10 +31,17 @@ const TokenRefresh = async () => {
 };
 
 export const SendToServer = async (options: SendToServerOptionType) => {
-  const { path, method, data, callBackSuccess, callBackFailed, needAuth } =
-    options;
+  const {
+    path,
+    method,
+    data,
+    callBackSuccess,
+    callBackFailed,
+    needAuth,
+    headerCustom,
+  } = options;
 
-  const headers = { "Content-Type": "application/json" };
+  const headers = { "Content-Type": "application/json", ...headerCustom };
 
   if (needAuth) {
     if (!sessionStorage.getItem("accessToken")) return;
