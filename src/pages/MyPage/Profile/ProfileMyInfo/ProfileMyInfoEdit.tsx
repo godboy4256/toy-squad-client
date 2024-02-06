@@ -7,7 +7,6 @@ import { ModalBackground } from "@/component/common/Modal/Modal.style";
 import { EditButtonWrapper } from "../ProfileIntro/ProfileIntro.style";
 import { myUserId } from "@/utils/GetMyInfo";
 import { SendToServer } from "@/utils/SendToServer";
-import axios from "axios";
 
 const ProfileMyInfoEditContainer = styled.div`
   & > h4 {
@@ -48,33 +47,34 @@ const ProfileMyInfoEdit = ({ value, setValue, offEdit }) => {
   const profileRef: any = useRef();
   let nameVal = "";
   let positionVal = "";
+  let imgUrlVal;
 
   const onClickEditImageUrl = (e) => {
     fileRef.current.input.click();
   };
   const onChangeEditImageUrl = (event) => {
-    const input = event.target;
-
-    if (input.files && input.files[0]) {
+    imgUrlVal = event.target.files;
+    if (imgUrlVal && imgUrlVal[0]) {
       const reader = new FileReader();
-      reader.readAsDataURL(input.files[0]);
+      reader.readAsDataURL(imgUrlVal[0]);
 
       reader.onload = (e) => {
         profileRef.current.src = e.target.result;
       };
-
-      const formData = new FormData();
-      formData.append("profile", input.files[0]);
-
-      axios.patch("http://localhost:3001/api/users/profile", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
-        },
-      });
     }
   };
   const handleEdit = () => {
+    if (imgUrlVal) {
+      const formData = new FormData();
+      formData.append("file", imgUrlVal[0]);
+      SendToServer({
+        path: "users/profile",
+        method: "PATCH",
+        data: formData,
+        headerCustom: { "Content-Type": "multipart/form-data" },
+        needAuth: true,
+      });
+    }
     const postData = {
       userId: myUserId,
       name: nameVal || value?.name,
