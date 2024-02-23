@@ -1,6 +1,6 @@
 import { SendToServer } from "./SendToServer";
 
-export const myEccessToken = sessionStorage.getItem("accessToken");
+export const myAccessToken = sessionStorage.getItem("accessToken");
 export const myRefreshToken = sessionStorage.getItem("refreshToken");
 export const myUserId = sessionStorage.getItem("user_id");
 export const myInfoData =
