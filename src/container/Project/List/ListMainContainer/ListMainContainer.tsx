@@ -10,9 +10,21 @@ import FilterBox from "@/component/input/FilterButton/SideFilter";
 import CustomSelect from "@/component/input/CustomSelect/CustomSelect";
 import Button from "@/component/input/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { SendToServer } from "@/utils/SendToServer";
 
 export default function ListMainContainer() {
   const navigate = useNavigate();
+  const GetProjectList = () => {
+    SendToServer({
+      path: "project/list",
+      method: "GET",
+      callBackSuccess: (data) => {
+        console.log(data);
+      },
+    });
+  };
+
+  GetProjectList();
   return (
     <ProjectListMain>
       <FilterBox />
@@ -29,7 +41,7 @@ export default function ListMainContainer() {
           {Array(100)
             .fill(1)
             .map((val, idx) => {
-              return <ProjectCard key={idx} id={idx} />;
+              return <ProjectCard projectData={{}} key={idx} id={idx} />;
             })}
         </ProjectListWrapper>
       </ProjectListContainer>

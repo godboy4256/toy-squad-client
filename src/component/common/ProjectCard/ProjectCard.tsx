@@ -14,9 +14,10 @@ import { Tag } from "../Tag/Tag";
 
 interface ProjectCardProps {
   id: number;
+  projectData: any;
 }
 
-const ProjectCard = ({ id }: ProjectCardProps) => {
+const ProjectCard = ({ id, projectData }: ProjectCardProps) => {
   const navigate = useNavigate();
   const handleCardClick = () => {
     navigate(`/projects/detail/${id}`);
