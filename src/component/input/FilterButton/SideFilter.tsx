@@ -226,7 +226,6 @@ const SideFilter = () => {
           ]}
         />
       </div>
-
       <Button>필터 적용</Button>
     </SideFilterContainer>
   );

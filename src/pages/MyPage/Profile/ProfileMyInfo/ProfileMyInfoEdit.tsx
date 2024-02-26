@@ -119,7 +119,12 @@ const ProfileMyInfoEdit = ({ value, setValue, offEdit }) => {
             src={value?.imgUrl ? value.imgUrl : UserProfile}
             alt="user profile img"
           />
-          <Input ref={fileRef} onChange={onChangeEditImageUrl} type="file" />
+          <Input
+            ref={fileRef}
+            onChange={onChangeEditImageUrl}
+            type="file"
+            accept=".svg"
+          />
         </ProfileMyInfoEditImage>
         <Input
           onChange={(e) => {

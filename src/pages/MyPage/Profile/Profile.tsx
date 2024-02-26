@@ -17,9 +17,21 @@ import { Button } from "antd";
 import { SendToServer } from "@/utils/SendToServer";
 import { myUserId } from "@/utils/GetMyInfo";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+const UserDeleteButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  & button {
+    font-size: 1.2rem;
+    height: fit-content;
+    color: #777;
+  }
+`;
 
 const Profile = () => {
-  const myInfoData = JSON.parse(sessionStorage.getItem("my_info"));
+  const myInfoData = JSON.parse(sessionStorage.getItem("my_info"))?.profile;
   const navigate = useNavigate();
   return (
     <>
@@ -70,30 +82,33 @@ const Profile = () => {
         EditField={ProfileContactEdit}
         valueData={{ email: myInfoData?.email, phone: myInfoData?.phone }}
       />
-      <Button
-        type="primary"
-        onClick={() => {
-          const isConfirm = confirm("회원 탈퇴하시겠습니까?");
-          if (isConfirm) {
-            SendToServer({
-              path: "users",
-              method: "DELETE",
-              data: {
-                userId: myUserId,
-              },
-              needAuth: true,
-            });
-            alert("회원 탈퇴 되었습니다. 이용해주셔서 감사합니다.");
-            sessionStorage.setItem("accessToken", "");
-            sessionStorage.setItem("refreshToken", "");
-            sessionStorage.setItem("user_id", "");
-            sessionStorage.setItem("my_info", "");
-            navigate("/main");
-          }
-        }}
-      >
-        회원 탈퇴
-      </Button>
+      <UserDeleteButton>
+        <Button
+          onClick={() => {
+            const isConfirm = confirm(
+              "정말 계정을 삭제하시겠습니까? 계정을 삭제하면 복원할 수 없습니다."
+            );
+            if (isConfirm) {
+              SendToServer({
+                path: "users",
+                method: "DELETE",
+                data: {
+                  userId: myUserId,
+                },
+                needAuth: true,
+              });
+              alert("회원 탈퇴 되었습니다. 이용해주셔서 감사합니다.");
+              sessionStorage.setItem("accessToken", "");
+              sessionStorage.setItem("refreshToken", "");
+              sessionStorage.setItem("user_id", "");
+              sessionStorage.setItem("my_info", "");
+              navigate("/main");
+            }
+          }}
+        >
+          계정 삭제하기
+        </Button>
+      </UserDeleteButton>
     </>
   );
 };

@@ -12,6 +12,11 @@ export const SideFilterContainer = styled.div`
   & > button {
     margin-top: 50px;
   }
+  & > div {
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+  }
+  width: 400px;
 `;
 
 export const FilterTitle = styled.h2`

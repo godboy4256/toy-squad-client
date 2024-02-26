@@ -121,6 +121,7 @@ const SignUp = () => {
         />
         <TextField
           register={register}
+          type="password"
           params="password"
           label="비밀번호"
           placeholder="비밀번호을 입력해주세요."
@@ -129,6 +130,7 @@ const SignUp = () => {
         />
         <TextField
           register={register}
+          type="password"
           params="password_check"
           label="비밀번호 확인"
           placeholder="비밀번호를 확인해주세요."

@@ -27,6 +27,7 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import WithAuth from "@/component/common/WithAuth/WithAuth";
+import { SendToServer } from "@/utils/SendToServer";
 
 interface RadioButtonProps {
   id: string;
@@ -132,7 +133,36 @@ const ProjectNew = () => {
           </EditorBlock>
         </Section>
       </Form>
-      <Button>작성하기</Button>
+      <Button
+        onClick={() => {
+          const postData = {
+            userId: "string",
+            role: "G",
+            name: "string",
+            intro: "string",
+            description: "string",
+            skills: ["string"],
+            imgUrl: "string",
+            startDate: "string",
+            endDate: "string",
+            productType: "string",
+            fields: ["string"],
+            contactType: "string",
+            place: "string",
+            recruitStartDate: "string",
+            recruitEndDate: "string",
+          };
+
+          SendToServer({
+            path: "project",
+            method: "POST",
+            needAuth: true,
+            data: postData,
+          });
+        }}
+      >
+        작성하기
+      </Button>
     </CommonCenterWrapper>
   );
 };
