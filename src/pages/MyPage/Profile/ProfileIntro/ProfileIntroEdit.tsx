@@ -2,7 +2,7 @@ import { myUserId } from "@/utils/GetMyInfo";
 import { SendToServer } from "@/utils/SendToServer";
 import { Button } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 
 const ProfileIntroEditContainer = styled.div`
@@ -15,7 +15,15 @@ const ProfileIntroEditButtons = styled.div`
   }
 `;
 
-const ProfileIntroEdit = ({ value, setValue, offEdit }) => {
+const ProfileIntroEdit = ({
+  value,
+  setValue,
+  offEdit,
+}: {
+  value?: string[];
+  setValue?: Dispatch<SetStateAction<string>>;
+  offEdit?: CallableFunction;
+}) => {
   let introValue = "";
   const onClickEdit = () => {
     const postData = {

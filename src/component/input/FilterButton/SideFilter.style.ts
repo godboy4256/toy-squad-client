@@ -24,7 +24,7 @@ export const FilterTitle = styled.h2`
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
   font-weight: 700;
-`;
+`; 
 
 export const FilterLabel = styled.h3`
   font-size: 1.4rem;

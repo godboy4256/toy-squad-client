@@ -285,7 +285,6 @@ const ProfileSkillsEdit = ({ value, setValue, offEdit }) => {
           )}
         </ProfileSkillsEditSearch>
       </ProfileSkillsEditContainer>
-      ;
     </>
   );
 };
