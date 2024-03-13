@@ -17,7 +17,7 @@ import {
   MyPageWrapper,
 } from "./MyPage.style";
 import { SendToServer } from "@/utils/SendToServer";
-// import WithAuth from "@/component/common/WithAuth/WithAuth";
+import WithAuth from "@/component/common/WithAuth/WithAuth";
 
 const MyPageSideMenu = () => {
   const navigate = useNavigate();
@@ -114,5 +114,4 @@ const MyPage = () => {
   );
 };
 
-// export default WithAuth(MyPage);
-export default MyPage;
+export default WithAuth(MyPage);
