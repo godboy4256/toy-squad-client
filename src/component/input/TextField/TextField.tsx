@@ -34,7 +34,7 @@ const TextField = ({
       <TextFieldStyle
         type={type}
         disabled={disabled}
-        autoComplete="off"
+        autoComplete="new-password"
         {...(register && params && register(params))}
         placeholder={placeholder}
         onChange={onChangeFunc}
