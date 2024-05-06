@@ -8,6 +8,7 @@ export const PositionContainer = styled.div`
   transform: translate(-50%, -50%);
   border-radius: 5px;
   overflow: hidden;
+  z-index: 99999999;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
